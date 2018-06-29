@@ -8,5 +8,9 @@ namespace Data.Dtos
 {
     public class PhieuNhapSachDtos
     {
+        public int IDPhieuNhap { get; set; }
+        public DateTime NgayNhap { get; set; }
+        public decimal TongTien { get; set; }
+       
     }
 }

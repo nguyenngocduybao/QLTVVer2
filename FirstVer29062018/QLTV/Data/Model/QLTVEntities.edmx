@@ -830,7 +830,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
           <Property Name="IDLoaiDG" Type="Int32" />
           <Property Name="NgayLapThe" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
-          <Property Name="TongNo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TongNo" Type="Decimal" />
           <NavigationProperty Name="LOAIDOCGIA" Relationship="Self.FK__THEDOCGIA__IDLoa__4BAC3F29" FromRole="THEDOCGIA" ToRole="LOAIDOCGIA" />
           <NavigationProperty Name="PHIEUMUONs" Relationship="Self.FK__PHIEUMUON__IDDoc__6D0D32F4" FromRole="THEDOCGIA" ToRole="PHIEUMUON" />
           <NavigationProperty Name="PHIEUTHUTIENPHATs" Relationship="Self.FK__PHIEUTHUT__IDDoc__7F2BE32F" FromRole="THEDOCGIA" ToRole="PHIEUTHUTIENPHAT" />

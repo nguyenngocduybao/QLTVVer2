@@ -8,5 +8,8 @@ namespace Data.Dtos
 {
     public class CTTacGiaDtos
     {
+        public int IDCTTacGia { get; set; }
+        public int IDDauSach { get; set; }
+        public int IDTacGia { get; set; }
     }
 }

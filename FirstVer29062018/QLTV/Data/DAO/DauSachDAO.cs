@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Data.Dtos;
+using Data.Model;
+namespace Data.DAO
+{
+    public class DauSachDAO
+    {
+        #region Instance
+        private static DauSachDAO instance;
+
+        internal static DauSachDAO Instance
+        {
+            get
+            {
+                if (instance == null) instance = new DauSachDAO(); return DAO.DauSachDAO.instance;
+            }
+
+            private set
+            {
+                DAO.DauSachDAO.instance = value;
+            }
+        }
+        #endregion
+    }
+}

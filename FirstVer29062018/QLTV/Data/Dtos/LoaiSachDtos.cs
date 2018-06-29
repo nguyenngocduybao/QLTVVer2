@@ -8,5 +8,7 @@ namespace Data.Dtos
 {
     public class LoaiSachDtos
     {
+        public string TenLoaiSach { get; set; }
+        public int IDLoaiSach { get; set; }
     }
 }

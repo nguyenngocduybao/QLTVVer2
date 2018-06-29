@@ -8,5 +8,9 @@ namespace Data.Dtos
 {
     public class CuonSachDtos
     {
+        public int IDCuonSach { get; set; }
+        public int IDSach { get; set; }
+        public string TinhTrang { get; set; }
+        
     }
 }
