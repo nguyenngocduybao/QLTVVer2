@@ -8,5 +8,11 @@ namespace Data.Dtos
 {
     public class PhieuTraDtos
     {
+        public int IDPhieuTra { get; set; }
+        public int IDDocGia { get; set; }
+        public DateTime NgayTra { get; set; }
+        public decimal TienPhatKyNay { get; set; }
+        public decimal SoTienTra { get; set; }
+        public decimal TienNoKyNay { get; set; }
     }
 }

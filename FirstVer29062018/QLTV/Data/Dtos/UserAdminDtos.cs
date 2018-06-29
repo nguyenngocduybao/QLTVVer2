@@ -8,5 +8,8 @@ namespace Data.Dtos
 {
     public class UserAdminDtos
     {
+        public string UserNameAdmin { get; set; }
+        public string PassWord { get; set; }
+        public int IDAdmin { get; set; }
     }
 }

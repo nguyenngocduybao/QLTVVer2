@@ -8,5 +8,10 @@ namespace Data.Dtos
 {
     public class BCSachTraTreDtos
     {
+        public int IDBCSachTre { get; set; }
+        public DateTime NgayThangNam { get; set; }
+        public int IDCuonSach { get; set; }
+        public int IDPhieuMuon { get; set; }
+        public int SoNgayTraTre { get; set; }
     }
 }

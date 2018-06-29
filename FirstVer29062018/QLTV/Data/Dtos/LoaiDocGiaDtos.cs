@@ -8,5 +8,7 @@ namespace Data.Dtos
 {
     public class LoaiDocGiaDtos
     {
+        public int IDLoaiDG { get; set; }
+        public string TenLoaiDG { get; set; }
     }
 }

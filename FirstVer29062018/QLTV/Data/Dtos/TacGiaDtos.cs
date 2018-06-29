@@ -8,5 +8,8 @@ namespace Data.Dtos
 {
     public class TacGiaDtos
     {
+        public int IDTacGia { get; set; }
+        public string  TenTacGia { get; set; }
+        public DateTime NgaySinh { get; set; }
     }
 }
