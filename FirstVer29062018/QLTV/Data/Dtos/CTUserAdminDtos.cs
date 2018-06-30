@@ -13,6 +13,5 @@ namespace Data.Dtos
         public string  DiaChi { get; set; }
         public DateTime NgaySinh { get; set; }
         public string Email { get; set; }
-
     }
 }
