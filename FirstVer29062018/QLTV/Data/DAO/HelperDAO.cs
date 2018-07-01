@@ -11,19 +11,22 @@ namespace Data.DAO
     class HelperDAO
     {
 
-        #region check LoaiDocGia
+        #region Check
+        //Check LoaiDocGia  From LOAIDOCGIA to IDLoaiDG
         public string CheckLoaiDocGia(int ID)
         {
             return ID.Equals(1) ?  "Thường" :  "VIP";
         }
-        #endregion
-        #region Check IDLoaiDG From LOAIDOCGIA
+
+        // Check IDLoaiDG From LOAIDOCGIA to TenLoaiDG
         public int CheckIDLoaiDG(string TenLoaiDG)
         {
             return TenLoaiDG.Equals("Thường") ? 1 : 2;
+
         }
         #endregion
-        #region Get HotenDG from THEDOCGIA to IDDocGia
+        #region GetDATA  List
+        // HotenDG from THEDOCGIA to IDDocGia
         public string GetDataHoTenDGFromTHEDOCGIA(int ID)
         {
             using (var db = new QuanLyThuVienEntities())
@@ -32,8 +35,8 @@ namespace Data.DAO
                 return result;
             }
         }
-        #endregion
-        #region Get IDDocGia from THEDOCGIA to HoTenDG
+ 
+        //Get IDDocGia from THEDOCGIA to HoTenDG
         public int GetIDDGFromTHEDOCGIA(string HoTenDG)
         {
             using (var db = new QuanLyThuVienEntities())
@@ -44,5 +47,6 @@ namespace Data.DAO
             }
         }
         #endregion
+       
     }
 }

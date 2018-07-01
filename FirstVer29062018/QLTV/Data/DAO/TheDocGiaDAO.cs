@@ -77,14 +77,8 @@ namespace Data.DAO
             }
         }
         #endregion
-        #region Count HanThe from "THEDOCGIA"
-        //public DateTime HanThe()
-        //{
-        //    using (var db = new QuanLyThuVienEntities())
-        //    {
-              
-        //    }
-        //} 
+        #region Search
+        //search IDDocGia Form "THEDOCGIA"
         #endregion
     }
 }
