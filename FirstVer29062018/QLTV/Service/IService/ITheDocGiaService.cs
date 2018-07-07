@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Data.Dtos;
+using Data.DTO;
+namespace Service.IService
+{
+    public interface ITheDocGiaService
+    {
+        // Add From"TheDocGia" and "User"
+        void AddTheDocGiaAndUser(TheDocGiaDtos DocGia, UserDtos user);
+        #region getListSearch From "TheDocGia"
+        List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG);
+        List<TheDocGiaDTO> getFromTheDocGiaSearchEmaiLDG(string EmailDG);
+        List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG);
+        List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap);
+        List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh);
+        #endregion
+    }
+}
