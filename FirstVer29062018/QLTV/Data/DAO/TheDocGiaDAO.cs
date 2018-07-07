@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
 using Data.Model;
+using Data.DTO;
 namespace Data.DAO
 {
     public class TheDocGiaDAO
@@ -25,7 +26,8 @@ namespace Data.DAO
             }
         }
         #endregion
-        #region opretor+
+        #region Count
+        // Count ID
         public int IDPlus()
         {
             using (var db = new QuanLyThuVienEntities())
@@ -36,8 +38,16 @@ namespace Data.DAO
                 return idplus;
             }
         }
+        // Count  NgayHetHan "TheDocGia"
+        public DateTime countHanThe(DateTime NgayLap)
+        {
+            DateTime HanThe;
+            HanThe = NgayLap.AddMonths(6);
+            return HanThe;
+        }
         #endregion
-        #region List TheDocGia to IDDocGia
+        #region getListData TheDocGiaDtos
+        //getListData IDDocGia From"THeDocGia"
         public List<TheDocGiaDtos> GetFormTheDocGia(int ID)
         {
             using (var db = new QuanLyThuVienEntities())
@@ -51,34 +61,223 @@ namespace Data.DAO
                                   DiaChiDG = m.DiaChiDG,
                                   EmailDG = m.EmailDG,
                                   NgayLapThe=m.NgayLapThe,
-                                  NgaySinhDG=m.NgaySinhDG
+                                  NgaySinhDG=m.NgaySinhDG,
+                                  IDLoaiDocGia=m.IDLoaiDG,
                               }).ToList<TheDocGiaDtos>();
                 return Result;                   
             }
         }
-        #endregion
-        #region List TheDocGiaDtos to HoTenDG
-        public List<TheDocGiaDtos> GetFormTheDocGiaToHoTenDG(string HoTenDG)
+       // getListData HoTenDG From"TheDocGia"
+        public List<TheDocGiaDtos> getFormTheDocGiaToHoTenDG(string HoTenDG)
         {
             using (var db = new QuanLyThuVienEntities())
             {
                 var result = (from m in db.THEDOCGIAs
-                              where m.HoTenDG.ToUpper().Equals(HoTenDG.ToUpper())
+                              where m.HoTenDG.ToUpper().Contains(HoTenDG.ToUpper())
                               select new TheDocGiaDtos()
                               {
                                   IDDocGia = m.IDDocGia,
-                                  HoTenDG = m.HoTenDG,
                                   DiaChiDG = m.DiaChiDG,
                                   EmailDG = m.EmailDG,
                                   NgayLapThe = m.NgayLapThe,
-                                  NgaySinhDG = m.NgaySinhDG
+                                  NgaySinhDG = m.NgaySinhDG,
+                                  HoTenDG = m.HoTenDG,
+                                  IDLoaiDocGia = m.IDLoaiDG,
+                                  HetHan = m.NgayHetHan,
+                                  TongNo=m.TongNo,
                               }).ToList<TheDocGiaDtos>();
                 return result;
             }
         }
         #endregion
-        #region Search
-        //search IDDocGia Form "THEDOCGIA"
+        #region getListSearch TheDocGiaDTO
+        //getListSearch HoTenDG From "THEDOCGIA"
+        public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTenDG(string TenDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Result = (from a in db.THEDOCGIAs
+                             where a.HoTenDG.ToUpper().Contains(TenDG.ToUpper())
+                             select new TheDocGiaDtos()
+                             {
+
+                                 IDDocGia=a.IDDocGia,
+                                 HoTenDG = a.HoTenDG,
+                                 EmailDG = a.EmailDG,
+                                 NgaySinhDG = a.NgaySinhDG,
+                                 NgayLapThe = a.NgayLapThe,
+                                 HetHan = a.NgayHetHan,
+                                 IDLoaiDocGia = a.IDLoaiDG,
+                                 DiaChiDG = a.DiaChiDG,
+                                 TongNo = a.TongNo,
+                             }).ToList<TheDocGiaDtos>();
+                var Resultkq = (from b in Result
+                                select new TheDocGiaDTO()
+                                {
+                                    HoTenDG = b.HoTenDG,
+                                    EmailDG = b.EmailDG,
+                                    NgaySinhDG = b.NgaySinhDG,
+                                    NgayLapThe = b.NgayLapThe,
+                                    NgayHetHan = b.HetHan,
+                                    TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
+                                    DiaChiDG = b.DiaChiDG,
+                                    TongNo = b.TongNo,
+                                }).ToList<TheDocGiaDTO>();
+                if (Resultkq.Count > 0)
+                    return Resultkq;
+                return Resultkq;
+            }
+        }
+        //getListSearch EmailDG from "THEDOCGIA"
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchEmailDG(string EmailDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.THEDOCGIAs
+                              where a.EmailDG.ToUpper().Contains(EmailDG.ToUpper())
+                              select new TheDocGiaDtos()
+                              {
+                                  IDDocGia=a.IDDocGia,
+                                  HoTenDG = a.HoTenDG,
+                                  DiaChiDG = a.DiaChiDG,
+                                  NgayLapThe = a.NgayLapThe,
+                                  HetHan = a.NgayHetHan,
+                                  TongNo = a.TongNo,
+                                  NgaySinhDG = a.NgaySinhDG,
+                                  IDLoaiDocGia=a.IDLoaiDG,
+                                  EmailDG = a.EmailDG,
+                              }).ToList<TheDocGiaDtos>();
+                var Resultkq=(from b in result
+                              select new TheDocGiaDTO()
+                              {
+                                  HoTenDG=b.HoTenDG,
+                                  EmailDG = b.EmailDG,
+                                  NgaySinhDG = b.NgaySinhDG,
+                                  NgayLapThe = b.NgayLapThe,
+                                  NgayHetHan = b.HetHan,
+                                  TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
+                                  DiaChiDG = b.DiaChiDG,
+                                  TongNo = b.TongNo,
+                              }).ToList<TheDocGiaDTO>();
+                if (Resultkq.Count > 0)
+                    return Resultkq;
+                return new List<TheDocGiaDTO>();
+
+            }
+        }
+        //getListSearch DiaChiDG from "THEDOCGIA"
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Result = (from a in db.THEDOCGIAs
+                              where a.DiaChiDG.ToUpper().Contains(DiaChiDG.ToUpper())
+                              select new TheDocGiaDtos()
+                              {
+                                  IDDocGia = a.IDDocGia,
+                                  HoTenDG = a.HoTenDG,
+                                  EmailDG = a.EmailDG,
+                                  DiaChiDG = a.DiaChiDG,
+                                  HetHan = a.NgayHetHan,
+                                  NgayLapThe = a.NgayLapThe,
+                                  NgaySinhDG = a.NgaySinhDG,
+                                  IDLoaiDocGia=a.IDLoaiDG,
+                                  TongNo = a.TongNo,
+                              }).ToList<TheDocGiaDtos>();
+                var Resultkq = (from b in Result
+                                select new TheDocGiaDTO()
+                                {
+                                    HoTenDG = b.HoTenDG,
+                                    EmailDG = b.EmailDG,
+                                    NgaySinhDG = b.NgaySinhDG,
+                                    NgayLapThe = b.NgayLapThe,
+                                    NgayHetHan = b.HetHan,
+                                    TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
+                                    DiaChiDG = b.DiaChiDG,
+                                    TongNo = b.TongNo,
+                                }).ToList<TheDocGiaDTO>();
+                if (Resultkq.Count > 0)
+                    return Resultkq;
+                return new List<TheDocGiaDTO>();
+            }
+        }
+        ////getListSearch NgayLapThe from "THEDOCGIA"
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Result = (from a in db.THEDOCGIAs
+                              where a.NgayLapThe.Equals(Ngaylap)
+                              select new TheDocGiaDtos()
+                              {
+                                  IDDocGia = a.IDDocGia,
+                                  HoTenDG = a.HoTenDG,
+                                  EmailDG = a.EmailDG,
+                                  DiaChiDG = a.DiaChiDG,
+                                  HetHan = a.NgayHetHan,
+                                  NgayLapThe = a.NgayLapThe,
+                                  IDLoaiDocGia=a.IDLoaiDG,
+                                  NgaySinhDG = a.NgaySinhDG,
+                                  TongNo = a.TongNo,
+                              }).ToList<TheDocGiaDtos>();
+                var Resultkq = (from b in Result
+                                select new TheDocGiaDTO()
+                                {
+                                   
+                                    HoTenDG = b.HoTenDG,
+                                    EmailDG = b.EmailDG,
+                                    NgaySinhDG = b.NgaySinhDG,
+                                    NgayLapThe = b.NgayLapThe,
+                                    NgayHetHan = b.HetHan,
+                                    TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
+                                    DiaChiDG = b.DiaChiDG,
+                                    TongNo = b.TongNo,
+                                }).ToList<TheDocGiaDTO>();
+                if (Resultkq.Count > 0)
+                    return Resultkq;
+                return new List<TheDocGiaDTO>();
+            }
+        }
+        //getListSearch NgaySinhDG from "TheDocGia"
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Result = (from a in db.THEDOCGIAs
+                              where a.NgayLapThe.Equals(NgaySinh)
+                              select new TheDocGiaDtos()
+                              {
+                                  IDDocGia = a.IDDocGia,
+                                  HoTenDG = a.HoTenDG,
+                                  EmailDG = a.EmailDG,
+                                  DiaChiDG = a.DiaChiDG,
+                                  HetHan = a.NgayHetHan,
+                                  NgayLapThe = a.NgayLapThe,
+                                  IDLoaiDocGia = a.IDLoaiDG,
+                                  NgaySinhDG = a.NgaySinhDG,
+                                  TongNo = a.TongNo,
+                              }).ToList<TheDocGiaDtos>();
+                var Resultkq = (from b in Result
+                                select new TheDocGiaDTO()
+                                {
+
+                                    HoTenDG = b.HoTenDG,
+                                    EmailDG = b.EmailDG,
+                                    NgaySinhDG = b.NgaySinhDG,
+                                    NgayLapThe = b.NgayLapThe,
+                                    NgayHetHan = b.HetHan,
+                                    TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
+                                    DiaChiDG = b.DiaChiDG,
+                                    TongNo = b.TongNo,
+                                }).ToList<TheDocGiaDTO>();
+                if (Resultkq.Count > 0)
+                    return Resultkq;
+                return new List<TheDocGiaDTO>();
+            }
+        }
         #endregion
+
+      
+        
     }
 }

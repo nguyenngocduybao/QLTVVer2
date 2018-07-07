@@ -28,10 +28,10 @@ namespace Data.Model
         public System.DateTime NgaySinhDG { get; set; }
         public string DiaChiDG { get; set; }
         public string EmailDG { get; set; }
-        public Nullable<int> IDLoaiDG { get; set; }
+        public int IDLoaiDG { get; set; }
         public System.DateTime NgayLapThe { get; set; }
-        public Nullable<System.DateTime> NgayHetHan { get; set; }
-        public Nullable<decimal> TongNo { get; set; }
+        public System.DateTime NgayHetHan { get; set; }
+        public decimal TongNo { get; set; }
     
         public virtual LOAIDOCGIA LOAIDOCGIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
