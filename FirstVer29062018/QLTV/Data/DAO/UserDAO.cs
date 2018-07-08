@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
 using Data.Model;
+using Data.DTO;
 
 namespace Data.DAO
 {
@@ -35,6 +36,33 @@ namespace Data.DAO
                 int ID = Int32.Parse(query);
                 int IDadd = ++ID;
                 return IDadd;
+            }
+        }
+        #endregion
+        #region getListSearch UserDTO
+        //getListSearch UserName From "User"
+        public List<UserDTO> getFromUserSearchUserName(string Name)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.USERS
+                              where a.UserName.ToUpper().Contains(Name.ToUpper())
+                              select new UserDtos()
+                              {
+                                  UserName = a.UserName,
+                                  Password = a.Pwd,
+                                  IDDocGia = a.IDDocGia,
+                              }).ToList<UserDtos>();
+                var Resultkq = (from b in result
+                                select new UserDTO()
+                                {
+                                    UserName = b.UserName,
+                                    Password = b.Password,
+                                    HoTenDocGia = HelperDAO.Instance.getTenDocGiaToIDDocGia(b.IDDocGia),
+                                }).ToList<UserDTO>();
+                if(Resultkq.Count>0)
+                    return Resultkq;
+                return new List<UserDTO>();
             }
         }
         #endregion

@@ -100,7 +100,6 @@ namespace Data.DAO
                              where a.HoTenDG.ToUpper().Contains(TenDG.ToUpper())
                              select new TheDocGiaDtos()
                              {
-
                                  IDDocGia=a.IDDocGia,
                                  HoTenDG = a.HoTenDG,
                                  EmailDG = a.EmailDG,

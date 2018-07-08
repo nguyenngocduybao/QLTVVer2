@@ -37,5 +37,41 @@ namespace Data.DAO
             }
         }
         #endregion
+        #region getListData LoaiSachDtos
+        //getListData IDLoaiSach From"LoaiSach"
+        public List<LoaiSachDtos> getFromLoaiSach(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.LOAISACHes
+                              where a.IDLoaiSach.Equals(ID)
+                              select new LoaiSachDtos()
+                              {
+                                  IDLoaiSach = a.IDLoaiSach,
+                                  TenLoaiSach = a.TenLoaiSach,
+                              }).ToList<LoaiSachDtos>();
+                return result;
+            }
+        }
+        #endregion
+        #region getListSearch LoaiSachDtos
+        //getListSearch TenLoaiSach From "LoaiSach"
+        public List<LoaiSachDtos> getFromLoaiSachSearchTenLoaiSach(string TenLoaiSach)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.LOAISACHes
+                              where a.TenLoaiSach.ToUpper().Contains(TenLoaiSach.ToUpper())
+                              select new LoaiSachDtos()
+                              {
+                                  TenLoaiSach = a.TenLoaiSach,
+                                  IDLoaiSach = a.IDLoaiSach
+                              }).ToList<LoaiSachDtos>();
+                if (result.Count > 0)
+                    return result;
+                return new List<LoaiSachDtos>();
+            }
+        }
+        #endregion
     }
 }
