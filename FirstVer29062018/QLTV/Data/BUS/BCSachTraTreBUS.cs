@@ -10,6 +10,5 @@ namespace Data.BUS
 {
     public class BCSachTraTreBUS:IBCSachTraTreBUS
     {
-        
     }
 }

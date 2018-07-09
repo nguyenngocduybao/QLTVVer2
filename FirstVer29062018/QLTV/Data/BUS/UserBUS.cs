@@ -12,9 +12,8 @@ namespace Data.BUS
 {
     public class UserBUS : IUserBUS
     {
-
         #region getListSearch UserDTO
-        //getListSearch UserName From "User"
+        // search UserName
         public List<UserDTO> getFromUserSearchUserName(string Name)
         {
             try
@@ -29,14 +28,6 @@ namespace Data.BUS
 
                 throw;
             }
-        }
-        // search  IDDocGia
-        public List<UserDTO> getFromUserSearchIDDocGia(int IDDG)
-        {
-            List<UserDTO> listUserDTO = new List<UserDTO>();
-            listUserDTO = UserDAO.Instance.getFromUserSearchIDDocGia(IDDG);
-            return listUserDTO;
-
         }
         #endregion
     }
