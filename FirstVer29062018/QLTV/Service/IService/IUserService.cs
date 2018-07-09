@@ -9,9 +9,6 @@ namespace Service.IService
 {
     public interface IUserService
     {
-        //getListSearch IDDocGia From "User"
-        List<UserDTO> getFromUserSearchIDDocGia(int ID);
-        //getListSearch UserName From "User"
         List<UserDTO> getFromUserSearchUserName(string Name);
     }
 }

@@ -17,12 +17,6 @@ namespace Service.ABSTRACT
         {
             this._UserBus = new UserBUS();
         }
-
-        public List<UserDTO> getFromUserSearchIDDocGia(int ID)
-        {
-            return this._UserBus.getFromUserSearchIDDocGia(ID);
-        }
-
         public List<UserDTO> getFromUserSearchUserName(string Name)
         {
             return this._UserBus.getFromUserSearchUserName(Name);

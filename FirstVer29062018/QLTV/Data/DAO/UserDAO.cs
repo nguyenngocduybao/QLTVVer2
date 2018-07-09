@@ -58,39 +58,12 @@ namespace Data.DAO
                                 {
                                     UserName = b.UserName,
                                     Password = b.Password,
-                                    HoTenDocGia = GetDataDAO.Instance.getTenDocGiaToIDDocGia(b.IDDocGia),
+                                    HoTenDocGia = HelperDAO.Instance.getTenDocGiaToIDDocGia(b.IDDocGia),
                                 }).ToList<UserDTO>();
                 if(Resultkq.Count>0)
                     return Resultkq;
                 return new List<UserDTO>();
             }
-        }
-        //getListSearch IDDocGia From "User"
-        public List<UserDTO> getFromUserSearchIDDocGia(int ID)
-        {
-            using (var db = new QuanLyThuVienEntities())
-            {
-                var result = (from a in db.USERS
-                              where a.IDDocGia.Equals(ID)
-                              select new UserDtos()
-                              {
-                                  UserName = a.UserName,
-                                  Password = a.Pwd,
-                                  IDDocGia = a.IDDocGia,
-                              }).ToList<UserDtos>();
-                var Resultkq = (from b in result
-                                select new UserDTO()
-                                {
-                                    UserName = b.UserName,
-                                    Password = b.Password,
-                                    IDDocGia = b.IDDocGia,
-                                    HoTenDocGia = GetDataDAO.Instance.getTenDocGiaToIDDocGia(b.IDDocGia),
-                                }).ToList<UserDTO>();
-                if (Resultkq.Count > 0)
-                    return Resultkq;
-                return new List<UserDTO>();
-                    
-            } 
         }
         #endregion
     }
