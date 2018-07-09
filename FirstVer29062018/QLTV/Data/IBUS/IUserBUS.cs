@@ -12,5 +12,7 @@ namespace Data.IBUS
     {
         //getListSearch UserName From "User"
         List<UserDTO> getFromUserSearchUserName(string Name);
+        //getListSearch IDDocGia From "User"
+        List<UserDTO> getFromUserSearchIDDocGia(int IDDG);
     }
 }
