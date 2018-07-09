@@ -24,5 +24,17 @@ namespace Data.DAO
             }
         }
         #endregion
+        #region Operator+
+        public int IDPlus()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var query = ((from a in db.LOAIDOCGIAs select a.IDLoaiDG).Max()).ToString();
+                int ID = Int32.Parse(query);
+                int IDadd = ++ID;
+                return IDadd;
+            }
+        }
+        #endregion
     }
 }

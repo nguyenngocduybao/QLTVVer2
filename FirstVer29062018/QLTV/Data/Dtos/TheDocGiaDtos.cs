@@ -13,9 +13,9 @@ namespace Data.Dtos
         public DateTime NgaySinhDG { get; set; }
         public string  DiaChiDG { get; set; }
         public string EmailDG { get; set; }
-        public int  IDloaiDG { get; set; }
+        public int IDLoaiDocGia { get; set; }
         public DateTime NgayLapThe{ get; set; }
-        public DateTime NgayHetHan { get; set; }
+        public DateTime HetHan { get; set; }
         public Decimal TongNo { get; set; }
     }
      

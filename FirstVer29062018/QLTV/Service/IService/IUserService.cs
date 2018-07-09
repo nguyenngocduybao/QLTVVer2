@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Service.IService
 {
     public interface IUserService
     {
-
+        List<UserDTO> getFromUserSearchUserName(string Name);
     }
 }
