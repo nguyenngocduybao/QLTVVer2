@@ -33,9 +33,18 @@ namespace Data.BUS
         // getListSearch IDDocGia From "User"
         public List<UserDTO> getFromUserSearchIDDocGia(int IDDG)
         {
-            List<UserDTO> listUserDTO = new List<UserDTO>();
-            listUserDTO = UserDAO.Instance.getFromUserSearchIDDocGia(IDDG);
-            return listUserDTO;
+            try
+            {
+                List<UserDTO> listUserDTO = new List<UserDTO>();
+                listUserDTO = UserDAO.Instance.getFromUserSearchIDDocGia(IDDG);
+                return listUserDTO;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
         #endregion
