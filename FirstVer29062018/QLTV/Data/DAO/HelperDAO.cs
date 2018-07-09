@@ -62,17 +62,6 @@ namespace Data.DAO
             }
         }
         #endregion
-        #region get TenDocGia to IDDocGia
-        public string getTenDocGiaToIDDocGia(int ID)
-        {
-            using (var db = new QuanLyThuVienEntities())
-            {
-                var TenDocGia = (from a in db.THEDOCGIAs
-                                 where a.IDDocGia.Equals(ID)
-                                 select a.HoTenDG).ToString();
-                return TenDocGia;
-            }
-        }
-        #endregion
+       
     }
 }
