@@ -49,10 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABSTRACT\LoaiSachService.cs" />
     <Compile Include="ABSTRACT\TheDocGiaService.cs" />
     <Compile Include="ABSTRACT\UserService.cs" />
-    <Compile Include="IService\ILoaiSachService.cs" />
     <Compile Include="IService\ITheDocGiaService.cs" />
     <Compile Include="IService\IUserService.cs" />
     <Compile Include="Program.cs" />

@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.BUS;
-using Data.DTO;
+
 
 namespace Data.IBUS
 {
     public interface IUserBUS
     {
-        //getListSearch UserName From "User"
-        List<UserDTO> getFromUserSearchUserName(string Name);
+        
     }
 }

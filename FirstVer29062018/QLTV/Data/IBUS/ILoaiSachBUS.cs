@@ -9,11 +9,6 @@ namespace Data.IBUS
 {
     public interface ILoaiSachBUS
     {
-        //ADDfrom "LoaiSach"
-        bool AddFromLoaiSach(LoaiSachDtos LS);
-        //getListSearch TenLoaiSach from "LoaiSach"
-        List<LoaiSachDtos> getFromLoaiSachSearchTenLoaiSach(string TenLoaiSach);
-        //getListData IDLoaiSach from "LoaiSach"
-        List<LoaiSachDtos> getFromLoaiSach(int ID);
+       
     }
 }

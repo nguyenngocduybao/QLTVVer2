@@ -9,6 +9,6 @@ namespace Service.IService
 {
     public interface IUserService
     {
-        List<UserDTO> getFromUserSearchUserName(string Name);
+      
     }
 }
