@@ -36,5 +36,41 @@ namespace Data.DAO
             }
         }
         #endregion
+        #region getListSearch LoaiDocGiaDtos
+        //getList Search IDLoaiDG From "LoaiDocGia"
+        public List<LoaiDocGiaDtos> getFormLoaiDocGiaSearchIDLoaiDG(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.LOAIDOCGIAs
+                              where a.IDLoaiDG.Equals(ID)
+                              select new LoaiDocGiaDtos()
+                              {
+                                  IDLoaiDG = a.IDLoaiDG,
+                                  TenLoaiDG = a.TenLoaiDG,
+                              }).ToList<LoaiDocGiaDtos>();
+                if (result.Count > 0)
+                    return result;
+                return new List<LoaiDocGiaDtos>();
+            }
+        }
+        // getList Search TenLoaiDG From "LoaiDocGia"
+        public List<LoaiDocGiaDtos> getFormLoaiDocGiaSearchTenLoaiDG(string TenLoaiDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.LOAIDOCGIAs
+                              where a.TenLoaiDG.ToUpper().Contains(TenLoaiDG.ToUpper())
+                              select new LoaiDocGiaDtos()
+                              {
+                                  IDLoaiDG = a.IDLoaiDG,
+                                  TenLoaiDG = a.TenLoaiDG,
+                              }).ToList<LoaiDocGiaDtos>();
+                if (result.Count > 0)
+                    return result;
+                return new List<LoaiDocGiaDtos>();
+            }
+        }
+        #endregion
     }
 }

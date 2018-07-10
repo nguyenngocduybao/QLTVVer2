@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface ITacGiaBUS
+    public interface ITacGiaService
     {
         //Add Form "TacGia"
-        bool AddFormTacGia(TacGiaDtos tacGia);
+        void AddFormTacGia(TacGiaDtos tacGia);
         // getList Search IDTacGia From"TacGia"
         List<TacGiaDtos> getFormTacGiaSearchIDTacGia(int ID);
         //getList Search TenTacGia From "TacGia"

@@ -68,6 +68,22 @@ namespace Data.BUS
         }
         #endregion
         #region getListSearch From "TheDocGia"
+        // getListSearch HoTenDG From "TheDocGia"
+        public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG)
+        {
+            try
+            {
+                List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
+                listTheDocGiaDTO = TheDocGiaDAO.Instance.getFromTheDocGiaSearchHoTenDG(TenDG);
+                return listTheDocGiaDTO;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         // getListSearch EmailDG From "TheDocGia"
         public List<TheDocGiaDTO> getFormTheDocGiaSearchEmailDG(string EmailDG)
         {
@@ -84,7 +100,7 @@ namespace Data.BUS
                 throw;
             }
         }
-
+        // getListSearch NgayLap From "TheDocGia"
         public List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap)
         {
             try
@@ -100,29 +116,13 @@ namespace Data.BUS
                 throw;
             }
         }
-
+        // getListSearch NgaySinh From "TheDocGia"
         public List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh)
         {
             try
             {
                 List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
                 listTheDocGiaDTO = TheDocGiaDAO.Instance.getFormTheDocGiaSearchNgaySinhDG(NgaySinh);
-                return listTheDocGiaDTO;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG)
-        {
-            try
-            {
-                List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
-                listTheDocGiaDTO = TheDocGiaDAO.Instance.getFromTheDocGiaSearchHoTenDG(TenDG);
                 return listTheDocGiaDTO;
 
             }

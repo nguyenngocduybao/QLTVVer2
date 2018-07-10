@@ -37,5 +37,61 @@ namespace Data.DAO
             }
         }
         #endregion
+        #region getListSearch TacGiaDtos
+        // getList Search IDTacGia From"TacGia"
+        public List<TacGiaDtos> getFormTacGiaSearchIDTacGia(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.TACGIAs
+                              where a.IDTacGia.Equals(ID)
+                              select new TacGiaDtos()
+                              {
+                                  IDTacGia = a.IDTacGia,
+                                  TenTacGia = a.TenTacGia,
+                                  NgaySinh = a.NgaySinh,
+                              }).ToList<TacGiaDtos>();
+                if (result.Count > 0)
+                    return result;
+                return new List<TacGiaDtos>();
+            }
+        }
+        //getList Search TenTacGia From "TacGia"
+        public List<TacGiaDtos> getFormTacGiaSearchTenTacGia(string TenTacGia)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.TACGIAs
+                              where a.TenTacGia.ToUpper().Contains(TenTacGia.ToUpper())
+                              select new TacGiaDtos()
+                              {
+                                  IDTacGia = a.IDTacGia,
+                                  TenTacGia = a.TenTacGia,
+                                  NgaySinh = a.NgaySinh,
+                              }).ToList<TacGiaDtos>();
+                if (result.Count > 0)
+                    return result;
+                return new List<TacGiaDtos>();
+            }
+        }
+        //getList Search NgaySinhTacGia From "TacGia"
+        public List<TacGiaDtos> getFormTacGiaSearchNgaySinhTG(DateTime NgaySinh)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.TACGIAs
+                              where a.NgaySinh.Equals(NgaySinh)
+                              select new TacGiaDtos()
+                              {
+                                  IDTacGia = a.IDTacGia,
+                                  TenTacGia = a.TenTacGia,
+                                  NgaySinh = a.NgaySinh,
+                              }).ToList<TacGiaDtos>();
+                if (result.Count > 0)
+                    return result;
+                return new List<TacGiaDtos>();
+            }
+        }
+        #endregion
     }
 }

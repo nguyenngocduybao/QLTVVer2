@@ -25,29 +25,30 @@ namespace Service.ABSTRACT
             _TheDocGiaBUS.AddTheDocGiaAndUser(DocGia, user);
         }
         #region getListSearch From "TheDocGia"
+        // getListSearch HoTenDG From "TheDocGia"
+        public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG)
+        {
+            return _TheDocGiaBUS.getFromTheDocGiaSearchHoTen(TenDG);
+        }
+        // getListSearch DiaChiDG From "TheDocGia"
         public List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG)
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchDiaChiDG(DiaChiDG);
         }
-
+        // getListSearch NgayLap From "TheDocGia"
         public List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap)
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchNgayLapThe(Ngaylap);
         }
-
+        // getListSearch NgaySinhDG From "TheDocGia"
         public List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh)
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchNgaySinhDG(NgaySinh);
         }
-
+        // getListSearch EmailDG From "TheDocGia"
         public List<TheDocGiaDTO> getFromTheDocGiaSearchEmaiLDG(string EmailDG)
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchEmailDG(EmailDG);
-        }
-
-        public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG)
-        {
-            return _TheDocGiaBUS.getFromTheDocGiaSearchHoTen(TenDG);
         }
         #endregion
     }
