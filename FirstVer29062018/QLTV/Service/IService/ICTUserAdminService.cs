@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface ICTUserAdminBUS
+    public interface ICTUserAdminService
     {
         //Add Form CTUserAdmin
-        bool AddFormCTUserAdmin(CTUserAdminDtos CTUserAdmin);
+        void AddFormCTUserAdmin(CTUserAdminDtos CTUserAdmin);
         #region getListSearch CTUSerAdminDtos
         //getList Search ID 
         List<CTUserAdminDtos> getFormCTUserAdminSearchIDAdmin(int ID);

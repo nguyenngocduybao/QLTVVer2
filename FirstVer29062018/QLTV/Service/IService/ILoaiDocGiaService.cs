@@ -5,16 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface ILoaiDocGiaBUS
+    public interface ILoaiDocGiaService
     {
         //Add Form "LoaiDocGia"
-        bool ADDLoaiDocGia(LoaiDocGiaDtos LoaiDG);
+        void ADDLoaiDocGia(LoaiDocGiaDtos LoaiDG);
         //getList Search IDLoaiDG From "LoaiDocGia"
         List<LoaiDocGiaDtos> getFormLoaiDocGiaSearchIDLoaiDG(int ID);
         // getList Search TenLoaiDG From "LoaiDocGia"
         List<LoaiDocGiaDtos> getFormLoaiDocGiaSearchTenLoaiDG(string TenLoaiDG);
-        
     }
 }
