@@ -17,5 +17,33 @@ namespace Desktop.GUI
         {
             InitializeComponent();
         }
+
+        private Form KiemTra(Type fType)
+        {
+            foreach (Form f in this.MdiChildren)
+            {
+                if (f.GetType() == fType)
+                {
+                    return f;
+                }
+            }
+            return null;
+        }
+
+        private void btn_TDG_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTra(typeof(FrmTheDocGia));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                FrmTheDocGia f = new FrmTheDocGia();
+                f.MdiParent = this;
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
+        }
     }
 }
