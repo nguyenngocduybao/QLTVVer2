@@ -16,7 +16,7 @@ namespace Data.Model
     {
         public string UserNameAdmin { get; set; }
         public string PasswordAdmin { get; set; }
-        public int IDAdmin { get; set; }
+        public Nullable<int> IDAdmin { get; set; }
     
         public virtual CT_USERADMIN CT_USERADMIN { get; set; }
     }

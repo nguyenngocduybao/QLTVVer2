@@ -13,33 +13,34 @@ namespace Data.BUS
     public class CuonSachBUS:ICuonSachBUS
     {
         #region add Form CuonSach
-        public bool addFormCuonSach(CuonSachDtos cuonSach)
-        {
-            try
-            {
-                using (var db= new QuanLyThuVienEntities())
-                {
-                    int ID = CuonSachDAO.Instance.IDPlus();
-                    var checkIDSach = (from a in db.SACHes
-                                       where a.IDSach.Equals(cuonSach.IDSach)
-                                       select a).FirstOrDefault();
-                    if (checkIDSach == null) return false;
-                    db.CUONSACHes.Add(new CUONSACH()
-                    {
-                        IDCuonSach = ID,
-                        IDSach = cuonSach.IDSach,
-                        TinhTrang = "Chưa cho mượn",
-                    });
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
+        //public bool addFormCuonSach(CuonSachDtos cuonSach)
+        //{
+        //    try
+        //    {
+        //        using (var db= new QuanLyThuVienEntities())
+        //        {
+        //            var ListIDSach = (from a in db.SACHes
+        //                              select a.IDSach).ToList();
+        //            foreach (int item in ListIDSach)
+        //            {
+        //                int ID = CuonSachDAO.Instance.IDPlus();
+        //                db.CUONSACHes.Add(new CUONSACH()
+        //                {
+        //                    IDCuonSach = ID,
+        //                    IDSach = item,
+        //                    TinhTrang = "Chưa cho mượn",
+        //                });
+        //            }
+        //            db.SaveChanges();
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        return false;
+        //    }
+        //}
         #endregion
     }
 }

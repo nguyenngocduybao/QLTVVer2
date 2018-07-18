@@ -13,7 +13,7 @@ namespace Data.BUS
     public  class SachBUS :ISachBUS
     {
         #region Add Form DauSach , Sach ,CT _PhieuNhap
-        public bool ADD(SachDTO sach)
+        public bool ADDFormSach(SachDTO sach)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Data.BUS
                         IDLoaiSach = sach.IDLoaiSach,
                         TenDauSach = sach.TenDauSach,
                     });
-                    if (sach.IDDauSach == ID)
+                    if (sach.IDDauSach.Equals(ID))
                     {
                         int IDsach = SachDAO.Instance.IDPlus();
                         var checkIDTacGia = (from a in db.CT_TACGIA
@@ -48,7 +48,7 @@ namespace Data.BUS
                             NhaXB = sach.NhaXB,
 
                         });
-                        if (sach.IDSach == IDsach)
+                        if (sach.IDSach.Equals(IDsach))
                         {
                             int IDCT = CTPhieuNhapSachDAO.Instance.IDPlus();
                             var checkIDPhieuNhapSach = (from a in db.PHIEUNHAPSACHes
@@ -80,6 +80,15 @@ namespace Data.BUS
                             {
                                 SoLuongTon = sach.SoLuongTon + SoLuong,
                             });
+                            for (int i = 0; i < sach.SoLuong; i++)
+                            {
+                                int IDCuonSach = CuonSachDAO.Instance.IDPlus();
+                                db.CUONSACHes.Add(new CUONSACH()
+                                {
+                                    IDCuonSach = ID,
+                                    TinhTrang = "Chưa cho mượn",
+                                });
+                            }
                         }
                     }
                     db.SaveChanges();

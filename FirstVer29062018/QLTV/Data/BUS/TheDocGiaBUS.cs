@@ -47,7 +47,7 @@ namespace Data.BUS
             catch (Exception)
             {
 
-                throw;
+               return false;
             }
         }
 
