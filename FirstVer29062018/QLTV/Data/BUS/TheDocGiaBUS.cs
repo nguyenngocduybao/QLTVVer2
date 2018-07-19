@@ -50,7 +50,24 @@ namespace Data.BUS
                return false;
             }
         }
+        #region getList All "DocGia" and "User"
+        public List<TheDocGiaDTO> getAllDocGiaAndUser()
+        {
+            try
+            {
 
+                List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
+                listTheDocGiaDTO = TheDocGiaDAO.Instance.getAllDocGiaAndUser();
+                return listTheDocGiaDTO;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
         public List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG)
         {
             try

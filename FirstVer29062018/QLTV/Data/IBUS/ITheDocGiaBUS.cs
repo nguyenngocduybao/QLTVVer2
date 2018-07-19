@@ -18,5 +18,8 @@ namespace Data.IBUS
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap);
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh);
         #endregion
+        #region getlist"TheDocGiaDTO" All"DocGia"and User 
+        List<TheDocGiaDTO> getAllDocGiaAndUser();
+        #endregion
     }
 }

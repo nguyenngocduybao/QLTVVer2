@@ -11,6 +11,9 @@ namespace Service.IService
     {
         // Add From"TheDocGia" and "User"
         void AddTheDocGiaAndUser(TheDocGiaDtos DocGia, UserDtos user);
+        #region getlist"TheDocGiaDTO" All"DocGia"and User 
+        List<TheDocGiaDTO> getAllDocGiaAndUser();
+        #endregion
         #region getListSearch From "TheDocGia"
         List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG);
         List<TheDocGiaDTO> getFromTheDocGiaSearchEmaiLDG(string EmailDG);
@@ -18,5 +21,6 @@ namespace Service.IService
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap);
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh);
         #endregion
+
     }
 }
