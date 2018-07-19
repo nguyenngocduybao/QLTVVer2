@@ -118,6 +118,8 @@
     <Compile Include="Dtos\TheDocGiaDtos.cs" />
     <Compile Include="Dtos\UserAdminDtos.cs" />
     <Compile Include="Dtos\UserDtos.cs" />
+    <Compile Include="DTO\CTTacGiaDTO.cs" />
+    <Compile Include="DTO\SachDTO.cs" />
     <Compile Include="DTO\TheDocGiaDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="IBUS\IBCSachTraTreBUS.cs" />

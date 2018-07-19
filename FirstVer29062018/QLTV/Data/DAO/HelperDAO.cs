@@ -40,28 +40,7 @@ namespace Data.DAO
 
         }
         #endregion
-        #region GetDATA  List TheDocGia 
-        // HotenDG from THEDOCGIA to IDDocGia
-        public string getDataHoTenDGFromTHEDOCGIA(int ID)
-        {
-            using (var db = new QuanLyThuVienEntities())
-            {
-                var result = (from a in db.THEDOCGIAs where a.IDDocGia.Equals(ID) select a.HoTenDG).ToString();
-                return result;
-            }
-        }
- 
-        //Get IDDocGia from THEDOCGIA to HoTenDG
-        public int getIDDGFromTHEDOCGIA(string HoTenDG)
-        {
-            using (var db = new QuanLyThuVienEntities())
-            {
-                int result = (from a in db.THEDOCGIAs where a.HoTenDG.ToUpper().Equals(HoTenDG.ToUpper())
-                              select a.IDDocGia).DefaultIfEmpty(-1).FirstOrDefault();
-                return result;
-            }
-        }
-        #endregion
+     
        
     }
 }

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface ICTTacGiaBUS
+    public interface ICTTacGiaService
     {
-        //Add Form CTTacGia
-        bool addFormCTTacGia(CTTacGiaDtos tacGia);
+        //add FormCTTacGia
+        void addFormCTTacGia(CTTacGiaDtos tacGia);
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
 using Data.Model;
+using Data.DTO;
 namespace Data.DAO
 {
     public class SachDAO
@@ -35,6 +36,30 @@ namespace Data.DAO
                 int IDadd = ++ID;
                 return IDadd;
             }          
+        }
+        #endregion
+        #region getListSearch SachDTO
+        public List<SachDTO> getFormSachSearchIDSach(int IDsach)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.SACHes
+                              where a.IDSach.Equals(IDsach)
+                              select new SachDTO()
+                              {
+                                  IDSach=a.IDSach,
+                                  TenDauSach=GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  TenTG=GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
+                                  NamXB=a.NamXB,
+                                  NhaXB=a.NhaXB,
+                                  GiaTien=a.GiaTien,
+                                  SoLuongTon=a.SoLuongTon,                  
+
+                              }).ToList<SachDTO>();
+                if (result.Count > 0)
+                    return result;
+                return new List<SachDTO>();
+            }
         }
         #endregion
     }

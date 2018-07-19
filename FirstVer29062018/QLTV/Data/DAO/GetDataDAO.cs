@@ -25,7 +25,8 @@ namespace Data.DAO
             }
         }
         #endregion
-        #region get TenDocGia to IDDocGia
+        #region get Name to ID
+        // get TenDocGia to IDDocGia
         public string getTenDocGiaToIDDocGia(int ID)
         {
             using (var db = new QuanLyThuVienEntities())
@@ -36,7 +37,42 @@ namespace Data.DAO
                 return TenDocGia;
             }
         }
+        //get TenTacGia to IDCTTacGia
+        public string getTenTacGiaToIDCTTacGia(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var TenTacGia = (from a in db.TACGIAs
+                                 from b in db.CT_TACGIA
+                                 where b.IDTacGia.Equals(a.IDTacGia) && a.IDTacGia.Equals(ID)
+                                 select a.TenTacGia).ToString();                                                
+                return TenTacGia;
+            }
+        }
+       //get TenDauSach to IDDauSach
+        public string getTenDausachToIDDauSach(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var TenDauSach = (from a in db.DAUSACHes
+                                  where a.IDDauSach.Equals(ID)
+                                  select a.TenDauSach).ToString();
+                return TenDauSach;
+            }
+        }
+        // get TenLoaiSach to IDLoaiSach
+        public string getTenLoaiSachToIDLoaiSach(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var TenLoaiSach = (from a in db.LOAISACHes
+                                   where a.IDLoaiSach.Equals(ID)
+                                   select a.TenLoaiSach).ToString();
+                return TenLoaiSach;
+            }
+        }
         #endregion
+
 
     }
 

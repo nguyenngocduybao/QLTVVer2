@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface ISachBUS
+    public interface ISachService
     {
         // Add Form Sach
-        bool ADDFormSach(SachDTO sach);
+        void ADDFormSach(SachDTO sach);
     }
 }
