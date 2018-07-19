@@ -13,10 +13,11 @@ namespace Data.DTO
         public DateTime NgaySinhDG { get; set; }
         public string DiaChiDG { get; set; }
         public string EmailDG { get; set; }
-        public int IDLoaiDG { get; set; }
         public string TenLoaiDocGia { get; set; }
         public DateTime NgayLapThe { get; set; }
         public DateTime NgayHetHan { get; set; }
         public Decimal TongNo { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }

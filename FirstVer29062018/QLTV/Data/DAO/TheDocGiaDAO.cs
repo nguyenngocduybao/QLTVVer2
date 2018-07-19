@@ -46,6 +46,35 @@ namespace Data.DAO
             return HanThe;
         }
         #endregion
+        #region getlist"TheDocGiaDTO" All"DocGia"and User 
+        public List<TheDocGiaDTO> getAllDocGiaAndUser()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.THEDOCGIAs
+                              from b in db.USERS
+                              where a.IDDocGia.Equals(b.IDDocGia)
+                              select new TheDocGiaDTO()
+                              {
+                                  IDDocGia = a.IDDocGia,
+                                  HoTenDG = a.HoTenDG,
+                                  DiaChiDG = a.DiaChiDG,
+                                  EmailDG = a.EmailDG,
+                                  NgaySinhDG = a.NgaySinhDG,
+                                  NgayLapThe = a.NgayLapThe,
+                                  NgayHetHan = a.NgayHetHan,
+                                  Password = b.Pwd,
+                                  TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(a.IDLoaiDG),
+                                  UserName = b.UserName,
+                                  TongNo = a.TongNo,
+                              }).ToList<TheDocGiaDTO>();
+                if (result.Count > 0)
+                    return result;
+                return new List<TheDocGiaDTO>();
+            }
+        }
+        
+        #endregion
         #region getListData TheDocGiaDtos
         //getListData IDDocGia From"THeDocGia"
         public List<TheDocGiaDtos> GetFormTheDocGia(int ID)
@@ -111,8 +140,11 @@ namespace Data.DAO
                                  TongNo = a.TongNo,
                              }).ToList<TheDocGiaDtos>();
                 var Resultkq = (from b in Result
+                                from c in db.USERS
+                                where c.IDDocGia.Equals(b.IDDocGia)
                                 select new TheDocGiaDTO()
                                 {
+                                    IDDocGia=b.IDDocGia,
                                     HoTenDG = b.HoTenDG,
                                     EmailDG = b.EmailDG,
                                     NgaySinhDG = b.NgaySinhDG,
@@ -121,6 +153,8 @@ namespace Data.DAO
                                     TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
                                     DiaChiDG = b.DiaChiDG,
                                     TongNo = b.TongNo,
+                                    Password=c.Pwd,
+                                    UserName=c.UserName,
                                 }).ToList<TheDocGiaDTO>();
                 if (Resultkq.Count > 0)
                     return Resultkq;
@@ -147,8 +181,11 @@ namespace Data.DAO
                                   EmailDG = a.EmailDG,
                               }).ToList<TheDocGiaDtos>();
                 var Resultkq=(from b in result
+                              from c in db.USERS
+                              where c.IDDocGia.Equals(b.IDDocGia)
                               select new TheDocGiaDTO()
                               {
+                                  IDDocGia=b.IDDocGia,
                                   HoTenDG=b.HoTenDG,
                                   EmailDG = b.EmailDG,
                                   NgaySinhDG = b.NgaySinhDG,
@@ -157,6 +194,8 @@ namespace Data.DAO
                                   TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
                                   DiaChiDG = b.DiaChiDG,
                                   TongNo = b.TongNo,
+                                  Password=c.Pwd,
+                                  UserName=c.UserName,
                               }).ToList<TheDocGiaDTO>();
                 if (Resultkq.Count > 0)
                     return Resultkq;
@@ -184,8 +223,11 @@ namespace Data.DAO
                                   TongNo = a.TongNo,
                               }).ToList<TheDocGiaDtos>();
                 var Resultkq = (from b in Result
+                                from c in db.USERS
+                                where c.IDDocGia.Equals(b.IDDocGia)
                                 select new TheDocGiaDTO()
                                 {
+                                    IDDocGia=b.IDDocGia,
                                     HoTenDG = b.HoTenDG,
                                     EmailDG = b.EmailDG,
                                     NgaySinhDG = b.NgaySinhDG,
@@ -194,6 +236,8 @@ namespace Data.DAO
                                     TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
                                     DiaChiDG = b.DiaChiDG,
                                     TongNo = b.TongNo,
+                                    Password=c.Pwd,
+                                    UserName=c.UserName,
                                 }).ToList<TheDocGiaDTO>();
                 if (Resultkq.Count > 0)
                     return Resultkq;
@@ -220,9 +264,11 @@ namespace Data.DAO
                                   TongNo = a.TongNo,
                               }).ToList<TheDocGiaDtos>();
                 var Resultkq = (from b in Result
+                                from c in db.USERS
+                                where c.IDDocGia.Equals(b.IDDocGia)
                                 select new TheDocGiaDTO()
                                 {
-                                   
+                                    IDDocGia=b.IDDocGia,
                                     HoTenDG = b.HoTenDG,
                                     EmailDG = b.EmailDG,
                                     NgaySinhDG = b.NgaySinhDG,
@@ -231,6 +277,8 @@ namespace Data.DAO
                                     TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
                                     DiaChiDG = b.DiaChiDG,
                                     TongNo = b.TongNo,
+                                    Password=c.Pwd,
+                                    UserName=c.UserName,
                                 }).ToList<TheDocGiaDTO>();
                 if (Resultkq.Count > 0)
                     return Resultkq;
@@ -257,9 +305,11 @@ namespace Data.DAO
                                   TongNo = a.TongNo,
                               }).ToList<TheDocGiaDtos>();
                 var Resultkq = (from b in Result
+                                from c in db.USERS
+                                where c.IDDocGia.Equals(b.IDDocGia)
                                 select new TheDocGiaDTO()
                                 {
-
+                                    IDDocGia=b.IDDocGia,
                                     HoTenDG = b.HoTenDG,
                                     EmailDG = b.EmailDG,
                                     NgaySinhDG = b.NgaySinhDG,
@@ -268,15 +318,14 @@ namespace Data.DAO
                                     TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(b.IDLoaiDocGia),
                                     DiaChiDG = b.DiaChiDG,
                                     TongNo = b.TongNo,
+                                    Password=c.Pwd,
+                                    UserName=c.UserName,
                                 }).ToList<TheDocGiaDTO>();
                 if (Resultkq.Count > 0)
                     return Resultkq;
                 return new List<TheDocGiaDTO>();
             }
         }
-        #endregion
-
-      
-        
+        #endregion 
     }
 }

@@ -24,6 +24,12 @@ namespace Service.ABSTRACT
         {
             _TheDocGiaBUS.AddTheDocGiaAndUser(DocGia, user);
         }
+        #region getList"TheDOcGiaDTO" All "DocGia" and "User"
+        public List<TheDocGiaDTO> getAllDocGiaAndUser()
+        {
+            return this._TheDocGiaBUS.getAllDocGiaAndUser();
+        }
+        #endregion
         #region getListSearch From "TheDocGia"
         // getListSearch HoTenDG From "TheDocGia"
         public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG)
@@ -50,6 +56,8 @@ namespace Service.ABSTRACT
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchEmailDG(EmailDG);
         }
+
+       
         #endregion
     }
 

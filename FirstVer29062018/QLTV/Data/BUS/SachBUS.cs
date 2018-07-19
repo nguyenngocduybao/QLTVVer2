@@ -105,44 +105,92 @@ namespace Data.BUS
         //get List Search NamXuatban
         public List<SachDTO> getFormSachNamXuatBan(string NamXB)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachNamXuatBan(NamXB);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachNamXuatBan(NamXB);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         //get List Search NhaXuatBan
         public List<SachDTO> getFormSachNhaXuatBan(string NhaxB)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         //get List Search GiaTien
         public List<SachDTO> getFormSachSearchGiaTien(decimal tien)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachSearchGiaTien(tien);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachSearchGiaTien(tien);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         //get List Search IDSach
         public List<SachDTO> getFormSachSearchIDSach(int IDsach)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachSearchIDSach(IDsach);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachSearchIDSach(IDsach);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         //get List Search SoluongTon
         public List<SachDTO> getFormSachSearchSoLuongTon(int SL)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachSearchSoLuongTon(SL);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachSearchSoLuongTon(SL);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         //get List Search TenDauSach
         public List<SachDTO> getFormSachTenDauSach(string TenDauSach)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachTenDauSach(TenDauSach);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachTenDauSach(TenDauSach);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
     }
