@@ -29,7 +29,7 @@ namespace Data.BUS
                         NgaySinhDG = DocGia.NgaySinhDG,
                         NgayLapThe = DocGia.NgayLapThe,
                         IDLoaiDG = DocGia.IDLoaiDocGia,
-                        TongNo = DocGia.TongNo,
+                        TongNo = 0,
                         NgayHetHan = TheDocGiaDAO.Instance.countHanThe(DocGia.NgayLapThe),
                     });
                     db.USERS.Add(new USER()

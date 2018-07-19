@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Data.IBUS;
 using Data.Model;
 using Data.DAO;
+using Data.Dtos;
 namespace Data.BUS
 {
     public class CTPhieuNhapSachBUS:ICTPhieuNhapSachBUS
     {
+       
     }
 }
