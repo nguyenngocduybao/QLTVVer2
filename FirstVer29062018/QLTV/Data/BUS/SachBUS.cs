@@ -101,5 +101,49 @@ namespace Data.BUS
             }
         }
         #endregion
+        #region getListSearch SachDTO
+        //get List Search NamXuatban
+        public List<SachDTO> getFormSachNamXuatBan(string NamXB)
+        {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachNamXuatBan(NamXB);
+            return listSach;
+        }
+        //get List Search NhaXuatBan
+        public List<SachDTO> getFormSachNhaXuatBan(string NhaxB)
+        {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
+            return listSach;
+        }
+        //get List Search GiaTien
+        public List<SachDTO> getFormSachSearchGiaTien(decimal tien)
+        {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachSearchGiaTien(tien);
+            return listSach;
+        }
+        //get List Search IDSach
+        public List<SachDTO> getFormSachSearchIDSach(int IDsach)
+        {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachSearchIDSach(IDsach);
+            return listSach;
+        }
+        //get List Search SoluongTon
+        public List<SachDTO> getFormSachSearchSoLuongTon(int SL)
+        {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachSearchSoLuongTon(SL);
+            return listSach;
+        }
+        //get List Search TenDauSach
+        public List<SachDTO> getFormSachTenDauSach(string TenDauSach)
+        {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachTenDauSach(TenDauSach);
+            return listSach;
+        }
+        #endregion
     }
 }
