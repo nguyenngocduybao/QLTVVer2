@@ -32,14 +32,14 @@ namespace Desktop.GUI
 
         private void btn_TDG_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.KiemTra(typeof(FrmTheDocGia));
+            Form frm = this.KiemTra(typeof(frmTheDocGia));
             if (frm != null)
             {
                 frm.Activate();
             }
             else
             {
-                FrmTheDocGia f = new FrmTheDocGia();
+                frmTheDocGia f = new frmTheDocGia();
                 f.MdiParent = this;
                 f.Dock = DockStyle.Fill;
                 f.Show();
