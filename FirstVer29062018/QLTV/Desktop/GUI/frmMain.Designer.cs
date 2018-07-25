@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_TDG = new DevExpress.XtraBars.BarButtonItem();
@@ -54,7 +55,9 @@
             this.ribbon_QDinh = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.xtraTabbedfMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedfMain)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -164,12 +167,11 @@
             this.ribbon_Admin});
             this.ribbon_TDGia.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_TDGia.ImageOptions.Image")));
             this.ribbon_TDGia.Name = "ribbon_TDGia";
-            this.ribbon_TDGia.Text = "Thẻ độc giả";
+            this.ribbon_TDGia.Text = "Quản lí";
             // 
             // ribbon_DGia
             // 
             this.ribbon_DGia.ItemLinks.Add(this.btn_TDG);
-            this.ribbon_DGia.ItemLinks.Add(this.btn_User);
             this.ribbon_DGia.Name = "ribbon_DGia";
             this.ribbon_DGia.Text = "Độc giả";
             // 
@@ -255,6 +257,10 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(974, 31);
             // 
+            // xtraTabbedfMain
+            // 
+            this.xtraTabbedfMain.MdiParent = this;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +274,7 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "frmMain";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedfMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +307,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbon_QDinh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedfMain;
     }
 }
