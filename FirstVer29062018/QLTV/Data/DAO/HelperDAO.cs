@@ -39,8 +39,23 @@ namespace Data.DAO
             return TenLoaiDG.Equals("Thường") ? 1 : 2;
 
         }
-        #endregion
-     
+         //check HanTheDocGIa to IDDocGia
+        public bool CheckHanDocGia(int IDDocGia)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.THEDOCGIAs
+                              where a.IDDocGia.Equals(IDDocGia)
+                              select a.NgayHetHan).ToString();
+                DateTime date = DateTime.Parse(result);
+                if (date > DateTime.Now)
+                    return false;
+                else return true;
+            }
+        }
        
+        #endregion
+
+
     }
 }

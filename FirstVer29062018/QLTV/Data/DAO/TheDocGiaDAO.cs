@@ -52,8 +52,7 @@ namespace Data.DAO
             using (var db = new QuanLyThuVienEntities())
             {
                 var result = (from a in db.THEDOCGIAs
-                              from b in db.USERS
-                              where a.IDDocGia.Equals(b.IDDocGia)
+                              join b in db.USERS  on a.IDDocGia equals b.IDDocGia
                               select new TheDocGiaDTO()
                               {
                                   IDDocGia = a.IDDocGia,

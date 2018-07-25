@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
 using Data.Model;
+using Data.DTO;
+
 namespace Data.DAO
 {
     public class CTPhieuMuonDAO
@@ -34,6 +36,22 @@ namespace Data.DAO
                 int ID = Int32.Parse(query);
                 int IDadd = ++ID;
                 return IDadd;
+            }
+        }
+        #endregion
+        #region getList ALl Form CTPhieuMuon
+        public List<CTPhieuMuonDTO> getFormCTPhieuMuon()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.CT_PHIEUMUON
+                              select new CTPhieuMuonDTO()
+                              {
+                                  IDCTPhieuMuon = a.IDCTPhieuMuon,
+                                  IDPhieuMuon = a.IDPhieuMuon,
+                                  TenDauSach = GetDataDAO.Instance.getTenCuonSach(a.IDCuonSach),
+                              }).ToList<CTPhieuMuonDTO>();
+                return result;
             }
         }
         #endregion

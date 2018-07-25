@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface ICTPhieuMuonBUS
+    public interface ICTPhieuMuonService
     {
-        //add form CT_PhieuMuon
-        bool addFormCTPhieuMuon(CTPhieuMuonDTO ctPhieuMuon);
+        void addFormCTPhieuMuon(CTPhieuMuonDTO ctPhieuMuon);
     }
 }

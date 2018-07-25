@@ -49,19 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABSTRACT\CTPhieuMuonService.cs" />
     <Compile Include="ABSTRACT\CTTacGiaService.cs" />
     <Compile Include="ABSTRACT\CTUserAdminService.cs" />
     <Compile Include="ABSTRACT\LoaiDocGiaService.cs" />
     <Compile Include="ABSTRACT\LoaiSachService.cs" />
+    <Compile Include="ABSTRACT\PhieuMuonService.cs" />
     <Compile Include="ABSTRACT\PhieuNhapSachService.cs" />
     <Compile Include="ABSTRACT\SachService.cs" />
     <Compile Include="ABSTRACT\TacGiaService.cs" />
     <Compile Include="ABSTRACT\TheDocGiaService.cs" />
     <Compile Include="ABSTRACT\UserService.cs" />
+    <Compile Include="IService\ICTPhieuMuonService.cs" />
     <Compile Include="IService\ICTTacGiaService.cs" />
     <Compile Include="IService\ICTUserAdminService.cs" />
     <Compile Include="IService\ILoaiDocGiaService.cs" />
     <Compile Include="IService\ILoaiSachService.cs" />
+    <Compile Include="IService\IPhieuMuonService.cs" />
     <Compile Include="IService\IPhieuNhapSachService.cs" />
     <Compile Include="IService\ISachService.cs" />
     <Compile Include="IService\ITacGiaService.cs" />
