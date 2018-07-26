@@ -45,11 +45,11 @@ namespace Data.DAO
                 var TenTacGia = (from a in db.TACGIAs
                                  from b in db.CT_TACGIA
                                  where b.IDTacGia.Equals(a.IDTacGia) && a.IDTacGia.Equals(ID)
-                                 select a.TenTacGia).ToString();                                                
+                                 select a.TenTacGia).ToString();
                 return TenTacGia;
             }
         }
-       //get TenDauSach to IDDauSach
+        //get TenDauSach to IDDauSach
         public string getTenDausachToIDDauSach(int ID)
         {
             using (var db = new QuanLyThuVienEntities())
@@ -69,6 +69,33 @@ namespace Data.DAO
                                    where a.IDLoaiSach.Equals(ID)
                                    select a.TenLoaiSach).ToString();
                 return TenLoaiSach;
+            }
+        }
+        // get IDCuonSach to TenDauSach
+        public int getIDCuonSach(string tb_TenSach)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var result = (from a in db.DAUSACHes
+                              from b in db.SACHes
+                              from c in db.CUONSACHes
+                              where a.TenDauSach.Equals(tb_TenSach) && b.IDDauSach.Equals(a.IDDauSach) && b.IDSach.Equals(c.IDSach) && c.TinhTrang.Equals("Chưa cho mượn")
+                              select c.IDCuonSach).FirstOrDefault();
+                return result;
+
+            }
+        }
+        //get TenCuonSach to IDCuonSach
+        public string getTenCuonSach(int IDCuonSach)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var TenCuonSach = (from a in db.CUONSACHes
+                                   from b in db.DAUSACHes
+                                   from c in db.SACHes
+                                   where a.IDCuonSach.Equals(IDCuonSach) && a.IDSach.Equals(c.IDSach) && b.IDDauSach.Equals(c.IDDauSach)
+                                   select b.TenDauSach).ToString();
+                return TenCuonSach;
             }
         }
         #endregion

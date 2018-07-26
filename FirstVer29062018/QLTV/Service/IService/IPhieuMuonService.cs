@@ -1,18 +1,17 @@
-﻿using Data.DTO;
-using Data.Dtos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Dtos;
+using Data.DTO;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface IPhieuMuonBUS
+    public interface IPhieuMuonService
     {
-       
         //Add Form PhieuMuon and CTPhieuMuon
-        bool AddFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> TenDauSach);
+        void  addFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> tb_TenSach);
         #region getList Search PhieuMuonDTO
         //get List Search IDDocGia
         List<PhieuMuonDTO> getFormPhieuMuonSearchIDDocGia(int ID);
@@ -23,7 +22,7 @@ namespace Data.IBUS
         //get List Search HanTra
         List<PhieuMuonDTO> getFormPhieuMuonSearchHanTra(DateTime hantra);
         #endregion
-        //Get All Form "PhieuMuon" and "CTPhieuMuon"
+        // getAll Form "PhieuMuon" And "CTPhieuMuon"
         List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon();
     }
 }
