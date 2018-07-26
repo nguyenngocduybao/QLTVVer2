@@ -15,7 +15,7 @@ namespace Data.Model
     public partial class CT_PHIEUMUON
     {
         public int IDCTPhieuMuon { get; set; }
-        public Nullable<int> IDPhieuMuon { get; set; }
+        public int IDPhieuMuon { get; set; }
         public int IDCuonSach { get; set; }
     
         public virtual CUONSACH CUONSACH { get; set; }
