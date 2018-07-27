@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
 using Data.Model;
+using Data.DAO;
+using Data.DTO;
 namespace Data.DAO
 {
     public class CTTacGiaDAO
@@ -12,7 +14,7 @@ namespace Data.DAO
         #region Instance
         private static CTTacGiaDAO instance;
 
-        internal static CTTacGiaDAO Instance
+        public static CTTacGiaDAO Instance
         {
             get
             {
@@ -37,5 +39,7 @@ namespace Data.DAO
             }
         }
         #endregion
+       
+
     }
 }

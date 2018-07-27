@@ -12,7 +12,7 @@ namespace Data.DAO
         #region Instance
         private static BCSachTraTreDAO instance;
 
-        internal static BCSachTraTreDAO Instance
+        public static BCSachTraTreDAO Instance
         {
             get
             {

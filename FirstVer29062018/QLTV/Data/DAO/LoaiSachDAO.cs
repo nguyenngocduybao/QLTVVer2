@@ -12,7 +12,7 @@ namespace Data.DAO
         #region Instance
         private static LoaiSachDAO instance;
 
-        internal static LoaiSachDAO Instance
+        public static LoaiSachDAO Instance
         {
             get
             {

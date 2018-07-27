@@ -12,6 +12,7 @@ namespace Data.DTO
         public int IDDocGia { get; set; }
         public DateTime NgayMuon { get; set; }
         public DateTime HanTra { get; set; }
+        public int IDCuonSach { get; set; }
         public int IDCTPhieuMuon { get; set; }
         public string TenDauSach { get; set; }
     }

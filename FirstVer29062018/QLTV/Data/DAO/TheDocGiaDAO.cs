@@ -13,7 +13,7 @@ namespace Data.DAO
         #region Instance
         private static TheDocGiaDAO instance;
 
-        internal static TheDocGiaDAO Instance
+        public static TheDocGiaDAO Instance
         {
             get
             {
@@ -51,8 +51,23 @@ namespace Data.DAO
         {
             using (var db = new QuanLyThuVienEntities())
             {
-                var result = (from a in db.THEDOCGIAs
-                              join b in db.USERS  on a.IDDocGia equals b.IDDocGia
+                var resultQuery = (from a in db.THEDOCGIAs
+                                   join b in db.USERS on a.IDDocGia equals b.IDDocGia
+                                   select new TheDocGiaDTO()
+                                   {
+                                       IDDocGia = a.IDDocGia,
+                                       HoTenDG = a.HoTenDG,
+                                       DiaChiDG = a.DiaChiDG,
+                                       EmailDG = a.EmailDG,
+                                       NgaySinhDG = a.NgaySinhDG,
+                                       NgayLapThe = a.NgayLapThe,
+                                       NgayHetHan = a.NgayHetHan,
+                                       Password = b.Pwd,
+                                       IDLoaiDocGia = a.IDLoaiDG,
+                                       UserName = b.UserName,
+                                       TongNo = a.TongNo,
+                                   }).ToList<TheDocGiaDTO>();
+                var result = (from a in resultQuery
                               select new TheDocGiaDTO()
                               {
                                   IDDocGia = a.IDDocGia,
@@ -62,9 +77,9 @@ namespace Data.DAO
                                   NgaySinhDG = a.NgaySinhDG,
                                   NgayLapThe = a.NgayLapThe,
                                   NgayHetHan = a.NgayHetHan,
-                                  Password = b.Pwd,
-                                  TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(a.IDLoaiDG),
-                                  UserName = b.UserName,
+                                  Password = a.Password,
+                                  TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(a.IDLoaiDocGia),
+                                  UserName = a.UserName,
                                   TongNo = a.TongNo,
                               }).ToList<TheDocGiaDTO>();
                 if (result.Count > 0)
@@ -72,7 +87,6 @@ namespace Data.DAO
                 return new List<TheDocGiaDTO>();
             }
         }
-        
         #endregion
         #region getListData TheDocGiaDtos
         //getListData IDDocGia From"THeDocGia"
