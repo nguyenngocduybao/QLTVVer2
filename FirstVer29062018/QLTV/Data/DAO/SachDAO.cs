@@ -13,7 +13,7 @@ namespace Data.DAO
         #region Instance
         private static SachDAO instance;
 
-        internal static SachDAO Instance
+        public static SachDAO Instance
         {
             get
             {

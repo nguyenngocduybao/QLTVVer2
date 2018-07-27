@@ -8,12 +8,12 @@ using Data.Model;
 
 namespace Data.DAO
 {
-    class HelperDAO
+    public class HelperDAO
     {
         #region Instance
         private static HelperDAO instance;
 
-        internal static HelperDAO Instance
+        public static HelperDAO Instance
         {
             get
             {

@@ -13,7 +13,7 @@ namespace Data.DAO
         #region Instance
         private static PhieuMuonDAO instance;
 
-        internal static PhieuMuonDAO Instance
+        public static PhieuMuonDAO Instance
         {
             get
             {
@@ -149,10 +149,21 @@ namespace Data.DAO
                                   NgayMuon = a.NgayMuon,
                                   HanTra = a.HanTra,
                                   IDCTPhieuMuon = b.IDCTPhieuMuon,
-                                  TenDauSach = GetDataDAO.Instance.getTenCuonSach(b.IDCuonSach),
+                                  IDCuonSach = b.IDCuonSach,
                               }).ToList<PhieuMuonDTO>();
-                if (result.Count > 0)
-                    return result;
+                var Result = (from c in result
+                              select new PhieuMuonDTO()
+                              {
+                                  IDDocGia = c.IDDocGia,
+                                  IDPhieuMuon = c.IDPhieuMuon,
+                                  IDCTPhieuMuon = c.IDCTPhieuMuon,
+                                  IDCuonSach = c.IDCuonSach,
+                                  NgayMuon = c.NgayMuon,
+                                  HanTra = c.HanTra,
+                                  TenDauSach = GetDataDAO.Instance.getTenCuonSach(c.IDCuonSach),
+                              }).ToList<PhieuMuonDTO>();
+                if (Result.Count > 0)
+                    return result;                              
                 return new List<PhieuMuonDTO>();
             }
         }

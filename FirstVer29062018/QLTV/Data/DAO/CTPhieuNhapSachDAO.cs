@@ -12,7 +12,7 @@ namespace Data.DAO
         #region Instance
         private static CTPhieuNhapSachDAO instance;
 
-        internal static CTPhieuNhapSachDAO Instance
+        public static CTPhieuNhapSachDAO Instance
         {
             get
             {

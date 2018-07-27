@@ -12,7 +12,7 @@ namespace Data.DAO
         #region Instance
         private static BCTinhHinhMuonSachDAO instance;
 
-        internal static BCTinhHinhMuonSachDAO Instance
+        public static BCTinhHinhMuonSachDAO Instance
         {
             get
             {
