@@ -224,6 +224,7 @@
             this.bt_Lamlai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_Lamlai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Lamlai.UseVisualStyleBackColor = true;
+            this.bt_Lamlai.Click += new System.EventHandler(this.bt_Lamlai_Click);
             // 
             // bt_CNDL
             // 
@@ -596,7 +597,7 @@
             // 
             // cl_ID
             // 
-            this.cl_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_ID.DataPropertyName = "IDDocGia";
             this.cl_ID.HeaderText = "Số thứ tự";
             this.cl_ID.Name = "cl_ID";
@@ -604,7 +605,7 @@
             // 
             // cl_HoTen
             // 
-            this.cl_HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_HoTen.DataPropertyName = "HoTenDG";
             this.cl_HoTen.HeaderText = "Họ và tên";
             this.cl_HoTen.Name = "cl_HoTen";
@@ -612,7 +613,7 @@
             // 
             // cl_User
             // 
-            this.cl_User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_User.DataPropertyName = "UserName";
             this.cl_User.HeaderText = "Tài khoản";
             this.cl_User.Name = "cl_User";
@@ -620,7 +621,7 @@
             // 
             // cl_DiaChi
             // 
-            this.cl_DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_DiaChi.DataPropertyName = "DiaChiDG";
             this.cl_DiaChi.HeaderText = "Địa chỉ";
             this.cl_DiaChi.Name = "cl_DiaChi";
@@ -628,7 +629,7 @@
             // 
             // cl_Email
             // 
-            this.cl_Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_Email.DataPropertyName = "EmailDG";
             this.cl_Email.HeaderText = "Email";
             this.cl_Email.Name = "cl_Email";
@@ -636,7 +637,7 @@
             // 
             // cl_NgaySinh
             // 
-            this.cl_NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_NgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_NgaySinh.DataPropertyName = "NgaySinhDG";
             this.cl_NgaySinh.HeaderText = "Ngày Sinh";
             this.cl_NgaySinh.Name = "cl_NgaySinh";
@@ -644,15 +645,15 @@
             // 
             // cl_NgayLapThe
             // 
-            this.cl_NgayLapThe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_NgayLapThe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_NgayLapThe.DataPropertyName = "NgayLapThe";
-            this.cl_NgayLapThe.HeaderText = "Ngày lặp thẻ";
+            this.cl_NgayLapThe.HeaderText = "Ngày lập thẻ";
             this.cl_NgayLapThe.Name = "cl_NgayLapThe";
             this.cl_NgayLapThe.Width = 156;
             // 
             // cl_NgayHetHan
             // 
-            this.cl_NgayHetHan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_NgayHetHan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_NgayHetHan.DataPropertyName = "NgayHetHan";
             this.cl_NgayHetHan.HeaderText = "Ngày hết hạn";
             this.cl_NgayHetHan.Name = "cl_NgayHetHan";
@@ -668,7 +669,7 @@
             // 
             // cl_TongNo
             // 
-            this.cl_TongNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_TongNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_TongNo.DataPropertyName = "TongNo";
             this.cl_TongNo.HeaderText = "Tổng nợ";
             this.cl_TongNo.Name = "cl_TongNo";
