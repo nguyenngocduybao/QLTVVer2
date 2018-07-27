@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Desktop.HelperUI;
 using System.Text.RegularExpressions;
-using Data.DAO;
 using Service.IService;
 using Data.Dtos;
 using Data.DTO;
 using Data.IBUS;
 using Service.ABSTRACT;
+using Data;
+using Data.DAO;
 
 namespace Desktop.GUI
 {
@@ -25,7 +26,11 @@ namespace Desktop.GUI
         {
             InitializeComponent();
         }
-
+        private void frmTheDocGia_Load(object sender, EventArgs e)
+        {
+            dgv_DuLieu.AutoGenerateColumns = false;
+            fillAllDataFromTableTheDocGia();
+        }
         #region Value
         public string HoTenDG;
         public string UserName;
@@ -35,13 +40,51 @@ namespace Desktop.GUI
         public string EmailDG;
         public int IDLoaiDG;
         public DateTime NgayLapThe;
-        //biến kiểm tra Email hợp lệ
         #endregion
         #region Event Click
         private void bt_CNDL_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(HelperGUI.Instance.KiemTraHoTenDG(tb_HoTenDG.Text));
+            HelperGUI.Instance.KiemTraHoTenDG(tb_HoTenDG.Text);
             HelperGUI.Instance.checkIsMail(tb_Email);
+            if (string.IsNullOrEmpty(tb_HoTenDG.Text)) { MessageBox.Show("Không được để trống họ tên độc giả.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_HoTenDG.Focus(); }
+            else if (string.IsNullOrEmpty(tb_User.Text)) { MessageBox.Show("Không được để trống Tài khoản.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_User.Focus(); }
+            else if (string.IsNullOrEmpty(tb_Passwork.Text)) { MessageBox.Show("Không được để trống Passwork.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Passwork.Focus(); }
+            else if (string.IsNullOrEmpty(tb_Diachi.Text)) { MessageBox.Show("Không được để trống địa chỉ.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Diachi.Focus(); }
+            else if (string.IsNullOrEmpty(tb_Email.Text)) { MessageBox.Show("Không được để trống Email.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Email.Focus(); }
+            else if (string.IsNullOrEmpty(cb_LoaiDocGia.Text)) { MessageBox.Show("Không được để trống loại độc giả.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); cb_LoaiDocGia.Focus(); }
+            else
+            {
+                try
+                {
+                    TheDocGiaService sv = new TheDocGiaService();
+                    TheDocGiaDtos tdg = new TheDocGiaDtos();
+                    UserDtos user = new UserDtos();
+                    HoTenDG = tb_HoTenDG.Text;
+                    UserName = tb_User.Text;
+                    Pwd = tb_Passwork.Text;
+                    DiaChiDG = tb_Diachi.Text;
+                    EmailDG = tb_Email.Text;
+                    tdg.HoTenDG = HoTenDG;
+                    tdg.IDLoaiDocGia = IDLoaiDG;
+                    tdg.NgayLapThe = NgayLapThe;
+                    tdg.NgaySinhDG = NgaySinhDG;
+                    tdg.DiaChiDG = DiaChiDG;
+                    tdg.EmailDG = EmailDG;
+                    user.Password = Pwd;
+                    user.UserName = UserName;
+                    sv.AddTheDocGiaAndUser(tdg, user);
+                    MessageBox.Show("Thêm thành công!");
+                    fillAllDataFromTableTheDocGia();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        private void bt_Lamlai_Click(object sender, EventArgs e)
+        {
+            HelperGUI.Instance.RemoveInfomation(tb_HoTenDG, tb_User, tb_Passwork, tb_Diachi, tb_Email, cb_LoaiDocGia);
         }
         #endregion
         #region Event KeyPress
@@ -68,10 +111,15 @@ namespace Desktop.GUI
             NgaySinhDG = dt_Ngaysinh.Value;
         }
         #endregion
-
-        private void frmTheDocGia_Load(object sender, EventArgs e)
+        #region Load Data to Datagridview
+        //get All data from Table dbo.TheDocGia 
+        public void fillAllDataFromTableTheDocGia()
         {
-
+            List<TheDocGiaDTO> ls = new List<TheDocGiaDTO>();
+            TheDocGiaService TDGsv = new TheDocGiaService();
+            ls = TDGsv.getAllDocGiaAndUser();
+            dgv_DuLieu.DataSource = ls;
         }
+        #endregion
     }
 }

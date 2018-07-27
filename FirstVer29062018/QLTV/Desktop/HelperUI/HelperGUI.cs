@@ -26,7 +26,6 @@ namespace Desktop.HelperUI
             }
         }
         #endregion
-
         #region Format control
         //Kiểm tra họ tên độc giả
         public string KiemTraHoTenDG(string HoTenDG)
@@ -86,6 +85,16 @@ namespace Desktop.HelperUI
             {
                 MessageBox.Show("Email không hợp lệ", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        //Làm mới Texbox
+        public void RemoveInfomation(TextBox HoTen,TextBox User,TextBox Pwd,TextBox DChi,TextBox Email,ComboBox LDG)
+        {
+            HoTen.Text = null;
+            User.Text = null;
+            Pwd.Text = null;
+            DChi.Text = null;
+            Email.Text = null;
+            LDG.Text = null;
         }
         #endregion
     }
