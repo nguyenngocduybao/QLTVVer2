@@ -14,7 +14,7 @@ namespace Data.DAO
         #region Instance
         private static UserDAO instance;
 
-        internal static UserDAO Instance
+        public static UserDAO Instance
         {
             get
             {

@@ -53,19 +53,9 @@ namespace Data.BUS
         #region getList All "DocGia" and "User"
         public List<TheDocGiaDTO> getAllDocGiaAndUser()
         {
-            try
-            {
-
-                List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
-                listTheDocGiaDTO = TheDocGiaDAO.Instance.getAllDocGiaAndUser();
-                return listTheDocGiaDTO;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
+            listTheDocGiaDTO = TheDocGiaDAO.Instance.getAllDocGiaAndUser();
+            return listTheDocGiaDTO;
         }
         #endregion
         public List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG)
@@ -90,10 +80,10 @@ namespace Data.BUS
         {
             try
             {
+
                 List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
                 listTheDocGiaDTO = TheDocGiaDAO.Instance.getFromTheDocGiaSearchHoTenDG(TenDG);
                 return listTheDocGiaDTO;
-
             }
             catch (Exception)
             {

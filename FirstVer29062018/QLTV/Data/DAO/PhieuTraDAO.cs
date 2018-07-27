@@ -12,7 +12,7 @@ namespace Data.DAO
         #region Instance
         private static PhieuTraDAO instance;
 
-        internal static PhieuTraDAO Instance
+        public static PhieuTraDAO Instance
         {
             get
             {
