@@ -87,11 +87,6 @@ namespace Desktop.HelperUI
             }
             return true;
         }
-        //Làm mới Texbox
-        public void RemoveInfomation(TextBox HoTen,TextBox User,TextBox Pwd,TextBox DChi,TextBox Email,ComboBox LDG)
-        {
-            HoTen.Text =  User.Text = Pwd.Text = DChi.Text = Email.Text = LDG.Text = null;
-        }
         //Hàm ResetAllControls
         public static void ResetAllControls(Control form)
         {
@@ -107,7 +102,7 @@ namespace Desktop.HelperUI
                 {
                     ComboBox comboBox = (ComboBox)control;
                     if (comboBox.Items.Count > 0)
-                        comboBox.SelectedIndex = 0;
+                        comboBox.Text = null;
                 }
 
                 if (control is CheckBox)

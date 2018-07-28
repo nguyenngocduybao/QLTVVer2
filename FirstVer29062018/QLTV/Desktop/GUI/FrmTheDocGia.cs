@@ -74,7 +74,7 @@ namespace Desktop.GUI
                     sv.AddTheDocGiaAndUser(tdg, user);
                     MessageBox.Show("Thêm thành công!");
                     fillAllDataFromTableTheDocGia();
-                    HelperGUI.Instance.RemoveInfomation(tb_HoTenDG, tb_User, tb_Passwork, tb_Diachi, tb_Email, cb_LoaiDocGia);
+                    HelperGUI.ResetAllControls(groupControl_TTDG);
                 }
                 catch
                 {
@@ -84,7 +84,7 @@ namespace Desktop.GUI
         }
         private void bt_Lamlai_Click(object sender, EventArgs e)
         {
-            HelperGUI.Instance.RemoveInfomation(tb_HoTenDG, tb_User, tb_Passwork, tb_Diachi, tb_Email, cb_LoaiDocGia);
+            HelperGUI.ResetAllControls(groupControl_TTDG);
         }
         #endregion
         #region Event KeyPress
