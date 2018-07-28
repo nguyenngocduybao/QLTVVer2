@@ -69,7 +69,7 @@ namespace Desktop.HelperUI
             return valid;
         }
         //check Email có nhiều hơn 4 kí tự
-        public void checkIsMail(TextBox Email)
+        public bool checkIsMail(TextBox Email)
         {
             if (HelperGUI.Instance.IsValidEmail(Email.Text) == true)
             {
@@ -77,24 +77,68 @@ namespace Desktop.HelperUI
                 {
                     if (Email.Text[i] == '@')
                     {
-                        MessageBox.Show("Email không hợp lệ", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Email không hợp lệ", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
+            return true;
         }
         //Làm mới Texbox
         public void RemoveInfomation(TextBox HoTen,TextBox User,TextBox Pwd,TextBox DChi,TextBox Email,ComboBox LDG)
         {
-            HoTen.Text = null;
-            User.Text = null;
-            Pwd.Text = null;
-            DChi.Text = null;
-            Email.Text = null;
-            LDG.Text = null;
+            HoTen.Text =  User.Text = Pwd.Text = DChi.Text = Email.Text = LDG.Text = null;
+        }
+        //Hàm ResetAllControls
+        public static void ResetAllControls(Control form)
+        {
+            foreach (Control control in form.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    textBox.Text = null;
+                }
+
+                if (control is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)control;
+                    if (comboBox.Items.Count > 0)
+                        comboBox.SelectedIndex = 0;
+                }
+
+                if (control is CheckBox)
+                {
+                    CheckBox checkBox = (CheckBox)control;
+                    checkBox.Checked = false;
+                }
+
+                if (control is ListBox)
+                {
+                    ListBox listBox = (ListBox)control;
+                    listBox.ClearSelected();
+                }
+
+                if (control is RadioButton)
+                {
+                    RadioButton radioButton = (RadioButton)control;
+                    radioButton.Checked = false;
+                }
+
+                if (control is DateTimePicker)
+                {
+                    DateTimePicker dateTimePicker = (DateTimePicker)control;
+                    dateTimePicker.ResetText();
+                }
+                if (control is PictureBox)
+                {
+                    PictureBox pictureBox = (PictureBox)control;
+                    pictureBox.Hide();
+                }
+            }
         }
         #endregion
     }
