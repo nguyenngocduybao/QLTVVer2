@@ -50,7 +50,15 @@ namespace Data.DAO
                                   IDLoaiSach = a.IDLoaiSach,
                                   TenLoaiSach = a.TenLoaiSach,
                               }).ToList<LoaiSachDtos>();
-                return result;
+                var Resultkq = (from a in result
+                                select new LoaiSachDtos()
+                                {
+                                    IDLoaiSach = a.IDLoaiSach,
+                                    TenLoaiSach = a.TenLoaiSach,
+                                }).ToList<LoaiSachDtos>();
+                if (Resultkq.Count > 0)
+                    return Resultkq;
+                return new List<LoaiSachDtos>();
             }
         }
         #endregion
@@ -65,10 +73,16 @@ namespace Data.DAO
                               select new LoaiSachDtos()
                               {
                                   TenLoaiSach = a.TenLoaiSach,
-                                  IDLoaiSach = a.IDLoaiSach
+                                  IDLoaiSach = a.IDLoaiSach,
                               }).ToList<LoaiSachDtos>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchTenloaiSach = (from a in result
+                                             select new LoaiSachDtos()
+                                             {
+                                                 TenLoaiSach = a.TenLoaiSach,
+                                                 IDLoaiSach = a.IDLoaiSach,
+                                             }).ToList<LoaiSachDtos>();
+                if (listSearchTenloaiSach.Count > 0)
+                    return listSearchTenloaiSach;
                 return new List<LoaiSachDtos>();
             }
         }
