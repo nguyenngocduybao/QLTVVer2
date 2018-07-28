@@ -44,13 +44,12 @@ namespace Desktop.GUI
         #region Event Click
         private void bt_CNDL_Click(object sender, EventArgs e)
         {
-            HelperGUI.Instance.KiemTraHoTenDG(tb_HoTenDG.Text);
-            HelperGUI.Instance.checkIsMail(tb_Email);
             if (string.IsNullOrEmpty(tb_HoTenDG.Text)) { MessageBox.Show("Không được để trống họ tên độc giả.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_HoTenDG.Focus(); }
             else if (string.IsNullOrEmpty(tb_User.Text)) { MessageBox.Show("Không được để trống Tài khoản.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_User.Focus(); }
             else if (string.IsNullOrEmpty(tb_Passwork.Text)) { MessageBox.Show("Không được để trống Passwork.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Passwork.Focus(); }
             else if (string.IsNullOrEmpty(tb_Diachi.Text)) { MessageBox.Show("Không được để trống địa chỉ.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Diachi.Focus(); }
             else if (string.IsNullOrEmpty(tb_Email.Text)) { MessageBox.Show("Không được để trống Email.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Email.Focus(); }
+            else if (HelperGUI.Instance.checkIsMail(tb_Email) == false) { MessageBox.Show("Email không hợp lệ", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_Email.Focus(); }
             else if (string.IsNullOrEmpty(cb_LoaiDocGia.Text)) { MessageBox.Show("Không được để trống loại độc giả.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); cb_LoaiDocGia.Focus(); }
             else
             {
@@ -59,7 +58,7 @@ namespace Desktop.GUI
                     TheDocGiaService sv = new TheDocGiaService();
                     TheDocGiaDtos tdg = new TheDocGiaDtos();
                     UserDtos user = new UserDtos();
-                    HoTenDG = tb_HoTenDG.Text;
+                    HoTenDG = HelperGUI.Instance.KiemTraHoTenDG(tb_HoTenDG.Text);
                     UserName = tb_User.Text;
                     Pwd = tb_Passwork.Text;
                     DiaChiDG = tb_Diachi.Text;
@@ -75,6 +74,7 @@ namespace Desktop.GUI
                     sv.AddTheDocGiaAndUser(tdg, user);
                     MessageBox.Show("Thêm thành công!");
                     fillAllDataFromTableTheDocGia();
+                    HelperGUI.ResetAllControls(groupControl_TTDG);
                 }
                 catch
                 {
@@ -84,7 +84,7 @@ namespace Desktop.GUI
         }
         private void bt_Lamlai_Click(object sender, EventArgs e)
         {
-            HelperGUI.Instance.RemoveInfomation(tb_HoTenDG, tb_User, tb_Passwork, tb_Diachi, tb_Email, cb_LoaiDocGia);
+            HelperGUI.ResetAllControls(groupControl_TTDG);
         }
         #endregion
         #region Event KeyPress

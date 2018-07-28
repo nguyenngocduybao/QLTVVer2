@@ -33,7 +33,7 @@
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
             this.tb_HoTenDG = new System.Windows.Forms.TextBox();
             this.tb_Passwork = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -87,8 +87,8 @@
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).BeginInit();
+            this.groupControl_TTDG.SuspendLayout();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -122,7 +122,7 @@
             // 
             this.navigationPage2.Caption = "Thêm độc giả";
             this.navigationPage2.Controls.Add(this.navigationFrame1);
-            this.navigationPage2.Controls.Add(this.groupControl1);
+            this.navigationPage2.Controls.Add(this.groupControl_TTDG);
             this.navigationPage2.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
@@ -139,40 +139,40 @@
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
-            // groupControl1
+            // groupControl_TTDG
             // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupControl_TTDG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl1.Appearance.Options.UseFont = true;
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.AutoSize = true;
-            this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
-            this.groupControl1.Controls.Add(this.tb_HoTenDG);
-            this.groupControl1.Controls.Add(this.tb_Passwork);
-            this.groupControl1.Controls.Add(this.label10);
-            this.groupControl1.Controls.Add(this.label1);
-            this.groupControl1.Controls.Add(this.bt_Lamlai);
-            this.groupControl1.Controls.Add(this.bt_CNDL);
-            this.groupControl1.Controls.Add(this.dt_NgayLT);
-            this.groupControl1.Controls.Add(this.cb_LoaiDocGia);
-            this.groupControl1.Controls.Add(this.tb_Email);
-            this.groupControl1.Controls.Add(this.tb_Diachi);
-            this.groupControl1.Controls.Add(this.dt_Ngaysinh);
-            this.groupControl1.Controls.Add(this.tb_User);
-            this.groupControl1.Controls.Add(this.label7);
-            this.groupControl1.Controls.Add(this.label6);
-            this.groupControl1.Controls.Add(this.label5);
-            this.groupControl1.Controls.Add(this.label4);
-            this.groupControl1.Controls.Add(this.label3);
-            this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(520, 537);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Thông tin độc giả";
+            this.groupControl_TTDG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTDG.Appearance.Options.UseFont = true;
+            this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTDG.AppearanceCaption.Options.UseFont = true;
+            this.groupControl_TTDG.AutoSize = true;
+            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl_TTDG.Controls.Add(this.tb_HoTenDG);
+            this.groupControl_TTDG.Controls.Add(this.tb_Passwork);
+            this.groupControl_TTDG.Controls.Add(this.label10);
+            this.groupControl_TTDG.Controls.Add(this.label1);
+            this.groupControl_TTDG.Controls.Add(this.bt_Lamlai);
+            this.groupControl_TTDG.Controls.Add(this.bt_CNDL);
+            this.groupControl_TTDG.Controls.Add(this.dt_NgayLT);
+            this.groupControl_TTDG.Controls.Add(this.cb_LoaiDocGia);
+            this.groupControl_TTDG.Controls.Add(this.tb_Email);
+            this.groupControl_TTDG.Controls.Add(this.tb_Diachi);
+            this.groupControl_TTDG.Controls.Add(this.dt_Ngaysinh);
+            this.groupControl_TTDG.Controls.Add(this.tb_User);
+            this.groupControl_TTDG.Controls.Add(this.label7);
+            this.groupControl_TTDG.Controls.Add(this.label6);
+            this.groupControl_TTDG.Controls.Add(this.label5);
+            this.groupControl_TTDG.Controls.Add(this.label4);
+            this.groupControl_TTDG.Controls.Add(this.label3);
+            this.groupControl_TTDG.Controls.Add(this.label2);
+            this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_TTDG.Name = "groupControl_TTDG";
+            this.groupControl_TTDG.Size = new System.Drawing.Size(520, 537);
+            this.groupControl_TTDG.TabIndex = 0;
+            this.groupControl_TTDG.Text = "Thông tin độc giả";
             // 
             // tb_HoTenDG
             // 
@@ -691,9 +691,9 @@
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).EndInit();
+            this.groupControl_TTDG.ResumeLayout(false);
+            this.groupControl_TTDG.PerformLayout();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
@@ -712,7 +712,7 @@
         #endregion
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl_TTDG;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
