@@ -252,7 +252,7 @@ namespace Data.DAO
             using (var db = new QuanLyThuVienEntities())
             {
                 var Result = (from a in db.THEDOCGIAs
-                              where a.DiaChiDG.ToUpper().Equals(DiaChiDG.ToUpper())
+                              where a.DiaChiDG.ToUpper().Contains(DiaChiDG.ToUpper())
                               select new TheDocGiaDtos()
                               {
                                   IDDocGia = a.IDDocGia,
