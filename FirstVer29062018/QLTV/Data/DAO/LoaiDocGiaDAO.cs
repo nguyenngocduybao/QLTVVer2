@@ -49,8 +49,14 @@ namespace Data.DAO
                                   IDLoaiDG = a.IDLoaiDG,
                                   TenLoaiDG = a.TenLoaiDG,
                               }).ToList<LoaiDocGiaDtos>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchIDLoaiDG = (from a in result
+                                          select new LoaiDocGiaDtos()
+                                          {
+                                              IDLoaiDG = a.IDLoaiDG,
+                                              TenLoaiDG = a.TenLoaiDG,
+                                          }).ToList<LoaiDocGiaDtos>();
+                if (listSearchIDLoaiDG.Count > 0)
+                    return listSearchIDLoaiDG;
                 return new List<LoaiDocGiaDtos>();
             }
         }
@@ -66,8 +72,14 @@ namespace Data.DAO
                                   IDLoaiDG = a.IDLoaiDG,
                                   TenLoaiDG = a.TenLoaiDG,
                               }).ToList<LoaiDocGiaDtos>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchTenLoaiDG = (from a in result
+                                          select new LoaiDocGiaDtos()
+                                          {
+                                              IDLoaiDG = a.IDLoaiDG,
+                                              TenLoaiDG = a.TenLoaiDG,
+                                          }).ToList<LoaiDocGiaDtos>();
+                if (listSearchTenLoaiDG.Count > 0)
+                    return listSearchTenLoaiDG;
                 return new List<LoaiDocGiaDtos>();
             }
         }

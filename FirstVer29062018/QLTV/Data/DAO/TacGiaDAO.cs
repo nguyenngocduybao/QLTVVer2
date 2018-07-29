@@ -69,9 +69,17 @@ namespace Data.DAO
                                   TenTacGia = a.TenTacGia,
                                   NgaySinh = a.NgaySinh,
                               }).ToList<TacGiaDtos>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchTenTG = (from b in result
+                                       select new TacGiaDtos()
+                                       {
+                                           IDTacGia = b.IDTacGia,
+                                           TenTacGia = b.TenTacGia,
+                                           NgaySinh = b.NgaySinh
+                                       }).ToList<TacGiaDtos>();
+                if (listSearchTenTG.Count > 0)
+                    return listSearchTenTG;
                 return new List<TacGiaDtos>();
+
             }
         }
         //getList Search NgaySinhTacGia From "TacGia"
@@ -87,9 +95,17 @@ namespace Data.DAO
                                   TenTacGia = a.TenTacGia,
                                   NgaySinh = a.NgaySinh,
                               }).ToList<TacGiaDtos>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchNgaySinhTG = (from b in result
+                                       select new TacGiaDtos()
+                                       {
+                                           IDTacGia = b.IDTacGia,
+                                           TenTacGia = b.TenTacGia,
+                                           NgaySinh = b.NgaySinh
+                                       }).ToList<TacGiaDtos>();
+                if (listSearchNgaySinhTG.Count > 0)
+                    return listSearchNgaySinhTG;
                 return new List<TacGiaDtos>();
+
             }
         }
         #endregion

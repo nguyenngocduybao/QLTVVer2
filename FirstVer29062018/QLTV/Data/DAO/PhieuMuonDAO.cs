@@ -61,11 +61,23 @@ namespace Data.DAO
                                   NgayMuon = a.NgayMuon,
                                   HanTra = a.HanTra,
                                   IDCTPhieuMuon = b.IDCTPhieuMuon,
-                                  TenDauSach = GetDataDAO.Instance.getTenCuonSach(b.IDCuonSach),
+                                  IDCuonSach=b.IDCuonSach,
                               }).ToList<PhieuMuonDTO>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchIDDG=(from a in result
+                                    select new PhieuMuonDTO()
+                                    {
+                                        IDDocGia = ID,
+                                        IDPhieuMuon = a.IDPhieuMuon,
+                                        NgayMuon = a.NgayMuon,
+                                        HanTra = a.HanTra,
+                                        IDCTPhieuMuon=a.IDCTPhieuMuon,
+                                        TenDauSach=GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDCuonSach),
+                                        IDCuonSach=a.IDCuonSach,
+                                    }).ToList<PhieuMuonDTO>();
+                if (listSearchIDDG.Count > 0)
+                    return listSearchIDDG;
                 return new List<PhieuMuonDTO>();
+
             }
         }
         //get List Search IDPhieuMuon
@@ -83,10 +95,21 @@ namespace Data.DAO
                                   NgayMuon = a.NgayMuon,
                                   HanTra = a.HanTra,
                                   IDCTPhieuMuon = b.IDCTPhieuMuon,
-                                  TenDauSach = GetDataDAO.Instance.getTenCuonSach(b.IDCuonSach),
+                                  IDCuonSach=b.IDCuonSach,
                               }).ToList<PhieuMuonDTO>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchIDPhieuMuon = (from a in result
+                                             select new PhieuMuonDTO()
+                                             {
+                                                 IDDocGia = a.IDDocGia,
+                                                 IDPhieuMuon = a.IDPhieuMuon,
+                                                 NgayMuon = a.NgayMuon,
+                                                 HanTra = a.HanTra,
+                                                 IDCTPhieuMuon = a.IDCTPhieuMuon,
+                                                 TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDCuonSach),
+                                                 IDCuonSach = a.IDCuonSach,
+                                             }).ToList<PhieuMuonDTO>();
+                if (listSearchIDPhieuMuon.Count > 0)
+                    return listSearchIDPhieuMuon;
                 return new List<PhieuMuonDTO>();
             }
         }
@@ -105,11 +128,23 @@ namespace Data.DAO
                                   NgayMuon = ngaymuon,
                                   HanTra = a.HanTra,
                                   IDCTPhieuMuon = b.IDCTPhieuMuon,
-                                  TenDauSach = GetDataDAO.Instance.getTenCuonSach(b.IDCuonSach),
+                                  IDCuonSach=b.IDCuonSach,
                               }).ToList<PhieuMuonDTO>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchNgayMuon = (from a in result
+                                          select new PhieuMuonDTO()
+                                          {
+                                              IDDocGia = a.IDDocGia,
+                                              IDPhieuMuon = a.IDPhieuMuon,
+                                              NgayMuon = a.NgayMuon,
+                                              HanTra = a.HanTra,
+                                              IDCTPhieuMuon = a.IDCTPhieuMuon,
+                                              TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDCuonSach),
+                                              IDCuonSach = a.IDCuonSach,
+                                          }).ToList<PhieuMuonDTO>();
+                if (listSearchNgayMuon.Count > 0)
+                    return listSearchNgayMuon;
                 return new List<PhieuMuonDTO>();
+
             }
         }
         //get List Search HanTra
@@ -127,11 +162,23 @@ namespace Data.DAO
                                   NgayMuon = a.NgayMuon,
                                   HanTra = hantra,
                                   IDCTPhieuMuon=b.IDCTPhieuMuon,
-                                  TenDauSach=GetDataDAO.Instance.getTenCuonSach(b.IDCuonSach),       
+                                  IDCuonSach=b.IDCuonSach,    
                               }).ToList<PhieuMuonDTO>();
-                if (result.Count > 0)
-                    return result;
+                var listSearchHanTra = (from a in result
+                                        select new PhieuMuonDTO()
+                                        {
+                                            IDDocGia = a.IDDocGia,
+                                            IDPhieuMuon = a.IDPhieuMuon,
+                                            NgayMuon = a.NgayMuon,
+                                            HanTra = a.HanTra,
+                                            IDCTPhieuMuon = a.IDCTPhieuMuon,
+                                            TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDCuonSach),
+                                            IDCuonSach = a.IDCuonSach,
+                                        }).ToList<PhieuMuonDTO>();
+                if (listSearchHanTra.Count > 0)
+                    return listSearchHanTra;
                 return new List<PhieuMuonDTO>();
+               
             }
         }
         #endregion
