@@ -418,6 +418,67 @@ namespace Data.DAO
                 return new List<TheDocGiaDTO>();
             }
         }
+        //get list Search UserName 
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchUserName(string Username)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Result = (from a in db.THEDOCGIAs
+                              join b in db.USERS on a.IDDocGia equals b.IDDocGia
+                              where b.UserName.ToUpper().Contains(Username.ToUpper())
+                              select new TheDocGiaDTO()
+                              {
+                                  IDDocGia = a.IDDocGia,
+                                  HoTenDG = a.HoTenDG,
+                                  EmailDG = a.EmailDG,
+                                  DiaChiDG = a.DiaChiDG,
+                                  NgayHetHan = a.NgayHetHan,
+                                  NgayLapThe = a.NgayLapThe,
+                                  IDLoaiDocGia = a.IDLoaiDG,
+                                  NgaySinhDG = a.NgaySinhDG,
+                                  TongNo = a.TongNo,
+                                  Password = b.Pwd,
+                                  UserName = b.UserName,
+
+                              }).ToList<TheDocGiaDTO>();
+                var Resultkq = (from b in Result
+                                join c in db.USERS on b.IDDocGia equals c.IDDocGia
+                                select new TheDocGiaDTO()
+                                {
+                                    IDDocGia = b.IDDocGia,
+                                    HoTenDG = b.HoTenDG,
+                                    EmailDG = b.EmailDG,
+                                    NgaySinhDG = b.NgaySinhDG,
+                                    NgayLapThe = b.NgayLapThe,
+                                    NgayHetHan = b.NgayHetHan,
+                                    IDLoaiDocGia = b.IDLoaiDocGia,
+                                    DiaChiDG = b.DiaChiDG,
+                                    TongNo = b.TongNo,
+                                    Password = c.Pwd,
+                                    UserName = c.UserName,
+                                }).ToList<TheDocGiaDTO>();
+                var listSearchUserName = (from a in Resultkq
+                                          select new TheDocGiaDTO()
+                                          {
+                                              IDDocGia = a.IDDocGia,
+                                              HoTenDG = a.HoTenDG,
+                                              EmailDG = a.EmailDG,
+                                              NgaySinhDG = a.NgaySinhDG,
+                                              DiaChiDG = a.DiaChiDG,
+                                              NgayLapThe = a.NgayLapThe,
+                                              NgayHetHan = a.NgayHetHan,
+                                              TenLoaiDocGia = HelperDAO.Instance.checkLoaiDocGiaFromID(a.IDLoaiDocGia),
+                                              Password = a.Password,
+                                              IDLoaiDocGia = a.IDLoaiDocGia,
+                                              UserName = a.UserName,
+                                              TongNo = a.TongNo,
+                                          }
+                                        ).ToList<TheDocGiaDTO>();
+                if (listSearchUserName.Count > 0)
+                    return listSearchUserName;
+                return new List<TheDocGiaDTO>();
+            }
+        }
         #endregion 
     }
 }

@@ -139,6 +139,21 @@ namespace Data.BUS
                 throw;
             }
         }
+        //get list Search UserName 
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchUserName(string Username)
+        {
+            try
+            {
+                List<TheDocGiaDTO> listTheDocGiaDTO = new List<TheDocGiaDTO>();
+                listTheDocGiaDTO = TheDocGiaDAO.Instance.getFormTheDocGiaSearchUserName(Username);
+                return listTheDocGiaDTO;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            };
+        }
         #endregion
     }
 }
