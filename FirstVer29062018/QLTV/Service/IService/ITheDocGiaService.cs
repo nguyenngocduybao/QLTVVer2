@@ -20,6 +20,7 @@ namespace Service.IService
         List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG);
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgayLapThe(DateTime Ngaylap);
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh);
+        List<TheDocGiaDTO> getFormTheDocGiaSearchUserName(string Username);
         #endregion
 
     }

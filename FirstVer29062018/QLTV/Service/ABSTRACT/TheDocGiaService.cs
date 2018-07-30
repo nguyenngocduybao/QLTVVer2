@@ -56,8 +56,13 @@ namespace Service.ABSTRACT
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchEmailDG(EmailDG);
         }
+        //getListSearch UserName
+        public List<TheDocGiaDTO> getFormTheDocGiaSearchUserName(string Username)
+        {
+            return _TheDocGiaBUS.getFormTheDocGiaSearchUserName(Username);
+        }
 
-       
+
         #endregion
     }
 
