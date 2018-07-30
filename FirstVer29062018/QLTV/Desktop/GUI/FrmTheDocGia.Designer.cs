@@ -148,7 +148,7 @@
             this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl_TTDG.AppearanceCaption.Options.UseFont = true;
             this.groupControl_TTDG.AutoSize = true;
-            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
             this.groupControl_TTDG.Controls.Add(this.tb_HoTenDG);
             this.groupControl_TTDG.Controls.Add(this.tb_Passwork);
             this.groupControl_TTDG.Controls.Add(this.label10);
@@ -396,7 +396,6 @@
             this.bt_TimKiem.Text = "Tìm kiếm";
             this.bt_TimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_TimKiem.UseVisualStyleBackColor = true;
-            this.bt_TimKiem.Click += new System.EventHandler(this.bt_TimKiem_Click);
             // 
             // tb_NhapTT
             // 
@@ -422,9 +421,9 @@
             this.cbb_ThongTinTimKiem.FormattingEnabled = true;
             this.cbb_ThongTinTimKiem.Items.AddRange(new object[] {
             "Họ và tên",
+            "Tài khoản",
             "Email",
-            "Địa chỉ",
-            "Tài khoản"});
+            "Loại độc giả"});
             this.cbb_ThongTinTimKiem.Location = new System.Drawing.Point(211, 95);
             this.cbb_ThongTinTimKiem.Name = "cbb_ThongTinTimKiem";
             this.cbb_ThongTinTimKiem.Size = new System.Drawing.Size(267, 31);
@@ -558,7 +557,6 @@
             this.toolStripBt_Reset.Name = "toolStripBt_Reset";
             this.toolStripBt_Reset.Size = new System.Drawing.Size(129, 25);
             this.toolStripBt_Reset.Text = "Reset dữ liệu";
-            this.toolStripBt_Reset.Click += new System.EventHandler(this.toolStripBt_Reset_Click);
             // 
             // toolStripSeparator5
             // 
