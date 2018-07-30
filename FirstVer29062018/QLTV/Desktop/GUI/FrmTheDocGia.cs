@@ -63,6 +63,7 @@ namespace Desktop.GUI
                     Pwd = tb_Passwork.Text;
                     DiaChiDG = tb_Diachi.Text;
                     EmailDG = tb_Email.Text;
+                    NgayLapThe = dt_NgayLT.Value;
                     tdg.HoTenDG = HoTenDG;
                     tdg.IDLoaiDocGia = IDLoaiDG;
                     tdg.NgayLapThe = NgayLapThe;
@@ -82,10 +83,47 @@ namespace Desktop.GUI
                 }
             }
         }
+
         private void bt_Lamlai_Click(object sender, EventArgs e)
         {
             HelperGUI.ResetAllControls(groupControl_TTDG);
         }
+
+        private void bt_TimKiem_Click(object sender, EventArgs e)
+        {
+            TheDocGiaService sv = new TheDocGiaService();
+            List<TheDocGiaDTO> ls = new List<TheDocGiaDTO>();
+            if (cbb_ThongTinTimKiem.Text == "Họ và tên")
+            {
+               ls = sv.getFromTheDocGiaSearchHoTen(tb_NhapTT.Text);
+               dgv_DuLieu.DataSource = ls;
+            }
+            else if (cbb_ThongTinTimKiem.Text=="Email")
+            {
+               ls =  sv.getFromTheDocGiaSearchEmaiLDG(tb_NhapTT.Text);
+               dgv_DuLieu.DataSource = ls;
+            }
+            else if (cbb_ThongTinTimKiem.Text=="Địa chỉ")
+            {
+                ls = sv.getFormTheDocGiaSearchDiaChiDG(tb_NhapTT.Text);
+                dgv_DuLieu.DataSource = ls;
+            }
+            else if (cbb_ThongTinTimKiem.Text=="Tài khoản")
+            {
+                ls = sv.getFormTheDocGiaSearchUserName(tb_NhapTT.Text);
+                dgv_DuLieu.DataSource = ls;
+            }
+
+        }
+
+        private void toolStripBt_Reset_Click(object sender, EventArgs e)
+        {
+            TheDocGiaService sv = new TheDocGiaService();
+            List<TheDocGiaDTO> ls = new List<TheDocGiaDTO>();
+            ls = sv.getAllDocGiaAndUser();
+            dgv_DuLieu.DataSource = ls;
+        }
+
         #endregion
         #region Event KeyPress
         private void tb_HoTenDG_KeyPress(object sender, KeyPressEventArgs e)
@@ -121,5 +159,7 @@ namespace Desktop.GUI
             dgv_DuLieu.DataSource = ls;
         }
         #endregion
+
+
     }
 }
