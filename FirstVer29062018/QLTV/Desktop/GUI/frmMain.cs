@@ -45,5 +45,21 @@ namespace Desktop.GUI
                 f.Show();
             }
         }
+
+        private void btn_Sach_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTra(typeof(frmSach));
+            if(frm!=null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmSach f = new frmSach();
+                f.MdiParent = this;
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
+        }
     }
 }

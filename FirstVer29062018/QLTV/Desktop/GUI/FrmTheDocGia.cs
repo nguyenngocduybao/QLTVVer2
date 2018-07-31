@@ -118,7 +118,10 @@ namespace Desktop.GUI
 
         private void toolStripBt_Reset_Click(object sender, EventArgs e)
         {
-            fillAllDataFromTableTheDocGia();
+            TheDocGiaService sv = new TheDocGiaService();
+            List<TheDocGiaDTO> ls = new List<TheDocGiaDTO>();
+            ls = sv.getAllDocGiaAndUser();
+            dgv_DuLieu.DataSource = ls;
         }
 
         #endregion

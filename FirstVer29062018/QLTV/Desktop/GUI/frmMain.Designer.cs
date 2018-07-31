@@ -115,6 +115,7 @@
             this.btn_Sach.Id = 4;
             this.btn_Sach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_Sach.ImageOptions.LargeImage")));
             this.btn_Sach.Name = "btn_Sach";
+            this.btn_Sach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Sach_ItemClick);
             // 
             // btn_LSach
             // 
@@ -177,11 +178,8 @@
             // 
             // ribbon_Sach
             // 
-            this.ribbon_Sach.ItemLinks.Add(this.btn_DSach);
             this.ribbon_Sach.ItemLinks.Add(this.btn_Sach);
             this.ribbon_Sach.ItemLinks.Add(this.btn_LSach);
-            this.ribbon_Sach.ItemLinks.Add(this.btn_PSach);
-            this.ribbon_Sach.ItemLinks.Add(this.btn_CTPSach);
             this.ribbon_Sach.Name = "ribbon_Sach";
             this.ribbon_Sach.Text = "Sách";
             // 
