@@ -57,7 +57,6 @@ namespace Data.DAO
                                   NhaXB=a.NhaXB,
                                   GiaTien=a.GiaTien,
                                   SoLuongTon=a.SoLuongTon,                  
-
                               }).ToList<SachDTO>();
                 if (result.Count > 0)
                     return result;
@@ -187,5 +186,14 @@ namespace Data.DAO
             }
         }
         #endregion
+        #region getALl Form DauSach And CTPhieuNhap And "Sach"
+        //public List<SachDTO> getAllFormDauSachAndCTPhieuNhapAndSach()
+        //{
+        //    using (var db = new QuanLyThuVienEntities())
+        //    {
+        //        var DauSach=(from a in db.DAUSACHes)
+        //    }
+        //}
+        #endregion 
     }
 }

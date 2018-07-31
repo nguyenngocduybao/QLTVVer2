@@ -109,5 +109,31 @@ namespace Data.DAO
             }
         }
         #endregion
+        #region getAllForm TacGia
+        public List<TacGiaDtos> getAllFormTacGia()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var getAll = (from a in db.TACGIAs
+                                        select new TacGiaDtos()
+                                        {
+                                            IDTacGia = a.IDTacGia,
+                                            TenTacGia = a.TenTacGia,
+                                            NgaySinh = a.NgaySinh,
+                                        }).ToList<TacGiaDtos>();
+                var getALLFormTacGia=(from a in getAll
+                                      select new TacGiaDtos()
+                                      {
+                                          IDTacGia = a.IDTacGia,
+                                          TenTacGia = a.TenTacGia,
+                                          NgaySinh = a.NgaySinh,
+                                      }
+                                      ).ToList<TacGiaDtos>();
+                if (getALLFormTacGia.Count > 0)
+                    return getALLFormTacGia;
+                return new List<TacGiaDtos>();
+            }
+        }
+        #endregion
     }
 }

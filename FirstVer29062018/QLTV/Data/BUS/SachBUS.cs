@@ -19,20 +19,27 @@ namespace Data.BUS
             {
                 using (var db = new QuanLyThuVienEntities())
                 {
+                    var checkTenDauSach = (from a in db.DAUSACHes
+                                           where a.TenDauSach.ToUpper().Equals(sach.TenDauSach)
+                                           select a).FirstOrDefault();
                     int ID = DauSachDAO.Instance.IDPlus();
                     var checkID = (from a in db.LOAISACHes
                                    where a.IDLoaiSach.Equals(sach.IDLoaiSach)
                                    select a).FirstOrDefault();
                     if (checkID == null) return false;
-                    db.DAUSACHes.Add(new DAUSACH()
+                    if (checkTenDauSach == null)
                     {
-                        IDDauSach = ID,
-                        IDLoaiSach = sach.IDLoaiSach,
-                        TenDauSach = sach.TenDauSach,
-                    });
+                        db.DAUSACHes.Add(new DAUSACH()
+                        {
+                            IDDauSach = ID,
+                            IDLoaiSach = GetDataDAO.Instance.getIDLoaiSachToTenLoaiSach(sach.TenLoaiSach),
+                            TenDauSach = sach.TenDauSach,
+                        });
+                    }
+                    int IDsach = SachDAO.Instance.IDPlus();
                     if (sach.IDDauSach.Equals(ID))
                     {
-                        int IDsach = SachDAO.Instance.IDPlus();
+                       
                         var checkIDTacGia = (from a in db.CT_TACGIA
                                              where a.IDCTTacGia.Equals(sach.IDCTTacGia)
                                              select a).FirstOrDefault();
@@ -41,7 +48,7 @@ namespace Data.BUS
                         {
                             IDSach = IDsach,
                             IDDauSach = ID,
-                            IDCTTacGia = sach.IDCTTacGia,
+                            IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia),
                             GiaTien = sach.GiaTien,
                             NamXB = sach.NamXB,
                             SoLuongTon = sach.SoLuongTon,
@@ -64,33 +71,17 @@ namespace Data.BUS
                                 DonGia = sach.DonGia,
                                 ThanhTien = sach.DonGia * sach.SoLuong,
                             });
-                            var update = (from a in db.CT_PHIEUNHAPSACH
-                                          from b in db.PHIEUNHAPSACHes
-                                          where a.IDPhieuNhap.Equals(b.IDPhieuNhap)
-                                          select b.TongTien).Sum();
-                            db.PHIEUNHAPSACHes.Add(new PHIEUNHAPSACH()
-                            {
-                                TongTien = update,
-                            });
-                            int SoLuong = (from a in db.CT_PHIEUNHAPSACH
-                                           from b in db.SACHes
-                                           where a.IDSach.Equals(b.IDSach)
-                                           select a.SoLuong).SingleOrDefault();
-                            db.SACHes.Add(new SACH()
-                            {
-                                SoLuongTon = sach.SoLuongTon + SoLuong,
-                            });
-                            for (int i = 0; i < sach.SoLuong; i++)
-                            {
-                                int IDCuonSach = CuonSachDAO.Instance.IDPlus();
-                                db.CUONSACHes.Add(new CUONSACH()
-                                {
-                                    IDCuonSach = ID,
-                                    TinhTrang = "Chưa cho mượn",
-                                });
-                            }
+                            var update = (from b in db.PHIEUNHAPSACHes
+                                          where b.IDPhieuNhap.Equals(sach.IDPhieuNhap)
+                                          select b).FirstOrDefault<PHIEUNHAPSACH>();
+                            update.TongTien = update.TongTien + (sach.DonGia * sach.SoLuong);
+
                         }
                     }
+                    var updateSoLuong = (from a in db.SACHes
+                                         where a.IDDauSach.Equals(IDsach)
+                                         select a).FirstOrDefault<SACH>();
+                    updateSoLuong.SoLuongTon = updateSoLuong.SoLuongTon + sach.SoLuong;
                     db.SaveChanges();
                     return true;
                 }  
@@ -195,3 +186,4 @@ namespace Data.BUS
         #endregion
     }
 }
+    

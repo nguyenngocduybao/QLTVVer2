@@ -15,7 +15,7 @@ namespace Data.Model
     public partial class CT_PHIEUNHAPSACH
     {
         public int IDCTPhieuNhap { get; set; }
-        public int IDPhieuNhap { get; set; }
+        public Nullable<int> IDPhieuNhap { get; set; }
         public Nullable<int> IDSach { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGia { get; set; }

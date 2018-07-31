@@ -24,6 +24,11 @@ namespace Service.ABSTRACT
         {
             this._TacGia.AddFormTacGia(tacGia);
         }
+        //getAllForm TacGia
+        public List<TacGiaDtos> getAllFormTacGia()
+        {
+            return this._TacGia.getAllFormTacGia();
+        }
         #region getListSearch 
         //get List Search IDTacGia
         public List<TacGiaDtos> getFormTacGiaSearchIDTacGia(int ID)

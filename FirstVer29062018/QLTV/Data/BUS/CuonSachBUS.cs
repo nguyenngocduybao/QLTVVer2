@@ -41,6 +41,23 @@ namespace Data.BUS
         //        return false;
         //    }
         //}
+        public bool addFormCuonSach(int tb_SoLuongNhap,int IDsach)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                for (int i = 0; i < tb_SoLuongNhap; i++)
+                {
+                    int IDCuonSach = CuonSachDAO.Instance.IDPlus();
+                    db.CUONSACHes.Add(new CUONSACH()
+                    {
+                        IDCuonSach = IDCuonSach,
+                        IDSach = IDsach,
+                        TinhTrang = "Chưa cho mượn",
+                    });
+                }
+                return true;
+            }
+        }
         #endregion
     }
 }
