@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Desktop.HelperUI
 {
@@ -134,6 +135,21 @@ namespace Desktop.HelperUI
                     pictureBox.Hide();
                 }
             }
+        }
+        //Kiểm tra kiểu int đúng định dạng
+        public void CheckInt(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        public void checkMoney(TextBox Money)
+        {
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+            decimal value = decimal.Parse(Money.Text, System.Globalization.NumberStyles.AllowThousands);
+            Money.Text = String.Format(culture, "{0:N0}", value);
+            Money.Select(Money.Text.Length, 0);
         }
         #endregion
     }
