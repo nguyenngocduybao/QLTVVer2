@@ -35,13 +35,17 @@
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tb_ThanhTien = new System.Windows.Forms.TextBox();
+            this.tb_DonGia = new System.Windows.Forms.TextBox();
+            this.tb_SoLuong = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbb_NamXuatBan = new System.Windows.Forms.ComboBox();
+            this.tb_NhaXuatBan = new System.Windows.Forms.TextBox();
+            this.tb_SoLuongTon = new System.Windows.Forms.TextBox();
+            this.tb_GiaTien = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -58,9 +62,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbb_ThongTinTimKiem = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripBt_Luu = new System.Windows.Forms.ToolStripButton();
@@ -88,7 +89,6 @@
             this.cl_DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
@@ -172,9 +172,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.tb_ThanhTien);
+            this.groupBox3.Controls.Add(this.tb_DonGia);
+            this.groupBox3.Controls.Add(this.tb_SoLuong);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label18);
@@ -185,6 +185,30 @@
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi tiết phiếu sách";
+            // 
+            // tb_ThanhTien
+            // 
+            this.tb_ThanhTien.Location = new System.Drawing.Point(159, 121);
+            this.tb_ThanhTien.Name = "tb_ThanhTien";
+            this.tb_ThanhTien.Size = new System.Drawing.Size(340, 30);
+            this.tb_ThanhTien.TabIndex = 30;
+            this.tb_ThanhTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ThanhTien_KeyPress);
+            // 
+            // tb_DonGia
+            // 
+            this.tb_DonGia.Location = new System.Drawing.Point(159, 79);
+            this.tb_DonGia.Name = "tb_DonGia";
+            this.tb_DonGia.Size = new System.Drawing.Size(340, 30);
+            this.tb_DonGia.TabIndex = 29;
+            this.tb_DonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_DonGia_KeyPress);
+            // 
+            // tb_SoLuong
+            // 
+            this.tb_SoLuong.Location = new System.Drawing.Point(159, 36);
+            this.tb_SoLuong.Name = "tb_SoLuong";
+            this.tb_SoLuong.Size = new System.Drawing.Size(340, 30);
+            this.tb_SoLuong.TabIndex = 21;
+            this.tb_SoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_SoLuong_KeyPress);
             // 
             // label20
             // 
@@ -221,10 +245,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.cbb_NamXuatBan);
+            this.groupBox2.Controls.Add(this.tb_NhaXuatBan);
+            this.groupBox2.Controls.Add(this.tb_SoLuongTon);
+            this.groupBox2.Controls.Add(this.tb_GiaTien);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
@@ -237,26 +261,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sách";
             // 
-            // textBox3
+            // cbb_NamXuatBan
             // 
-            this.textBox3.Location = new System.Drawing.Point(159, 37);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(340, 30);
-            this.textBox3.TabIndex = 30;
+            this.cbb_NamXuatBan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_NamXuatBan.FormattingEnabled = true;
+            this.cbb_NamXuatBan.Location = new System.Drawing.Point(159, 80);
+            this.cbb_NamXuatBan.Name = "cbb_NamXuatBan";
+            this.cbb_NamXuatBan.Size = new System.Drawing.Size(340, 31);
+            this.cbb_NamXuatBan.TabIndex = 31;
             // 
-            // textBox2
+            // tb_NhaXuatBan
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 128);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(340, 30);
-            this.textBox2.TabIndex = 26;
+            this.tb_NhaXuatBan.Location = new System.Drawing.Point(159, 37);
+            this.tb_NhaXuatBan.Name = "tb_NhaXuatBan";
+            this.tb_NhaXuatBan.Size = new System.Drawing.Size(340, 30);
+            this.tb_NhaXuatBan.TabIndex = 30;
+            this.tb_NhaXuatBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_NhaXuatBan_KeyPress);
             // 
-            // textBox1
+            // tb_SoLuongTon
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 171);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(340, 30);
-            this.textBox1.TabIndex = 21;
+            this.tb_SoLuongTon.Location = new System.Drawing.Point(159, 128);
+            this.tb_SoLuongTon.Name = "tb_SoLuongTon";
+            this.tb_SoLuongTon.Size = new System.Drawing.Size(340, 30);
+            this.tb_SoLuongTon.TabIndex = 26;
+            this.tb_SoLuongTon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_SoLuongTon_KeyPress);
+            // 
+            // tb_GiaTien
+            // 
+            this.tb_GiaTien.Location = new System.Drawing.Point(159, 171);
+            this.tb_GiaTien.Name = "tb_GiaTien";
+            this.tb_GiaTien.Size = new System.Drawing.Size(340, 30);
+            this.tb_GiaTien.TabIndex = 21;
+            this.tb_GiaTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_GiaTien_KeyPress);
             // 
             // label16
             // 
@@ -322,6 +358,7 @@
             this.tb_TenDauSach.Name = "tb_TenDauSach";
             this.tb_TenDauSach.Size = new System.Drawing.Size(340, 30);
             this.tb_TenDauSach.TabIndex = 20;
+            this.tb_TenDauSach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_TenDauSach_KeyPress);
             // 
             // label2
             // 
@@ -443,27 +480,6 @@
             this.label8.Size = new System.Drawing.Size(175, 23);
             this.label8.TabIndex = 0;
             this.label8.Text = "Thông tin tìm kiếm:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(159, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(340, 30);
-            this.textBox4.TabIndex = 21;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(159, 79);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(340, 30);
-            this.textBox5.TabIndex = 29;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(159, 121);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(340, 30);
-            this.textBox6.TabIndex = 30;
             // 
             // groupControl2
             // 
@@ -726,14 +742,6 @@
             this.cl_ThanhTien.Name = "cl_ThanhTien";
             this.cl_ThanhTien.Width = 125;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(159, 80);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(340, 31);
-            this.comboBox1.TabIndex = 31;
-            // 
             // frmSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,12 +806,12 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_SoLuongTon;
+        private System.Windows.Forms.TextBox tb_GiaTien;
+        private System.Windows.Forms.TextBox tb_NhaXuatBan;
+        private System.Windows.Forms.TextBox tb_ThanhTien;
+        private System.Windows.Forms.TextBox tb_DonGia;
+        private System.Windows.Forms.TextBox tb_SoLuong;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton toolStripBt_Luu;
@@ -831,6 +839,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_DonGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_GiaTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_ThanhTien;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbb_NamXuatBan;
     }
 }

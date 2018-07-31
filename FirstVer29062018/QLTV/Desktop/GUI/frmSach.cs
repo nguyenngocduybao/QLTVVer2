@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Desktop.HelperUI;
+using System.Text.RegularExpressions;
 
 namespace Desktop.GUI
 {
@@ -26,6 +28,38 @@ namespace Desktop.GUI
         public int SoLuong;
         public decimal DonGia;
         public decimal TongTien;
+        #endregion
+        #region Event KeyPress
+        private void tb_TenDauSach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int isNumber = 0;
+            e.Handled = int.TryParse(e.KeyChar.ToString(), out isNumber);
+        }
+        private void tb_NhaXuatBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int isNumber = 0;
+            e.Handled = int.TryParse(e.KeyChar.ToString(), out isNumber);
+        }
+        private void tb_SoLuongTon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HelperGUI.Instance.CheckInt(sender, e);
+        }
+        private void tb_GiaTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HelperGUI.Instance.CheckInt(sender, e);
+        }
+        private void tb_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HelperGUI.Instance.CheckInt(sender, e);
+        }
+        private void tb_DonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HelperGUI.Instance.CheckInt(sender, e);
+        }
+        private void tb_ThanhTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HelperGUI.Instance.CheckInt(sender, e);
+        }
         #endregion
     }
 }
