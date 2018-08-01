@@ -98,6 +98,32 @@ namespace Data.DAO
                 return TenCuonSach;
             }
         }
+        //get IDLoaiSach to TenLoaiSach
+        public int getIDLoaiSachToTenLoaiSach(string TenLoaiSach)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var IDLoaiSach = (from a in db.LOAISACHes
+                                  where a.TenLoaiSach.Equals(TenLoaiSach)
+                                  select a.IDLoaiSach).ToString();
+                int ID = Int32.Parse(IDLoaiSach);
+                return ID;
+            }
+        }
+        // getIDCTTacGia to TenTacGia
+        public int getIDCTTacGiaToTenTacGia(string tentacgia)
+        {
+            using (var db=new QuanLyThuVienEntities())
+            {
+                var IDCTTacGia = (from a in db.TACGIAs
+                                  join b in db.CT_TACGIA on a.IDTacGia equals b.IDTacGia
+                                  where a.TenTacGia.Equals(tentacgia)
+                                  select b.IDCTTacGia).ToString();
+                int ID = Int32.Parse(IDCTTacGia);
+                return ID;
+            }
+        }
+       
         #endregion
 
 

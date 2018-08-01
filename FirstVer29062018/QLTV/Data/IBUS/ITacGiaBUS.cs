@@ -9,6 +9,8 @@ namespace Data.IBUS
 {
     public interface ITacGiaBUS
     {
+        //getAllForm TacGia
+        List<TacGiaDtos> getAllFormTacGia();
         //Add Form "TacGia"
         bool AddFormTacGia(TacGiaDtos tacGia);
         // getList Search IDTacGia From"TacGia"

@@ -37,6 +37,21 @@ namespace Data.BUS
             }
         }
         #region getList Search TacGiaDtos
+        //get All form TacGIa
+        public List<TacGiaDtos> getAllFormTacGia()
+        {
+            try
+            {
+                List<TacGiaDtos> ListTacGia = new List<TacGiaDtos>();
+                ListTacGia = TacGiaDAO.Instance.getAllFormTacGia();
+                return ListTacGia;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         // getList Search IDTacGia From"TacGia"
         public List<TacGiaDtos> getFormTacGiaSearchIDTacGia(int ID)
         {
@@ -83,6 +98,8 @@ namespace Data.BUS
                 throw;
             }
         }
+
+      
         #endregion
     }
 }

@@ -42,8 +42,13 @@ namespace Data.BUS
                             IDCuonSach = GetDataDAO.Instance.getIDCuonSach(TenDauSach[i]),
                             IDPhieuMuon = ID,
                         });
-                        db.SaveChanges();
+                        var updateTinhTrang = (from a in db.CUONSACHes
+                                               where a.IDCuonSach.Equals(GetDataDAO.Instance.getIDCuonSach(TenDauSach[i]))
+                                               select a).FirstOrDefault<CUONSACH>();
+                        updateTinhTrang.TinhTrang = "Đã cho mượn";
                     }
+
+                    db.SaveChanges();
                     return true;
                 }
             }

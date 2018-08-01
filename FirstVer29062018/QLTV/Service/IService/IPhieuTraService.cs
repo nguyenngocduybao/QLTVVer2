@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface IPhieuTraBUS
+    public interface IPhieuTraService
     {
         //Add Form "PhieuTra"
-        bool AddFormPhieuTra(PhieuTraDtos phieutra, List<int> IDCuonSach);
+        void AddFormPhieuTra(PhieuTraDtos phieutra, List<int> IDCuonSach);
     }
 }

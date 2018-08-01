@@ -9,6 +9,8 @@ namespace Service.IService
 {
     public interface ITacGiaService
     {
+        //getAllForm TacGia
+        List<TacGiaDtos> getAllFormTacGia();
         //Add Form "TacGia"
         void AddFormTacGia(TacGiaDtos tacGia);
         // getList Search IDTacGia From"TacGia"
