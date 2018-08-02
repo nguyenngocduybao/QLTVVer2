@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Data.IBUS;
 using Data.Model;
 using Data.DAO;
+using Data.BUS;
 using Data.Dtos;
 using Data.DTO;
 namespace Data.BUS
@@ -66,22 +67,23 @@ namespace Data.BUS
                             {
                                 IDCTPhieuNhap = IDCT,
                                 IDSach = IDsach,
-                                IDPhieuNhap = sach.IDPhieuNhap,
+                                IDPhieuNhap = GetDataDAO.Instance.getIDPhieuNhapToNgayNhapSach(sach.NgayNhap),
                                 SoLuong = sach.SoLuong,
                                 DonGia = sach.DonGia,
                                 ThanhTien = sach.DonGia * sach.SoLuong,
                             });
-                            var update = (from b in db.PHIEUNHAPSACHes
+                            var update = (
+                                          from b in db.PHIEUNHAPSACHes
                                           where b.IDPhieuNhap.Equals(sach.IDPhieuNhap)
                                           select b).FirstOrDefault<PHIEUNHAPSACH>();
                             update.TongTien = update.TongTien + (sach.DonGia * sach.SoLuong);
-
                         }
                     }
                     var updateSoLuong = (from a in db.SACHes
-                                         where a.IDDauSach.Equals(IDsach)
+                                         where a.IDSach.Equals(IDsach)
                                          select a).FirstOrDefault<SACH>();
                     updateSoLuong.SoLuongTon = updateSoLuong.SoLuongTon + sach.SoLuong;
+                    CuonSachDAO.Instance.addFormCuonSach(sach.SoLuong, IDsach);
                     db.SaveChanges();
                     return true;
                 }  
