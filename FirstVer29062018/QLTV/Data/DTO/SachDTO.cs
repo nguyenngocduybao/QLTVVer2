@@ -22,6 +22,7 @@ namespace Data.DTO
         public string TenLoaiSach { get; set; }
         public int IDCTPhieuNhap { get; set; }
         public int IDPhieuNhap { get; set; }
+        public DateTime NgayNhap { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGia { get; set; }
         public decimal TongTien { get; set; }

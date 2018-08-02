@@ -123,7 +123,20 @@ namespace Data.DAO
                 return ID;
             }
         }
-       
+       // getIDPhieuNhap to NgayNhapSach
+       public int getIDPhieuNhapToNgayNhapSach(DateTime NgayNhap)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var IDPhieuNhap = (from a in db.PHIEUNHAPSACHes
+                                   where a.NgayNhap.Equals(NgayNhap)
+                                   select a.IDPhieuNhap);
+                if (IDPhieuNhap.Count() != 0)
+                    return PhieuNhapSachDAO.Instance.IDPlus();
+                else
+                    return IDPhieuNhap.FirstOrDefault();
+            }
+        }
         #endregion
 
 
