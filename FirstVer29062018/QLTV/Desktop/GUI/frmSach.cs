@@ -22,6 +22,8 @@ namespace Desktop.GUI
         #region Value
         public string TenDauSach;
         public string NhaXB;
+        string TenLoaiSach;
+        string TenTacGia;
         public int NamXB;
         public int SoLuongTon;
         public decimal GiaTien;
@@ -32,13 +34,15 @@ namespace Desktop.GUI
         #region Event KeyPress
         private void tb_TenDauSach_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int isNumber = 0;
-            e.Handled = int.TryParse(e.KeyChar.ToString(), out isNumber);
+            HelperGUI.Instance.CheckKiTu(sender, e);
         }
         private void tb_NhaXuatBan_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int isNumber = 0;
-            e.Handled = int.TryParse(e.KeyChar.ToString(), out isNumber);
+            HelperGUI.Instance.CheckKiTu(sender, e);
+        }
+        private void tb_TenTacGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            HelperGUI.Instance.CheckKiTu(sender, e);
         }
         private void tb_SoLuongTon_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -60,6 +64,7 @@ namespace Desktop.GUI
         {
             HelperGUI.Instance.CheckInt(sender, e);
         }
+
         #endregion
     }
 }

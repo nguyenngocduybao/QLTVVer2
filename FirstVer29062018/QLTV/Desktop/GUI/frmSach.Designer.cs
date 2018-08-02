@@ -76,12 +76,18 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBt_Thoat = new System.Windows.Forms.ToolStripButton();
             this.dgv_DuLieu = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbb_TheLoaiSach = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_TenTacGia = new System.Windows.Forms.TextBox();
             this.cl_IDDS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_IDLoaiSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_IDSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_IDCTTacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_IDCTPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TenDauSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TenTacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TenLoaiSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_NhaXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_NamXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,9 +127,9 @@
             this.navigationPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage2,
             this.navigationPage1});
-            this.navigationPane1.RegularSize = new System.Drawing.Size(618, 640);
+            this.navigationPane1.RegularSize = new System.Drawing.Size(618, 717);
             this.navigationPane1.SelectedPage = this.navigationPage2;
-            this.navigationPane1.Size = new System.Drawing.Size(618, 640);
+            this.navigationPane1.Size = new System.Drawing.Size(618, 717);
             this.navigationPane1.TabIndex = 1;
             this.navigationPane1.Text = "Tìm kiếm thông tin độc giả";
             // 
@@ -136,7 +142,7 @@
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
             this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(520, 580);
+            this.navigationPage2.Size = new System.Drawing.Size(520, 657);
             // 
             // navigationFrame1
             // 
@@ -166,7 +172,7 @@
             this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
             this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(520, 617);
+            this.groupControl_TTDG.Size = new System.Drawing.Size(520, 698);
             this.groupControl_TTDG.TabIndex = 0;
             this.groupControl_TTDG.Text = "Thông tin sách";
             // 
@@ -179,7 +185,7 @@
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 335);
+            this.groupBox3.Location = new System.Drawing.Point(0, 424);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(520, 172);
             this.groupBox3.TabIndex = 18;
@@ -245,6 +251,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tb_TenTacGia);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cbb_NamXuatBan);
             this.groupBox2.Controls.Add(this.tb_NhaXuatBan);
             this.groupBox2.Controls.Add(this.tb_SoLuongTon);
@@ -254,9 +262,9 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 116);
+            this.groupBox2.Location = new System.Drawing.Point(0, 161);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(520, 219);
+            this.groupBox2.Size = new System.Drawing.Size(520, 263);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sách";
@@ -265,14 +273,14 @@
             // 
             this.cbb_NamXuatBan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_NamXuatBan.FormattingEnabled = true;
-            this.cbb_NamXuatBan.Location = new System.Drawing.Point(159, 80);
+            this.cbb_NamXuatBan.Location = new System.Drawing.Point(159, 122);
             this.cbb_NamXuatBan.Name = "cbb_NamXuatBan";
             this.cbb_NamXuatBan.Size = new System.Drawing.Size(340, 31);
             this.cbb_NamXuatBan.TabIndex = 31;
             // 
             // tb_NhaXuatBan
             // 
-            this.tb_NhaXuatBan.Location = new System.Drawing.Point(159, 37);
+            this.tb_NhaXuatBan.Location = new System.Drawing.Point(159, 79);
             this.tb_NhaXuatBan.Name = "tb_NhaXuatBan";
             this.tb_NhaXuatBan.Size = new System.Drawing.Size(340, 30);
             this.tb_NhaXuatBan.TabIndex = 30;
@@ -280,7 +288,7 @@
             // 
             // tb_SoLuongTon
             // 
-            this.tb_SoLuongTon.Location = new System.Drawing.Point(159, 128);
+            this.tb_SoLuongTon.Location = new System.Drawing.Point(159, 170);
             this.tb_SoLuongTon.Name = "tb_SoLuongTon";
             this.tb_SoLuongTon.Size = new System.Drawing.Size(340, 30);
             this.tb_SoLuongTon.TabIndex = 26;
@@ -288,7 +296,7 @@
             // 
             // tb_GiaTien
             // 
-            this.tb_GiaTien.Location = new System.Drawing.Point(159, 171);
+            this.tb_GiaTien.Location = new System.Drawing.Point(159, 213);
             this.tb_GiaTien.Name = "tb_GiaTien";
             this.tb_GiaTien.Size = new System.Drawing.Size(340, 30);
             this.tb_GiaTien.TabIndex = 21;
@@ -299,7 +307,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(6, 171);
+            this.label16.Location = new System.Drawing.Point(6, 213);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 23);
             this.label16.TabIndex = 25;
@@ -310,7 +318,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(6, 128);
+            this.label15.Location = new System.Drawing.Point(6, 170);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(125, 23);
             this.label15.TabIndex = 24;
@@ -321,7 +329,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(6, 83);
+            this.label14.Location = new System.Drawing.Point(6, 125);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(136, 23);
             this.label14.TabIndex = 23;
@@ -332,7 +340,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(6, 37);
+            this.label13.Location = new System.Drawing.Point(6, 79);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(131, 23);
             this.label13.TabIndex = 22;
@@ -341,13 +349,15 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.cbb_TheLoaiSach);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tb_TenDauSach);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox1.Location = new System.Drawing.Point(0, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 78);
+            this.groupBox1.Size = new System.Drawing.Size(520, 123);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đầu sách";
@@ -375,7 +385,7 @@
             // 
             this.bt_Lamlai.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Lamlai.Image = ((System.Drawing.Image)(resources.GetObject("bt_Lamlai.Image")));
-            this.bt_Lamlai.Location = new System.Drawing.Point(277, 534);
+            this.bt_Lamlai.Location = new System.Drawing.Point(281, 615);
             this.bt_Lamlai.Name = "bt_Lamlai";
             this.bt_Lamlai.Size = new System.Drawing.Size(94, 42);
             this.bt_Lamlai.TabIndex = 15;
@@ -388,7 +398,7 @@
             // 
             this.bt_CNDL.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_CNDL.Image = ((System.Drawing.Image)(resources.GetObject("bt_CNDL.Image")));
-            this.bt_CNDL.Location = new System.Drawing.Point(83, 534);
+            this.bt_CNDL.Location = new System.Drawing.Point(77, 615);
             this.bt_CNDL.Name = "bt_CNDL";
             this.bt_CNDL.Size = new System.Drawing.Size(142, 42);
             this.bt_CNDL.TabIndex = 14;
@@ -396,7 +406,6 @@
             this.bt_CNDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_CNDL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_CNDL.UseVisualStyleBackColor = true;
-            // 
             // navigationPage1
             // 
             this.navigationPage1.Caption = "Tìm kiếm thông tin độc giả";
@@ -496,7 +505,7 @@
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl2.Location = new System.Drawing.Point(624, 52);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(612, 588);
+            this.groupControl2.Size = new System.Drawing.Size(612, 665);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Dữ liệu độc giả";
             // 
@@ -627,6 +636,8 @@
             this.cl_IDCTTacGia,
             this.cl_IDCTPhieuNhap,
             this.cl_TenDauSach,
+            this.cl_TenTacGia,
+            this.cl_TenLoaiSach,
             this.cl_NhaXB,
             this.cl_NamXB,
             this.cl_SoLuong,
@@ -636,8 +647,47 @@
             this.cl_ThanhTien});
             this.dgv_DuLieu.Location = new System.Drawing.Point(0, 66);
             this.dgv_DuLieu.Name = "dgv_DuLieu";
-            this.dgv_DuLieu.Size = new System.Drawing.Size(612, 522);
+            this.dgv_DuLieu.Size = new System.Drawing.Size(612, 599);
             this.dgv_DuLieu.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(6, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 23);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Thẻ loại sách:";
+            // 
+            // cbb_TheLoaiSach
+            // 
+            this.cbb_TheLoaiSach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_TheLoaiSach.FormattingEnabled = true;
+            this.cbb_TheLoaiSach.Location = new System.Drawing.Point(159, 82);
+            this.cbb_TheLoaiSach.Name = "cbb_TheLoaiSach";
+            this.cbb_TheLoaiSach.Size = new System.Drawing.Size(340, 31);
+            this.cbb_TheLoaiSach.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(6, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 23);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Tên tác giả:";
+            // 
+            // tb_TenTacGia
+            // 
+            this.tb_TenTacGia.Location = new System.Drawing.Point(159, 38);
+            this.tb_TenTacGia.Name = "tb_TenTacGia";
+            this.tb_TenTacGia.Size = new System.Drawing.Size(340, 30);
+            this.tb_TenTacGia.TabIndex = 33;
+            this.tb_TenTacGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_TenTacGia_KeyPress);
             // 
             // cl_IDDS
             // 
@@ -686,6 +736,20 @@
             this.cl_TenDauSach.HeaderText = "Tên đầu sách";
             this.cl_TenDauSach.Name = "cl_TenDauSach";
             this.cl_TenDauSach.Width = 146;
+            // 
+            // cl_TenTacGia
+            // 
+            this.cl_TenTacGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cl_TenTacGia.DataPropertyName = "TenTacGia";
+            this.cl_TenTacGia.HeaderText = "Tên tác giả";
+            this.cl_TenTacGia.Name = "cl_TenTacGia";
+            // 
+            // cl_TenLoaiSach
+            // 
+            this.cl_TenLoaiSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cl_TenLoaiSach.DataPropertyName = "TenLoaiSach";
+            this.cl_TenLoaiSach.HeaderText = "Tên loại sách";
+            this.cl_TenLoaiSach.Name = "cl_TenLoaiSach";
             // 
             // cl_NhaXB
             // 
@@ -746,7 +810,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 640);
+            this.ClientSize = new System.Drawing.Size(1229, 717);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmSach";
@@ -826,12 +890,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton toolStripBt_Thoat;
         private System.Windows.Forms.DataGridView dgv_DuLieu;
+        private System.Windows.Forms.ComboBox cbb_NamXuatBan;
+        private System.Windows.Forms.TextBox tb_TenTacGia;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbb_TheLoaiSach;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDDS;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDLoaiSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDCTTacGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDCTPhieuNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenDauSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenTacGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenLoaiSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_NhaXB;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_NamXB;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_SoLuong;
@@ -839,6 +910,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_DonGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_GiaTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_ThanhTien;
-        private System.Windows.Forms.ComboBox cbb_NamXuatBan;
     }
 }

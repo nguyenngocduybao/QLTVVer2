@@ -69,6 +69,12 @@ namespace Desktop.HelperUI
             }
             return valid;
         }
+        //check không cho nhập số
+        public void CheckKiTu(object sender, KeyPressEventArgs e)
+        {
+            int isNumber = 0;
+            e.Handled = int.TryParse(e.KeyChar.ToString(), out isNumber);
+        }
         //check Email có nhiều hơn 4 kí tự
         public bool checkIsMail(TextBox Email)
         {
@@ -144,12 +150,11 @@ namespace Desktop.HelperUI
                 e.Handled = true;
             }
         }
-        public void checkMoney(TextBox Money)
+        public decimal checkMoney(Decimal Tien, TextBox Money)
         {
-            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-            decimal value = decimal.Parse(Money.Text, System.Globalization.NumberStyles.AllowThousands);
-            Money.Text = String.Format(culture, "{0:N0}", value);
-            Money.Select(Money.Text.Length, 0);
+            int a = int.Parse(Money.Text.ToString());
+            Tien = Convert.ToDecimal(String.Format("{0:0,0}", a));
+            return Tien;
         }
         #endregion
     }
