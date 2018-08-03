@@ -125,8 +125,7 @@ namespace Desktop.GUI
         #region Event KeyPress
         private void tb_HoTenDG_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int isNumber = 0;
-            e.Handled = int.TryParse(e.KeyChar.ToString(), out isNumber);
+            HelperGUI.Instance.CheckKiTu(sender, e);
         }
         #endregion
         #region getValueChanged Combobox
