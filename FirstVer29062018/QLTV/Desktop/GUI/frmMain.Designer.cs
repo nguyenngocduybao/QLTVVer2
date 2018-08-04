@@ -144,6 +144,7 @@
             this.btn_TGia.Id = 8;
             this.btn_TGia.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TGia.ImageOptions.LargeImage")));
             this.btn_TGia.Name = "btn_TGia";
+            this.btn_TGia.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TGia_ItemClick);
             // 
             // btn_CTTGia
             // 
