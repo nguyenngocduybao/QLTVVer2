@@ -12,7 +12,7 @@ namespace Data.BUS
 {
     public class LoaiDocGiaBUS : ILoaiDocGiaBUS
     {
-        //Add From LoaiDocGia
+        #region  Add From LoaiDocGia
         public bool ADDLoaiDocGia(LoaiDocGiaDtos LoaiDG)
         {
             try
@@ -36,6 +36,7 @@ namespace Data.BUS
                 return false;
             }
         }
+        #endregion
         #region getListSearch LoaiDocGiaDtos
         //get List Search IDLoaiDG
         public List<LoaiDocGiaDtos> getFormLoaiDocGiaSearchIDLoaiDG(int ID)

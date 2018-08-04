@@ -11,5 +11,7 @@ namespace Service.IService
     {
         //add FormCTTacGia
         void addFormCTTacGia(CTTacGiaDtos tacGia);
+        //edit Form CTTacGia
+        void editFormCTTacGia(CTTacGiaDtos ctTacGia);
     }
 }

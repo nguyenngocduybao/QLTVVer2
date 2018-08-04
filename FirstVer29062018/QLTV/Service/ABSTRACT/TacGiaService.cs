@@ -24,6 +24,12 @@ namespace Service.ABSTRACT
         {
             this._TacGia.AddFormTacGia(tacGia);
         }
+        //Edit FormTacGia
+        public void editFormTacGia(TacGiaDtos tacgia)
+        {
+            this._TacGia.editFormTacGia(tacgia);
+        }
+
         //getAllForm TacGia
         public List<TacGiaDtos> getAllFormTacGia()
         {

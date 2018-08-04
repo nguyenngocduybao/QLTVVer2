@@ -10,7 +10,8 @@ namespace Data.IBUS
 {
     public interface IPhieuMuonBUS
     {
-       
+        // editForm PhieuMuon And CTPhieuMuon
+        bool editFormPhieuMuonAndCTPhieuMuon(PhieuMuonDTO phieumuon);
         //Add Form PhieuMuon and CTPhieuMuon
         bool AddFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> TenDauSach);
         #region getList Search PhieuMuonDTO
@@ -25,5 +26,6 @@ namespace Data.IBUS
         #endregion
         //Get All Form "PhieuMuon" and "CTPhieuMuon"
         List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon();
+        
     }
 }

@@ -122,6 +122,41 @@ namespace Data.BUS
             }
         }
         #endregion
+        #region editForm PhieuMuon And CTPhieuMuon
+        public bool editFormPhieuMuonAndCTPhieuMuon(PhieuMuonDTO phieumuon)
+        {
+            try
+            {
+                using (var db= new QuanLyThuVienEntities())
+                {
+                    var Edit = (from a in db.PHIEUMUONs
+                                where a.IDPhieuMuon.Equals(phieumuon.IDPhieuMuon)
+                                select a).FirstOrDefault();
+                    if (Edit == null) return false;
+                    Edit.NgayMuon = phieumuon.NgayMuon;
+                    Edit.IDDocGia = phieumuon.IDDocGia;
+                    Edit.HanTra = PhieuMuonDAO.Instance.HanMuonSach(phieumuon.NgayMuon);
+                    var EditCT = (from a in db.CT_PHIEUMUON
+                                  where a.IDCTPhieuMuon.Equals(phieumuon.IDCTPhieuMuon)
+                                  select a).FirstOrDefault();
+                    if (EditCT == null) return false;
+                    EditCT.IDCuonSach = GetDataDAO.Instance.getIDCuonSach(phieumuon.TenDauSach);
+                    EditCT.IDPhieuMuon = phieumuon.IDPhieuMuon;
+                    var updateTinhTrang = (from a in db.CUONSACHes
+                                           where a.IDCuonSach.Equals(GetDataDAO.Instance.getIDCuonSach(phieumuon.TenDauSach))
+                                           select a).FirstOrDefault<CUONSACH>();
+                    updateTinhTrang.TinhTrang = "Đã cho mượn";
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        #endregion
         #region getAll FormPhieuMuonAndCTPhieuMuon
         public List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon()
         {

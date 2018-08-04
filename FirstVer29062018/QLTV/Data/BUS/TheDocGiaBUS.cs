@@ -50,6 +50,44 @@ namespace Data.BUS
                return false;
             }
         }
+        #endregion
+        #region Edit Form "DocGia" And "User"
+        public bool editFormDocGiaAndUser(TheDocGiaDTO thedocgia)
+        {
+            try
+            {
+                using (var db= new QuanLyThuVienEntities())
+                {
+                    var Edit = (from a in db.THEDOCGIAs
+                                where a.IDDocGia.Equals(thedocgia.IDDocGia)
+                                select a).FirstOrDefault();
+                    if (Edit == null) return false;
+                    Edit.HoTenDG = thedocgia.HoTenDG;
+                    Edit.DiaChiDG = thedocgia.DiaChiDG;
+                    Edit.EmailDG = thedocgia.EmailDG;
+                    Edit.NgaySinhDG = thedocgia.NgaySinhDG;
+                    Edit.NgayLapThe = thedocgia.NgayLapThe;
+                    Edit.IDLoaiDG = thedocgia.IDLoaiDocGia;
+                    Edit.NgayHetHan = thedocgia.NgayHetHan;
+                    Edit.TongNo = thedocgia.TongNo;
+                    db.SaveChanges();
+                    var EditUser = (from a in db.USERS
+                                    where a.IDDocGia.Equals(thedocgia.IDDocGia)
+                                    select a).FirstOrDefault();
+                    if (EditUser == null) return false;
+                    EditUser.Pwd = thedocgia.Password;
+                    EditUser.UserName = thedocgia.UserName;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        #endregion
         #region getList All "DocGia" and "User"
         public List<TheDocGiaDTO> getAllDocGiaAndUser()
         {
@@ -58,6 +96,8 @@ namespace Data.BUS
             return listTheDocGiaDTO;
         }
         #endregion
+        #region getListSearch From "TheDocGia"
+        //getList Search DiaChiDG
         public List<TheDocGiaDTO> getFormTheDocGiaSearchDiaChiDG(string DiaChiDG)
         {
             try
@@ -73,8 +113,6 @@ namespace Data.BUS
                 throw;
             }
         }
-        #endregion
-        #region getListSearch From "TheDocGia"
         // getListSearch HoTenDG From "TheDocGia"
         public List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG)
         {

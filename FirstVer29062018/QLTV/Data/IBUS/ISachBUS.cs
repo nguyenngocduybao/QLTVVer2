@@ -11,6 +11,8 @@ namespace Data.IBUS
     {
         // Add Form Sach
         bool ADDFormSach(SachDTO sach);
+        //EditForm DauSach, Sach, CT_PhieuNhap
+        bool editFormDauSachAndSachAndCTPhieuNhap(SachDTO sach);
         #region getListSearch SachDTO
         //get List Search IDSach 
         List<SachDTO> getFormSachSearchIDSach(int IDsach);

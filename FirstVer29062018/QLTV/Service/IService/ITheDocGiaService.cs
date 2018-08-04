@@ -11,6 +11,8 @@ namespace Service.IService
     {
         // Add From"TheDocGia" and "User"
         void AddTheDocGiaAndUser(TheDocGiaDtos DocGia, UserDtos user);
+        //Edit Form "DocGia" And "User"
+        void editFormDocGiaAndUser(TheDocGiaDTO thedocgia);
         #region getlist"TheDocGiaDTO" All"DocGia"and User 
         List<TheDocGiaDTO> getAllDocGiaAndUser();
         #endregion

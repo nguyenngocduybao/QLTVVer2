@@ -11,6 +11,8 @@ namespace Data.IBUS
     {
         //getAllForm TacGia
         List<TacGiaDtos> getAllFormTacGia();
+        //Edit Form "TacGia"
+        bool editFormTacGia(TacGiaDtos tacgia);
         //Add Form "TacGia"
         bool AddFormTacGia(TacGiaDtos tacGia);
         // getList Search IDTacGia From"TacGia"

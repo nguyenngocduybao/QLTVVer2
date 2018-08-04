@@ -24,6 +24,11 @@ namespace Service.ABSTRACT
         {
             _TheDocGiaBUS.AddTheDocGiaAndUser(DocGia, user);
         }
+        // Edit Form DocGia and User
+        public void editFormDocGiaAndUser(TheDocGiaDTO thedocgia)
+        {
+            this._TheDocGiaBUS.editFormDocGiaAndUser(thedocgia);
+        }
         #region getList"TheDOcGiaDTO" All "DocGia" and "User"
         public List<TheDocGiaDTO> getAllDocGiaAndUser()
         {
@@ -61,6 +66,8 @@ namespace Service.ABSTRACT
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchUserName(Username);
         }
+
+        
 
 
         #endregion
