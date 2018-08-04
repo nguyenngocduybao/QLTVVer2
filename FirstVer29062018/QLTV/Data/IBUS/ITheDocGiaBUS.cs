@@ -11,6 +11,8 @@ namespace Data.IBUS
     public interface ITheDocGiaBUS
     {
         bool AddTheDocGiaAndUser(TheDocGiaDtos DocGia, UserDtos user);
+        //Edit Form "DocGia" And "User"
+        bool editFormDocGiaAndUser(TheDocGiaDTO thedocgia);
         #region getListSearch Form "TheDocGia"
         List<TheDocGiaDTO> getFromTheDocGiaSearchHoTen(string TenDG);
         List<TheDocGiaDTO> getFormTheDocGiaSearchEmailDG(string EmailDG);

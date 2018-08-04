@@ -24,8 +24,13 @@ namespace Service.ABSTRACT
         {
             this._iPhieuMuonBUS.AddFormPhieuMuonAndCTPhieuMuon(phieuMuon, tb_TenSach);
         }
+        //edit Form PhieuMuon and CTphieuMuon
+        public void editFormPhieuMuonAndCTPhieuMuon(PhieuMuonDTO phieumuon)
+        {
+            this._iPhieuMuonBUS.editFormPhieuMuonAndCTPhieuMuon(phieumuon);
+        }
 
-        
+
         #region getAll Form PhieuMuon and CTPhieuMuon
         public List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon()
         {

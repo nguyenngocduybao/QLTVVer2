@@ -11,5 +11,7 @@ namespace Data.IBUS
     {
         //Add Form CTTacGia
         bool addFormCTTacGia(CTTacGiaDtos tacGia);
+        //Edit Form CTTacGia
+        bool editFormCTTacGia(CTTacGiaDtos ctTacGia);
     }
 }

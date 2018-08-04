@@ -10,6 +10,8 @@ namespace Service.IService
 {
     public interface IPhieuMuonService
     {
+        // editForm PhieuMuon And CTPhieuMuon
+        void editFormPhieuMuonAndCTPhieuMuon(PhieuMuonDTO phieumuon);
         //Add Form PhieuMuon and CTPhieuMuon
         void  addFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> tb_TenSach);
         #region getList Search PhieuMuonDTO

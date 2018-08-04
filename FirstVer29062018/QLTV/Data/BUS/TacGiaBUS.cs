@@ -12,7 +12,7 @@ namespace Data.BUS
 {
     public class TacGiaBUS : ITacGiaBUS
     {
-        //Add Form "TacGia"
+        #region  Add Form "TacGia"
         public bool AddFormTacGia(TacGiaDtos tacGia)
         {
             try
@@ -36,6 +36,32 @@ namespace Data.BUS
                 return false;
             }
         }
+        #endregion
+        #region Edit Form "TacGia"
+        public bool editFormTacGia(TacGiaDtos tacgia)
+        {
+            try
+            {
+                using (var db = new QuanLyThuVienEntities())
+                {
+                    var EditTacGia = (from a in db.TACGIAs
+                                      where a.IDTacGia.Equals(tacgia.IDTacGia)
+                                      select a).FirstOrDefault();
+                    if (EditTacGia == null) return false;
+                    EditTacGia.TenTacGia = tacgia.TenTacGia;
+                    EditTacGia.NgaySinh = tacgia.NgaySinh;
+                    db.SaveChanges();
+                    return true;
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        #endregion
         #region getList Search TacGiaDtos
         //get All form TacGIa
         public List<TacGiaDtos> getAllFormTacGia()

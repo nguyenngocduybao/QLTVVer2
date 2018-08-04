@@ -51,5 +51,29 @@ namespace Data.BUS
                
         }
         #endregion
+        #region editForm CTTacGia
+        public bool editFormCTTacGia(CTTacGiaDtos ctTacGia)
+        {
+            try
+            {
+                using (var db = new QuanLyThuVienEntities())
+                {
+                    var editCTTacGia = (from a in db.CT_TACGIA
+                                        where a.IDCTTacGia.Equals(ctTacGia.IDCTTacGia)
+                                        select a).FirstOrDefault();
+                    if (editCTTacGia == null) return false;
+                    editCTTacGia.IDTacGia = ctTacGia.IDTacGia;
+                    editCTTacGia.IDDauSach = ctTacGia.IDDauSach;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
     }
 }

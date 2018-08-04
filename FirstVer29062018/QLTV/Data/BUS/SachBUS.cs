@@ -94,6 +94,48 @@ namespace Data.BUS
             }
         }
         #endregion
+        #region EditForm DauSach,Sach,CT_PhieuNhap
+        public bool editFormDauSachAndSachAndCTPhieuNhap(SachDTO sach)
+        {
+            try
+            {
+                using(var db = new QuanLyThuVienEntities())
+                {
+                    var EditDAUSACH = (from a in db.DAUSACHes
+                                where a.IDDauSach.Equals(sach.IDDauSach)
+                                select a).FirstOrDefault();
+                    if (EditDAUSACH == null) return false;
+                    EditDAUSACH.IDLoaiSach = GetDataDAO.Instance.getIDLoaiSachToTenLoaiSach(sach.TenLoaiSach);
+                    EditDAUSACH.TenDauSach = sach.TenDauSach;
+                    var EditSach = (from a in db.SACHes
+                                    where a.IDSach.Equals(sach.IDSach)
+                                    select a).FirstOrDefault();
+                    if (EditSach == null) return false;
+                    EditSach.IDDauSach = sach.IDDauSach;
+                    EditSach.IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia);
+                    EditSach.NamXB = sach.NamXB;
+                    EditSach.NhaXB = sach.NhaXB;
+                    EditSach.SoLuongTon = sach.SoLuongTon + sach.SoLuong;
+                    EditSach.GiaTien = sach.GiaTien;
+                    var EditCTPhieuNhap = (from a in db.CT_PHIEUNHAPSACH
+                                           where a.IDCTPhieuNhap.Equals(sach.IDCTPhieuNhap)
+                                           select a).FirstOrDefault();
+                    EditCTPhieuNhap.IDPhieuNhap = GetDataDAO.Instance.getIDPhieuNhapToNgayNhapSach(sach.NgayNhap);
+                    EditCTPhieuNhap.IDSach = sach.IDSach;
+                    EditCTPhieuNhap.SoLuong = sach.SoLuong;
+                    EditCTPhieuNhap.DonGia = sach.DonGia;
+                    EditCTPhieuNhap.ThanhTien = sach.SoLuong * sach.DonGia;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        #endregion
         #region getListSearch SachDTO
         //get List Search NamXuatban
         public List<SachDTO> getFormSachNamXuatBan(string NamXB)

@@ -22,5 +22,10 @@ namespace Service.ABSTRACT
         {
             this._iTacGiaBUS.addFormCTTacGia(tacGia);
         }
+
+        public void editFormCTTacGia(CTTacGiaDtos ctTacGia)
+        {
+            this._iTacGiaBUS.editFormCTTacGia(ctTacGia);
+        }
     }
 }
