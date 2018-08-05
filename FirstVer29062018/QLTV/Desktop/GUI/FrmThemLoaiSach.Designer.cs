@@ -32,16 +32,16 @@
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl_TLS = new DevExpress.XtraEditors.GroupControl();
+            this.tb_TheLoaiSach = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bt_CNDL = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).BeginInit();
-            this.groupControl_TTDG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TLS)).BeginInit();
+            this.groupControl_TLS.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationPane1
@@ -65,7 +65,7 @@
             // 
             this.navigationPage2.Caption = "Thêm thể loại sách";
             this.navigationPage2.Controls.Add(this.navigationFrame1);
-            this.navigationPage2.Controls.Add(this.groupControl_TTDG);
+            this.navigationPage2.Controls.Add(this.groupControl_TLS);
             this.navigationPage2.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
@@ -82,25 +82,32 @@
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
-            // groupControl_TTDG
+            // groupControl_TLS
             // 
-            this.groupControl_TTDG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupControl_TLS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupControl_TTDG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.Appearance.Options.UseFont = true;
-            this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.AppearanceCaption.Options.UseFont = true;
-            this.groupControl_TTDG.AutoSize = true;
-            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
-            this.groupControl_TTDG.Controls.Add(this.textBox1);
-            this.groupControl_TTDG.Controls.Add(this.label2);
-            this.groupControl_TTDG.Controls.Add(this.bt_CNDL);
-            this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(471, 628);
-            this.groupControl_TTDG.TabIndex = 0;
-            this.groupControl_TTDG.Text = "Thông tin thể loại";
+            this.groupControl_TLS.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TLS.Appearance.Options.UseFont = true;
+            this.groupControl_TLS.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TLS.AppearanceCaption.Options.UseFont = true;
+            this.groupControl_TLS.AutoSize = true;
+            this.groupControl_TLS.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_TLS.Controls.Add(this.tb_TheLoaiSach);
+            this.groupControl_TLS.Controls.Add(this.label2);
+            this.groupControl_TLS.Controls.Add(this.bt_CNDL);
+            this.groupControl_TLS.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.groupControl_TLS.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_TLS.Name = "groupControl_TLS";
+            this.groupControl_TLS.Size = new System.Drawing.Size(471, 628);
+            this.groupControl_TLS.TabIndex = 0;
+            this.groupControl_TLS.Text = "Thông tin thể loại";
+            // 
+            // tb_TheLoaiSach
+            // 
+            this.tb_TheLoaiSach.Location = new System.Drawing.Point(136, 81);
+            this.tb_TheLoaiSach.Name = "tb_TheLoaiSach";
+            this.tb_TheLoaiSach.Size = new System.Drawing.Size(248, 30);
+            this.tb_TheLoaiSach.TabIndex = 15;
             // 
             // label2
             // 
@@ -126,13 +133,6 @@
             this.bt_CNDL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_CNDL.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(136, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 30);
-            this.textBox1.TabIndex = 15;
-            // 
             // FrmThemLoaiSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,9 +146,9 @@
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).EndInit();
-            this.groupControl_TTDG.ResumeLayout(false);
-            this.groupControl_TTDG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TLS)).EndInit();
+            this.groupControl_TLS.ResumeLayout(false);
+            this.groupControl_TLS.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,9 +158,9 @@
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraEditors.GroupControl groupControl_TTDG;
+        private DevExpress.XtraEditors.GroupControl groupControl_TLS;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bt_CNDL;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_TheLoaiSach;
     }
 }
