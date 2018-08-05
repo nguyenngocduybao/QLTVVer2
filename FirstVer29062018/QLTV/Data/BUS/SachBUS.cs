@@ -52,7 +52,7 @@ namespace Data.BUS
                             IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia),
                             GiaTien = sach.GiaTien,
                             NamXB = sach.NamXB,
-                            SoLuongTon = sach.SoLuongTon,
+                            SoLuongTon = 0,
                             NhaXB = sach.NhaXB,
 
                         });
