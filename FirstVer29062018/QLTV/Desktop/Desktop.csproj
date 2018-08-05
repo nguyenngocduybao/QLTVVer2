@@ -74,6 +74,12 @@
     <Compile Include="GUI\frmSach.Designer.cs">
       <DependentUpon>frmSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmTacGia.Designer.cs">
+      <DependentUpon>frmTacGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmTheDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmSach.resx">
       <DependentUpon>frmSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmTacGia.resx">
+      <DependentUpon>frmTacGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmTheDocGia.resx">
       <DependentUpon>frmTheDocGia.cs</DependentUpon>
