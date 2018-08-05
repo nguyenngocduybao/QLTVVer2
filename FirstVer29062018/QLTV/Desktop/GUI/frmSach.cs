@@ -66,5 +66,11 @@ namespace Desktop.GUI
         }
 
         #endregion
+
+        private void btn_ThemLoaiSach_Click(object sender, EventArgs e)
+        {
+            FrmThemLoaiSach frm = new FrmThemLoaiSach();
+            frm.ShowDialog();
+        }
     }
 }

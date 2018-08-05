@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data;
+using Data.Dtos;
+using Service.ABSTRACT;
+
 
 namespace Desktop.GUI
 {
@@ -15,6 +19,11 @@ namespace Desktop.GUI
         public FrmThemLoaiSach()
         {
             InitializeComponent();
+        }
+
+        private void bt_CNDL_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

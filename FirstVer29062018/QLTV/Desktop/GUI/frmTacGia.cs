@@ -35,5 +35,10 @@ namespace Desktop.GUI
             NgaySinh = dt_NgaySinh.Value;
         }
         #endregion
+
+        private void bt_CNDL_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
