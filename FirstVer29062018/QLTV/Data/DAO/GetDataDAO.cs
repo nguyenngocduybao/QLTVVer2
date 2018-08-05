@@ -137,6 +137,16 @@ namespace Data.DAO
                     return IDPhieuNhap.FirstOrDefault();
             }
         }
+        //getList TenTheLoai Sach
+        public List<string> getListTenTheLoaiSach()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var listTenTheLoai = (from a in db.LOAISACHes
+                                      select a.TenLoaiSach).ToList<string>();
+                return listTenTheLoai;
+            }
+        }
         #endregion
 
 
