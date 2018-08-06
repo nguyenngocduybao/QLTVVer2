@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Desktop.HelperUI;
 using System.Text.RegularExpressions;
+using Data.DAO;
 
 namespace Desktop.GUI
 {
@@ -73,5 +74,19 @@ namespace Desktop.GUI
             frm.ShowDialog();
         }
         #endregion
+        #region Load Data to Combobox
+        //get Thể Loại Sáchd Database
+        public void fillTheLoaiSachDataFromTableSach()
+        {
+            List<string> TenTheLoai = new List<string>();
+            TenTheLoai = GetDataDAO.Instance.getListTenTheLoaiSach();
+            cbb_TheLoaiSach.DataSource = TenTheLoai;
+        }
+        #endregion
+
+        private void frmSach_Load(object sender, EventArgs e)
+        {
+            fillTheLoaiSachDataFromTableSach();
+        }
     }
 }

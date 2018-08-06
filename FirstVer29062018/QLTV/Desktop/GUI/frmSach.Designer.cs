@@ -179,7 +179,7 @@
             // btn_ThemLoaiSach
             // 
             this.btn_ThemLoaiSach.Location = new System.Drawing.Point(446, 94);
-            this.btn_ThemLoaiSach.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ThemLoaiSach.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ThemLoaiSach.Name = "btn_ThemLoaiSach";
             this.btn_ThemLoaiSach.Size = new System.Drawing.Size(91, 28);
             this.btn_ThemLoaiSach.TabIndex = 34;
@@ -694,6 +694,7 @@
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmSach";
             this.Text = "frmSach";
+            this.Load += new System.EventHandler(this.frmSach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPage2.ResumeLayout(false);
