@@ -44,7 +44,7 @@
             this.groupControl_ThemTheLoai.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl_ThemTheLoai.AppearanceCaption.Options.UseFont = true;
             this.groupControl_ThemTheLoai.AutoSize = true;
-            this.groupControl_ThemTheLoai.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_ThemTheLoai.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_ThemTheLoai.CaptionImageOptions.Image")));
             this.groupControl_ThemTheLoai.Controls.Add(this.tb_ThemTheLoaiSach);
             this.groupControl_ThemTheLoai.Controls.Add(this.label2);
             this.groupControl_ThemTheLoai.Controls.Add(this.bt_CNDL);
@@ -62,6 +62,7 @@
             this.tb_ThemTheLoaiSach.Name = "tb_ThemTheLoaiSach";
             this.tb_ThemTheLoaiSach.Size = new System.Drawing.Size(248, 30);
             this.tb_ThemTheLoaiSach.TabIndex = 15;
+            this.tb_ThemTheLoaiSach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ThemTheLoaiSach_KeyPress);
             // 
             // label2
             // 

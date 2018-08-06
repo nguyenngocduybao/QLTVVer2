@@ -29,7 +29,7 @@ namespace Desktop.HelperUI
         #endregion
         #region Format control
         //Kiểm tra họ tên độc giả
-        public string KiemTraHoTenDG(string HoTenDG)
+        public string KiemTraHoTen(string HoTenDG)
         {
             string kq="";
             HoTenDG = HoTenDG.Trim().ToLower();

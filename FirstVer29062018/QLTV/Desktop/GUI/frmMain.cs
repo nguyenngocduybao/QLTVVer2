@@ -29,7 +29,7 @@ namespace Desktop.GUI
             }
             return null;
         }
-
+        
         private void btn_TDG_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form frm = this.KiemTra(typeof(frmTheDocGia));

@@ -58,7 +58,7 @@ namespace Desktop.GUI
                     TheDocGiaService sv = new TheDocGiaService();
                     TheDocGiaDtos tdg = new TheDocGiaDtos();
                     UserDtos user = new UserDtos();
-                    HoTenDG = HelperGUI.Instance.KiemTraHoTenDG(tb_HoTenDG.Text);
+                    HoTenDG = HelperGUI.Instance.KiemTraHoTen(tb_HoTenDG.Text);
                     UserName = tb_User.Text;
                     Pwd = tb_Passwork.Text;
                     DiaChiDG = tb_Diachi.Text;
