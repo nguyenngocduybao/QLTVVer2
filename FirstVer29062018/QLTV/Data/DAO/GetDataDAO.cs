@@ -137,6 +137,50 @@ namespace Data.DAO
                     return IDPhieuNhap.FirstOrDefault();
             }
         }
+        //getList TenTheLoai Sach
+        public List<string> getListTenTheLoaiSach()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var listTenTheLoai = (from a in db.LOAISACHes
+                                      select a.TenLoaiSach.ToString()).ToList();
+                return listTenTheLoai;
+            }
+        }
+        //get Array TenTacGia 
+        public string[] getArrayTenTacGia()
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var ArrTenTacGia = (from a in db.TACGIAs
+                                    select a.TenTacGia).ToArray();
+                return ArrTenTacGia;
+            }
+        }
+        // get List TenTacGia
+        public List<string> getListTenTacGia()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var listTenTacGia = (from a in db.TACGIAs
+                                     select a.TenTacGia.ToString()).ToList();
+                return listTenTacGia;
+            }
+        }
+        //get list IDCuonSach To IDPhieuMuon
+        public List<int> ListIDCuonSach(int tb_IDPhieuMuon)
+        {
+
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var list = (from a in db.PHIEUMUONs
+                            join b in db.CT_PHIEUMUON on a.IDPhieuMuon equals b.IDPhieuMuon
+                            join c in db.CUONSACHes on b.IDCuonSach equals c.IDCuonSach
+                            where a.IDPhieuMuon.Equals(tb_IDPhieuMuon) && c.TinhTrang == "Đã cho mượn"
+                            select b.IDCuonSach).ToList<int>();
+                return list;
+            }
+        }
         #endregion
 
 
