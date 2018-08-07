@@ -137,6 +137,9 @@ namespace Data.DAO
                     return IDPhieuNhap.FirstOrDefault();
             }
         }
+
+        #endregion
+        #region Get list and Array 
         //getList TenTheLoai Sach
         public List<string> getListTenTheLoaiSach()
         {
@@ -150,7 +153,7 @@ namespace Data.DAO
         //get Array TenTacGia 
         public string[] getArrayTenTacGia()
         {
-            using (var db= new QuanLyThuVienEntities())
+            using (var db = new QuanLyThuVienEntities())
             {
                 var ArrTenTacGia = (from a in db.TACGIAs
                                     select a.TenTacGia).ToArray();
@@ -181,8 +184,73 @@ namespace Data.DAO
                 return list;
             }
         }
+        // get List auto complete TenTheLoai Sach
+        public List<string> getListAutoTenTheLoai(string tb_TenTheLoai)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ListTheLoai = (from a in db.LOAISACHes
+                                   where a.TenLoaiSach.ToUpper().Contains(tb_TenTheLoai.ToUpper())
+                                   select a.TenLoaiSach.ToString()).ToList();
+                return ListTheLoai;
+            }
+        }
+        //get List auto complete TenTacGia
+        public List<string> getListAutoTenTacGia(String tb_TenTacGia)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ListTenTacGia = (from a in db.TACGIAs
+                                     where a.TenTacGia.ToUpper().Contains(tb_TenTacGia.ToUpper())
+                                     select a.TenTacGia.ToString()).ToList();
+                return ListTenTacGia;
+            }
+        }
+        //getList auto complete HoTenDG
+        public List<string> getListAutoHoTenDG(String tb_HoTenDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ListHoTenDG = (from a in db.THEDOCGIAs
+                                   where a.HoTenDG.ToUpper().Contains(tb_HoTenDG.ToUpper())
+                                   select a.HoTenDG.ToString()).ToList();
+                return ListHoTenDG;
+            }
+        }
+        //get List IDDocGia To HoTenDG 
+        public List<int> getListIDDG(string HoTenDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ListIDDG = (from a in db.THEDOCGIAs
+                                where a.HoTenDG.Equals(HoTenDG)
+                                select a.IDDocGia).ToList();
+                return ListIDDG;
+            }
+        }
+        // get Array Auto TenTacGia
+        public string[] getArrAutoTenTacGia(string tb_TenTacGia)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var ArrTenTacGia = (from a in db.TACGIAs
+                                    where a.TenTacGia.ToUpper().Contains(tb_TenTacGia.ToUpper())
+                                    select a.TenTacGia.ToString()).ToArray();
+                return ArrTenTacGia;
+            }
+        }
+        //get Array auto TenTheLoai Sach
+        public string[] getArrAutoTenTheLoai(string tb_TenTheLoai)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ArrTenTheLoai = (from a in db.LOAISACHes
+                                     where a.TenLoaiSach.ToUpper().Contains(tb_TenTheLoai.ToUpper())
+                                     select a.TenLoaiSach.ToString()).ToArray();
+                return ArrTenTheLoai;
+            }
+        }
         #endregion
-
 
     }
 
