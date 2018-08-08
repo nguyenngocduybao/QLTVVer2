@@ -77,5 +77,37 @@ namespace Desktop.GUI
                 f.Show();
             }
         }
+
+        private void btn_MuonSach_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTra(typeof(frmPhieuMuon));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmPhieuMuon f = new frmPhieuMuon();
+                f.MdiParent = this;
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
+        }
+
+        private void btn_TraSach_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTra(typeof(frmPhieuTra));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmPhieuTra f = new frmPhieuTra();
+                f.MdiParent = this;
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
+        }
     }
 }

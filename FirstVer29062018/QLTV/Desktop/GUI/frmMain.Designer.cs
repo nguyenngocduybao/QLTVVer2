@@ -41,6 +41,8 @@
             this.btn_TGia = new DevExpress.XtraBars.BarButtonItem();
             this.btn_CTTGia = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Admin = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_MuonSach = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_TraSach = new DevExpress.XtraBars.BarButtonItem();
             this.ribbon_TDGia = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbon_DGia = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbon_Sach = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -48,6 +50,7 @@
             this.ribbon_Admin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbon_TTMTra = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbon_BCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbon_TKiem = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -74,9 +77,11 @@
             this.btn_CTPSach,
             this.btn_TGia,
             this.btn_CTTGia,
-            this.btn_Admin});
+            this.btn_Admin,
+            this.btn_MuonSach,
+            this.btn_TraSach});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 11;
+            this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbon_TDGia,
@@ -160,6 +165,22 @@
             this.btn_Admin.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_Admin.ImageOptions.LargeImage")));
             this.btn_Admin.Name = "btn_Admin";
             // 
+            // btn_MuonSach
+            // 
+            this.btn_MuonSach.Caption = "Mượn sách";
+            this.btn_MuonSach.Id = 11;
+            this.btn_MuonSach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btn_MuonSach.Name = "btn_MuonSach";
+            this.btn_MuonSach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_MuonSach_ItemClick);
+            // 
+            // btn_TraSach
+            // 
+            this.btn_TraSach.Caption = "Trả sách";
+            this.btn_TraSach.Id = 12;
+            this.btn_TraSach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btn_TraSach.Name = "btn_TraSach";
+            this.btn_TraSach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TraSach_ItemClick);
+            // 
             // ribbon_TDGia
             // 
             this.ribbon_TDGia.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -180,7 +201,6 @@
             // ribbon_Sach
             // 
             this.ribbon_Sach.ItemLinks.Add(this.btn_Sach);
-            this.ribbon_Sach.ItemLinks.Add(this.btn_LSach);
             this.ribbon_Sach.Name = "ribbon_Sach";
             this.ribbon_Sach.Text = "Sách";
             // 
@@ -200,15 +220,23 @@
             // ribbon_TTMTra
             // 
             this.ribbon_TTMTra.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup5});
             this.ribbon_TTMTra.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_TTMTra.ImageOptions.Image")));
             this.ribbon_TTMTra.Name = "ribbon_TTMTra";
             this.ribbon_TTMTra.Text = "Thông tin mượn trả";
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btn_MuonSach);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Quản lí mượn sách";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btn_TraSach);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Quản lí trả";
             // 
             // ribbon_BCao
             // 
@@ -307,5 +335,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbon_QDinh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedfMain;
+        private DevExpress.XtraBars.BarButtonItem btn_MuonSach;
+        private DevExpress.XtraBars.BarButtonItem btn_TraSach;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

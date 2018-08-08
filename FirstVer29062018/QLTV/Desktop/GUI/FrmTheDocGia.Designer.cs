@@ -112,9 +112,9 @@
             this.navigationPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage2,
             this.navigationPage1});
-            this.navigationPane1.RegularSize = new System.Drawing.Size(618, 560);
+            this.navigationPane1.RegularSize = new System.Drawing.Size(624, 560);
             this.navigationPane1.SelectedPage = this.navigationPage2;
-            this.navigationPane1.Size = new System.Drawing.Size(618, 560);
+            this.navigationPane1.Size = new System.Drawing.Size(624, 560);
             this.navigationPane1.TabIndex = 0;
             this.navigationPane1.Text = "Tìm kiếm thông tin độc giả";
             // 
@@ -127,7 +127,7 @@
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
             this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(520, 500);
+            this.navigationPage2.Size = new System.Drawing.Size(526, 500);
             // 
             // navigationFrame1
             // 
@@ -135,7 +135,7 @@
             this.navigationFrame1.Location = new System.Drawing.Point(0, 0);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.SelectedPage = null;
-            this.navigationFrame1.Size = new System.Drawing.Size(520, 0);
+            this.navigationFrame1.Size = new System.Drawing.Size(526, 0);
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
@@ -167,10 +167,9 @@
             this.groupControl_TTDG.Controls.Add(this.label4);
             this.groupControl_TTDG.Controls.Add(this.label3);
             this.groupControl_TTDG.Controls.Add(this.label2);
-            this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
             this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(520, 548);
+            this.groupControl_TTDG.Size = new System.Drawing.Size(532, 540);
             this.groupControl_TTDG.TabIndex = 0;
             this.groupControl_TTDG.Text = "Thông tin độc giả";
             // 
@@ -364,7 +363,7 @@
             this.navigationPage1.Controls.Add(this.groupControl3);
             this.navigationPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage1.ImageOptions.Image")));
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(520, 500);
+            this.navigationPage1.Size = new System.Drawing.Size(532, 500);
             // 
             // groupControl3
             // 
@@ -382,7 +381,7 @@
             this.groupControl3.Controls.Add(this.label8);
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(520, 500);
+            this.groupControl3.Size = new System.Drawing.Size(532, 500);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Tìm kiếm thông tin:";
             // 
@@ -454,9 +453,9 @@
             this.groupControl2.Controls.Add(this.bindingNavigator1);
             this.groupControl2.Controls.Add(this.dgv_DuLieu);
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl2.Location = new System.Drawing.Point(624, 52);
+            this.groupControl2.Location = new System.Drawing.Point(627, 52);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(612, 500);
+            this.groupControl2.Size = new System.Drawing.Size(609, 500);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Dữ liệu độc giả";
             // 
@@ -486,7 +485,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(612, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(609, 31);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -595,7 +594,7 @@
             this.cl_TongNo});
             this.dgv_DuLieu.Location = new System.Drawing.Point(0, 66);
             this.dgv_DuLieu.Name = "dgv_DuLieu";
-            this.dgv_DuLieu.Size = new System.Drawing.Size(612, 434);
+            this.dgv_DuLieu.Size = new System.Drawing.Size(609, 431);
             this.dgv_DuLieu.TabIndex = 0;
             // 
             // cl_ID
