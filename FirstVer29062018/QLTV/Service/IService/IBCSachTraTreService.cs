@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface IBCSachTraTreBUS
+    public interface IBCSachTraTreService
     {
         //Load Form BaoCaoSachTraTre
         List<BCSachTraTreDtos> LoadForm();
