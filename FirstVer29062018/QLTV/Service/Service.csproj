@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABSTRACT\BCSachTraTreService.cs" />
+    <Compile Include="ABSTRACT\CTPhieuMuonService.cs" />
     <Compile Include="ABSTRACT\CTTacGiaService.cs" />
     <Compile Include="ABSTRACT\CTUserAdminService.cs" />
     <Compile Include="ABSTRACT\LoaiDocGiaService.cs" />
@@ -60,6 +62,8 @@
     <Compile Include="ABSTRACT\TacGiaService.cs" />
     <Compile Include="ABSTRACT\TheDocGiaService.cs" />
     <Compile Include="ABSTRACT\UserService.cs" />
+    <Compile Include="IService\IBCSachTraTreService.cs" />
+    <Compile Include="IService\ICTPhieuMuonService.cs" />
     <Compile Include="IService\ICTTacGiaService.cs" />
     <Compile Include="IService\ICTUserAdminService.cs" />
     <Compile Include="IService\ILoaiDocGiaService.cs" />
@@ -76,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Data.IBUS;
+using Service.IService;
+using Data.BUS;
+using Data.Dtos;
+using Data.DAO;
+namespace Service.ABSTRACT
+{
+    public class BCSachTraTreService : IBCSachTraTreService
+    {
+        private IBCSachTraTreBUS _iBCSach;
+        public BCSachTraTreService()
+        {
+            this._iBCSach = new BCSachTraTreBUS();
+        }
+        public List<BCSachTraTreDtos> LoadForm()
+        {
+            return this._iBCSach.LoadForm();
+        }
+    }
+}
