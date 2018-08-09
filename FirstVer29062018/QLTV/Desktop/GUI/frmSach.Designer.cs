@@ -113,9 +113,9 @@
             this.navigationPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage2,
             this.navigationPage1});
-            this.navigationPane1.RegularSize = new System.Drawing.Size(637, 690);
+            this.navigationPane1.RegularSize = new System.Drawing.Size(631, 668);
             this.navigationPane1.SelectedPage = this.navigationPage2;
-            this.navigationPane1.Size = new System.Drawing.Size(637, 690);
+            this.navigationPane1.Size = new System.Drawing.Size(631, 668);
             this.navigationPane1.TabIndex = 1;
             this.navigationPane1.Text = "Tìm kiếm thông tin độc giả";
             // 
@@ -128,7 +128,7 @@
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
             this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(539, 630);
+            this.navigationPage2.Size = new System.Drawing.Size(533, 608);
             // 
             // navigationFrame1
             // 
@@ -136,7 +136,7 @@
             this.navigationFrame1.Location = new System.Drawing.Point(0, 0);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.SelectedPage = null;
-            this.navigationFrame1.Size = new System.Drawing.Size(539, 0);
+            this.navigationFrame1.Size = new System.Drawing.Size(533, 0);
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
@@ -172,7 +172,7 @@
             this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
             this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(547, 691);
+            this.groupControl_TTDG.Size = new System.Drawing.Size(542, 669);
             this.groupControl_TTDG.TabIndex = 0;
             this.groupControl_TTDG.Text = "Thông tin sách";
             // 
@@ -368,11 +368,11 @@
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "Tìm kiếm thông tin độc giả";
+            this.navigationPage1.Caption = "Tìm kiếm thông tin sách";
             this.navigationPage1.Controls.Add(this.groupControl3);
             this.navigationPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage1.ImageOptions.Image")));
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(561, 638);
+            this.navigationPage1.Size = new System.Drawing.Size(533, 608);
             // 
             // groupControl3
             // 
@@ -390,7 +390,7 @@
             this.groupControl3.Controls.Add(this.label8);
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(520, 638);
+            this.groupControl3.Size = new System.Drawing.Size(542, 638);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Tìm kiếm thông tin:";
             // 
@@ -463,9 +463,9 @@
             this.groupControl2.Controls.Add(this.bindingNavigator1);
             this.groupControl2.Controls.Add(this.dgv_DuLieu);
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl2.Location = new System.Drawing.Point(643, 52);
+            this.groupControl2.Location = new System.Drawing.Point(634, 52);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(733, 638);
+            this.groupControl2.Size = new System.Drawing.Size(757, 616);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Dữ liệu độc giả";
             // 
@@ -495,7 +495,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(733, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(757, 31);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -586,6 +586,9 @@
             // 
             // dgv_DuLieu
             // 
+            this.dgv_DuLieu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_DuLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DuLieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_IDSach,
@@ -600,7 +603,7 @@
             this.cl_ThanhTien});
             this.dgv_DuLieu.Location = new System.Drawing.Point(0, 72);
             this.dgv_DuLieu.Name = "dgv_DuLieu";
-            this.dgv_DuLieu.Size = new System.Drawing.Size(640, 558);
+            this.dgv_DuLieu.Size = new System.Drawing.Size(663, 544);
             this.dgv_DuLieu.TabIndex = 0;
             // 
             // cl_IDSach
@@ -686,7 +689,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 690);
+            this.ClientSize = new System.Drawing.Size(1298, 668);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmSach";

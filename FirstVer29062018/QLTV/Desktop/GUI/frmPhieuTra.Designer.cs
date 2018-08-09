@@ -38,6 +38,9 @@
             this.btn_ChonSachVaoList = new DevExpress.XtraEditors.SimpleButton();
             this.listbox_TenDauSach = new System.Windows.Forms.ListBox();
             this.dgv_DuLieuTra = new System.Windows.Forms.DataGridView();
+            this.cl_STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dt_NgayTra = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_TenNguoiMuon = new System.Windows.Forms.TextBox();
@@ -65,9 +68,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBt_Thoat = new System.Windows.Forms.ToolStripButton();
             this.dgv_DuLieu = new System.Windows.Forms.DataGridView();
-            this.cl_STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_IDTacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_NguoiTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TenSachTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,6 +134,8 @@
             // 
             // groupControl_TTDG
             // 
+            this.groupControl_TTDG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupControl_TTDG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl_TTDG.Appearance.Options.UseFont = true;
             this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,11 +152,10 @@
             this.groupControl_TTDG.Controls.Add(this.label2);
             this.groupControl_TTDG.Controls.Add(this.bt_Lamlai);
             this.groupControl_TTDG.Controls.Add(this.bt_CNDL);
-            this.groupControl_TTDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
             this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(523, 547);
+            this.groupControl_TTDG.Size = new System.Drawing.Size(532, 573);
             this.groupControl_TTDG.TabIndex = 0;
             this.groupControl_TTDG.Text = "Thông tin phiếu trả";
             // 
@@ -194,6 +195,29 @@
             this.dgv_DuLieuTra.Name = "dgv_DuLieuTra";
             this.dgv_DuLieuTra.Size = new System.Drawing.Size(394, 161);
             this.dgv_DuLieuTra.TabIndex = 25;
+            // 
+            // cl_STT
+            // 
+            this.cl_STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_STT.HeaderText = "STT";
+            this.cl_STT.Name = "cl_STT";
+            this.cl_STT.Width = 71;
+            // 
+            // cl_TenSach
+            // 
+            this.cl_TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_TenSach.HeaderText = "ID độc giả";
+            this.cl_TenSach.Name = "cl_TenSach";
+            this.cl_TenSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cl_TenSach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_TenSach.Width = 114;
+            // 
+            // cl_TrangThai
+            // 
+            this.cl_TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cl_TrangThai.HeaderText = "Trạng thái ";
+            this.cl_TrangThai.Name = "cl_TrangThai";
+            this.cl_TrangThai.Width = 139;
             // 
             // dt_NgayTra
             // 
@@ -260,16 +284,14 @@
             // 
             // navigationPage1
             // 
-            this.navigationPage1.Caption = "Tìm kiếm thông tin sách";
+            this.navigationPage1.Caption = "Tìm kiếm thông tin phiếu trả";
             this.navigationPage1.Controls.Add(this.groupControl3);
             this.navigationPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage1.ImageOptions.Image")));
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(621, 607);
+            this.navigationPage1.Size = new System.Drawing.Size(523, 547);
             // 
             // groupControl3
             // 
-            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl3.Appearance.Options.UseFont = true;
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -282,7 +304,7 @@
             this.groupControl3.Controls.Add(this.label8);
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(520, 607);
+            this.groupControl3.Size = new System.Drawing.Size(532, 607);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Tìm kiếm thông tin:";
             // 
@@ -344,6 +366,9 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.Appearance.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -354,7 +379,7 @@
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl2.Location = new System.Drawing.Point(627, 52);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(632, 543);
+            this.groupControl2.Size = new System.Drawing.Size(632, 555);
             this.groupControl2.TabIndex = 5;
             this.groupControl2.Text = "Dữ liệu độc giả";
             // 
@@ -489,31 +514,8 @@
             this.cl_TienNo});
             this.dgv_DuLieu.Location = new System.Drawing.Point(0, 66);
             this.dgv_DuLieu.Name = "dgv_DuLieu";
-            this.dgv_DuLieu.Size = new System.Drawing.Size(632, 477);
+            this.dgv_DuLieu.Size = new System.Drawing.Size(632, 486);
             this.dgv_DuLieu.TabIndex = 0;
-            // 
-            // cl_STT
-            // 
-            this.cl_STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cl_STT.HeaderText = "STT";
-            this.cl_STT.Name = "cl_STT";
-            this.cl_STT.Width = 71;
-            // 
-            // cl_TenSach
-            // 
-            this.cl_TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cl_TenSach.HeaderText = "ID độc giả";
-            this.cl_TenSach.Name = "cl_TenSach";
-            this.cl_TenSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cl_TenSach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_TenSach.Width = 114;
-            // 
-            // cl_TrangThai
-            // 
-            this.cl_TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cl_TrangThai.HeaderText = "Trạng thái ";
-            this.cl_TrangThai.Name = "cl_TrangThai";
-            this.cl_TrangThai.Width = 139;
             // 
             // cl_IDTacGia
             // 
@@ -535,6 +537,7 @@
             // 
             this.cl_TenSachTra.HeaderText = "Tên sách";
             this.cl_TenSachTra.Name = "cl_TenSachTra";
+            this.cl_TenSachTra.Width = 200;
             // 
             // cl_HanTra
             // 
@@ -548,16 +551,21 @@
             // 
             this.cl_TienTra.HeaderText = "Tiền trả";
             this.cl_TienTra.Name = "cl_TienTra";
+            this.cl_TienTra.Width = 150;
             // 
             // cl_TienPhat
             // 
+            this.cl_TienPhat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_TienPhat.HeaderText = "Tiền phạt kì này";
             this.cl_TienPhat.Name = "cl_TienPhat";
+            this.cl_TienPhat.Width = 250;
             // 
             // cl_TienNo
             // 
+            this.cl_TienNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cl_TienNo.HeaderText = "Tiền nợ kì này";
             this.cl_TienNo.Name = "cl_TienNo";
+            this.cl_TienNo.Width = 250;
             // 
             // frmPhieuTra
             // 
@@ -567,7 +575,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmPhieuTra";
-            this.Text = "frmMuonSach1";
+            this.Text = "frmPhieuTra";
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPage2.ResumeLayout(false);
