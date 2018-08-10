@@ -53,9 +53,24 @@ namespace Data.DAO
                 else return true;
             }
         }
-       
-        #endregion
 
+        #endregion
+        // Check Tra Tre Sach
+        public bool CheckTraTre(int IDCTPhieuTra)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Check = (from a in db.CT_PHIEUTRA
+                             from b in db.PHIEUTRAs
+                             from c in db.PHIEUMUONs
+                             where a.IDCTPhieuTra.Equals(IDCTPhieuTra) && a.IDPhieuTra.Equals(b.IDPhieuTra) && a.IDPhieuMuon.Equals(c.IDPhieuMuon)
+                             && b.NgayTra > c.HanTra
+                             select a.IDCTPhieuTra).ToString();
+                if (Check == null)
+                    return false;
+                else return true;
+            }
+        }
 
     }
 }

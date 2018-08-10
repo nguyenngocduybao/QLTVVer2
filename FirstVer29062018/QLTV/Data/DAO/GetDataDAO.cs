@@ -111,18 +111,21 @@ namespace Data.DAO
             }
         }
         // getIDCTTacGia to TenTacGia
-        public int getIDCTTacGiaToTenTacGia(string tentacgia)
-        {
-            using (var db=new QuanLyThuVienEntities())
+            public int getIDCTTacGiaToTenTacGia(string tentacgia,string tb_tendausach)
             {
-                var IDCTTacGia = (from a in db.TACGIAs
-                                  join b in db.CT_TACGIA on a.IDTacGia equals b.IDTacGia
-                                  where a.TenTacGia.Equals(tentacgia)
-                                  select b.IDCTTacGia).ToString();
-                int ID = Int32.Parse(IDCTTacGia);
-                return ID;
+                using (var db=new QuanLyThuVienEntities())
+                {
+                    var IDCTTacGia = (from a in db.TACGIAs
+                                      from b in db.CT_TACGIA 
+                                      from c in db.DAUSACHes
+                                      where a.TenTacGia.Equals(tentacgia) && c.TenDauSach.Equals(tb_tendausach)
+                                      && b.IDDauSach.Equals(c.IDDauSach) && b.IDTacGia.Equals(a.IDTacGia)
+                                      select b.IDCTTacGia).ToString();
+                    int ID = Int32.Parse(IDCTTacGia);
+                    return ID;
+                }
+
             }
-        }
        // getIDPhieuNhap to NgayNhapSach
        public int getIDPhieuNhapToNgayNhapSach(DateTime NgayNhap)
         {
@@ -137,7 +140,19 @@ namespace Data.DAO
                     return IDPhieuNhap.FirstOrDefault();
             }
         }
-
+        //HanTRa to IDCTPhieuTra
+        public DateTime HanTraSachToIDCTPhieuTra(int IDCTPhieuTra)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var HanTra = (from a in db.CT_PHIEUTRA
+                              from b in db.PHIEUMUONs
+                              where a.IDCTPhieuTra.Equals(IDCTPhieuTra) && b.IDPhieuMuon.Equals(a.IDPhieuMuon)
+                              select b.HanTra).ToString();
+                DateTime HanTraS = DateTime.Parse(HanTra);
+                return HanTraS;
+            }
+        }
         #endregion
         #region Get list and Array 
         //getList TenTheLoai Sach
@@ -217,15 +232,14 @@ namespace Data.DAO
                 return ListHoTenDG;
             }
         }
-        //get List IDDocGia To HoTenDG 
-        public List<int> getListIDDG(string HoTenDG)
+        //get arr IDDG
+        public int[] getArrIDDG()
         {
             using (var db = new QuanLyThuVienEntities())
             {
-                var ListIDDG = (from a in db.THEDOCGIAs
-                                where a.HoTenDG.Equals(HoTenDG)
-                                select a.IDDocGia).ToList();
-                return ListIDDG;
+                var ArrIDDG = (from a in db.THEDOCGIAs
+                                select a.IDDocGia).ToArray();
+                return ArrIDDG;
             }
         }
         // get Array Auto TenTacGia
@@ -248,6 +262,16 @@ namespace Data.DAO
                                      where a.TenLoaiSach.ToUpper().Contains(tb_TenTheLoai.ToUpper())
                                      select a.TenLoaiSach.ToString()).ToArray();
                 return ArrTenTheLoai;
+            }
+        }
+        //get list NhaXB
+        public string[] getArrNhaXB()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var listNhaXB = (from a in db.SACHes
+                                 select a.NhaXB.ToString()).ToArray();
+                return listNhaXB;
             }
         }
         #endregion

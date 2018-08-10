@@ -11,5 +11,7 @@ namespace Service.IService
     {
         //Load Form BaoCaoSachTraTre
         List<BCSachTraTreDtos> LoadForm();
+        //getListAll BCSachTratre
+        List<BCSachTraTreDtos> getListAllBCSachTraTre();
     }
 }
