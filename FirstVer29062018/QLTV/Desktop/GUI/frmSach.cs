@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Desktop.HelperUI;
 using System.Text.RegularExpressions;
 using Data.DAO;
+using Desktop.HelperUI;
 
 namespace Desktop.GUI
 {
@@ -83,10 +84,18 @@ namespace Desktop.GUI
             cbb_TheLoaiSach.DataSource = TenTheLoai;
         }
         #endregion
-
+        #region Autocomplete
+        public void AutocompleteTenTG()
+        {
+            HelperGUI.Instance.autocompleteTenTacGia(tb_TenTacGia);
+        }
+        #endregion
+        #region Load Du Lieu
         private void frmSach_Load(object sender, EventArgs e)
         {
             fillTheLoaiSachDataFromTableSach();
+            AutocompleteTenTG();
         }
+        #endregion
     }
 }

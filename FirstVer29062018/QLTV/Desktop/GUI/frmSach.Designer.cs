@@ -197,6 +197,8 @@
             // 
             // tb_TenTacGia
             // 
+            this.tb_TenTacGia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tb_TenTacGia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tb_TenTacGia.Location = new System.Drawing.Point(151, 133);
             this.tb_TenTacGia.Name = "tb_TenTacGia";
             this.tb_TenTacGia.Size = new System.Drawing.Size(292, 30);

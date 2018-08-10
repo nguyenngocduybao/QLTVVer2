@@ -165,6 +165,8 @@
             // 
             // tb_TenTacGia
             // 
+            this.tb_TenTacGia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tb_TenTacGia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tb_TenTacGia.Location = new System.Drawing.Point(151, 55);
             this.tb_TenTacGia.Name = "tb_TenTacGia";
             this.tb_TenTacGia.Size = new System.Drawing.Size(258, 30);
@@ -475,6 +477,7 @@
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmTacGia";
             this.Text = "frmTacGia";
+            this.Load += new System.EventHandler(this.frmTacGia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPage2.ResumeLayout(false);
