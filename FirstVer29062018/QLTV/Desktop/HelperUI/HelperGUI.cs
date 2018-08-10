@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Globalization;
+using Data.DAO;
+using Service.IService;
+using Service.ABSTRACT;
+using Data.Dtos;
 
 namespace Desktop.HelperUI
 {
@@ -155,6 +159,15 @@ namespace Desktop.HelperUI
             int a = int.Parse(Money.Text.ToString());
             Tien = Convert.ToDecimal(String.Format("{0:0,0}", a));
             return Tien;
+        }
+        #endregion
+        #region Autocomplete
+        public void autocompleteTenTacGia(TextBox tb)
+        {
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            GetDataDAO sv = new GetDataDAO();
+            col.AddRange(sv.getArrayTenTacGia());
+            tb.AutoCompleteCustomSource = col;
         }
         #endregion
     }
