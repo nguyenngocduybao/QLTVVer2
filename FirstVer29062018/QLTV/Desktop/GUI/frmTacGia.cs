@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using Desktop.HelperUI;
 using Data.Dtos;
 using Service.ABSTRACT;
+using Data.DAO;
+using Service.ABSTRACT;
+using Desktop.HelperUI;
 
 namespace Desktop.GUI
 {
@@ -33,6 +36,18 @@ namespace Desktop.GUI
         private void dt_NgaySinh_ValueChanged(object sender, EventArgs e)
         {
             NgaySinh = dt_NgaySinh.Value;
+        }
+        #endregion
+        #region AutoComplete
+        public void AutoCompleteTenTG()
+        {
+            HelperGUI.Instance.autocompleteTenTacGia(tb_TenTacGia);
+        }
+        #endregion
+        #region LoadfrmTacGia
+        private void frmTacGia_Load(object sender, EventArgs e)
+        {
+            AutoCompleteTenTG();
         }
         #endregion
     }
