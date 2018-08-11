@@ -17,6 +17,12 @@ namespace Service.ABSTRACT
         {
             this._iBCSach = new BCSachTraTreBUS();
         }
+
+        public List<BCSachTraTreDtos> getListAllBCSachTraTre()
+        {
+            return this._iBCSach.getListAllBCSachTraTre();  
+        }
+
         public List<BCSachTraTreDtos> LoadForm()
         {
             return this._iBCSach.LoadForm();

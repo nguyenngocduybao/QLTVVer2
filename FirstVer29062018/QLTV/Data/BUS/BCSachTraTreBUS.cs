@@ -14,20 +14,20 @@ namespace Data.BUS
         #region load Form BaoCaoSachTraTre
         public List<BCSachTraTreDtos> LoadForm()
         {
-            using (var db= new QuanLyThuVienEntities())
-            { 
+            using (var db = new QuanLyThuVienEntities())
+            {
                 var BaoCao = (from a in db.CT_PHIEUMUON
                               from b in db.PHIEUMUONs
                               from d in db.PHIEUTRAs
                               from c in db.CT_PHIEUTRA
                               where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && b.IDPhieuMuon.Equals(c.IDPhieuMuon) && d.IDPhieuTra.Equals(c.IDPhieuTra)
-                              && (d.NgayTra>b.HanTra)
+                              && (d.NgayTra > b.HanTra)
                               select new BCSachTraTreDtos()
-                              { 
+                              {
                                   IDPhieuMuon = a.IDPhieuMuon,
                                   NgayThangNam = d.NgayTra,
                                   IDCuonSach = a.IDCuonSach,
-                                  SoNgayTraTre = (d.NgayTra - b.HanTra).Days,           
+                                  SoNgayTraTre = (d.NgayTra - b.HanTra).Days,
                               }
                             ).ToList<BCSachTraTreDtos>();
                 var listBaoCao = (from a in BaoCao
@@ -40,12 +40,42 @@ namespace Data.BUS
                                       SoNgayTraTre = a.SoNgayTraTre,
                                       TenCuonSach = GetDataDAO.Instance.getTenCuonSach(a.IDCuonSach),
                                   }).ToList<BCSachTraTreDtos>();
+
                 if (listBaoCao.Count > 0)
                     return listBaoCao;
                 return new List<BCSachTraTreDtos>();
             }
         }
         #endregion
-       
+        #region getListAll BCSachTratre
+        public List<BCSachTraTreDtos> getListAllBCSachTraTre()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var getList = (from a in db.BCSACHTRATREs
+                               select new BCSachTraTreDtos()
+                               {
+                                   IDBCSachTre = a.IDBCSachTre,
+                                   IDCuonSach = a.IDCuonSach,
+                                   IDPhieuMuon = a.IDPhieuMuon,
+                                   NgayThangNam = a.NgayThangNam,
+                                   SoNgayTraTre = a.SoNgayTraTre,
+                               }).ToList<BCSachTraTreDtos>();
+                var getListAll = (from a in getList
+                                  select new BCSachTraTreDtos()
+                                  {
+                                      IDBCSachTre = a.IDBCSachTre,
+                                      IDCuonSach = a.IDCuonSach,
+                                      IDPhieuMuon = a.IDPhieuMuon,
+                                      NgayThangNam = a.NgayThangNam,
+                                      SoNgayTraTre = a.SoNgayTraTre,
+                                      TenCuonSach = GetDataDAO.Instance.getTenCuonSach(a.IDCuonSach),
+                                  }).ToList<BCSachTraTreDtos>();
+                if (getListAll.Count > 0)
+                    return getListAll;
+                return new List<BCSachTraTreDtos>();
+            }
+        }
+        #endregion
     }
 }

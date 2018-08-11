@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.IBUS;
 using Data.DTO;
+using Data.BUS;
 using Data.Dtos;
 using Data.Model;
 using Data.DAO;
@@ -49,9 +50,23 @@ namespace Data.BUS
                                                where a.IDCuonSach.Equals(IDCuonSach[i])
                                                select a).FirstOrDefault<CUONSACH>();
                         updateTinhTrang.TinhTrang = "Chưa cho mượn";
+                        db.SaveChanges();
+                        if(HelperDAO.Instance.CheckTraTre(IDCT)==true)
+                        {
+                            int IDBC = BCSachTraTreDAO.Instance.IDPlus();
+                            db.BCSACHTRATREs.Add(new BCSACHTRATRE()
+                            {
+                                IDBCSachTre=IDCT,
+                                IDCuonSach=IDCuonSach[i],
+                                IDPhieuMuon=phieutra.IDPhieuMuon,
+                                NgayThangNam=phieutra.NgayTra,
+                                SoNgayTraTre=(GetDataDAO.Instance.HanTraSachToIDCTPhieuTra(IDCT)-phieutra.NgayTra).Days,
+                            });
+                            db.SaveChanges();
+                        }
                     }
-                    
                     db.SaveChanges();
+                            
                     return true;
                 }
             }
@@ -62,7 +77,7 @@ namespace Data.BUS
             }
         }
         #endregion
+        
       
-       
     }
 }

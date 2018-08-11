@@ -11,5 +11,7 @@ namespace Data.IBUS
     {
         //Load Form BaoCaoSachTraTre
         List<BCSachTraTreDtos> LoadForm();
+        //getListAll BCSachTratre
+        List<BCSachTraTreDtos> getListAllBCSachTraTre();
     }
 }
