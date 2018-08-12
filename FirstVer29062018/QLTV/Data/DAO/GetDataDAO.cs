@@ -110,22 +110,20 @@ namespace Data.DAO
                 return ID;
             }
         }
-        // getIDCTTacGia to TenTacGia
-            public int getIDCTTacGiaToTenTacGia(string tentacgia,string tb_tendausach)
+        // Bỏ get DaTa IDCTTG
+        // Bổ sung thêm hàm get IDTG từ TenTG
+        public int getIDTGToTenTacGia(string TenTG)
+        {
+            using (var db = new QuanLyThuVienEntities())
             {
-                using (var db=new QuanLyThuVienEntities())
-                {
-                    var IDCTTacGia = (from a in db.TACGIAs
-                                      from b in db.CT_TACGIA 
-                                      from c in db.DAUSACHes
-                                      where a.TenTacGia.Equals(tentacgia) && c.TenDauSach.Equals(tb_tendausach)
-                                      && b.IDDauSach.Equals(c.IDDauSach) && b.IDTacGia.Equals(a.IDTacGia)
-                                      select b.IDCTTacGia).ToString();
-                    int ID = Int32.Parse(IDCTTacGia);
-                    return ID;
-                }
-
+                var IDTacGia = (from a in db.TACGIAs
+                                where a.TenTacGia.Equals(TenTG)
+                                select a.IDTacGia).ToString();
+                int ID = int.Parse(IDTacGia);
+                return ID;
             }
+
+        }
        // getIDPhieuNhap to NgayNhapSach
        public int getIDPhieuNhapToNgayNhapSach(DateTime NgayNhap)
         {

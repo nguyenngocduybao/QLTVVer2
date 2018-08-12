@@ -52,6 +52,7 @@ namespace Data.DAO
                                   IDDauSach = a.IDDauSach,
                                   IDCTTacGia=a.IDCTTacGia,
                                   TenDauSach=GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  // TenTacGia get Data từ IDTacGia
                                   TenTG=GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
                                   NamXB=a.NamXB,
                                   NhaXB=a.NhaXB,
@@ -77,6 +78,7 @@ namespace Data.DAO
                                   IDSach = b.IDSach,
                                   IDCTTacGia = b.IDCTTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  // TenTacGia get Data từ IDTacGia
                                   TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(b.IDCTTacGia),
                                   NamXB = b.NamXB,
                                   NhaXB = b.NhaXB,
@@ -102,6 +104,7 @@ namespace Data.DAO
                                   IDDauSach = a.IDDauSach,
                                   IDCTTacGia = a.IDCTTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  // TenTacGia get Data từ IDTacGia
                                   TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
@@ -126,6 +129,7 @@ namespace Data.DAO
                                   IDDauSach = a.IDDauSach,
                                   IDCTTacGia = a.IDCTTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  // TenTacGia get Data từ IDTacGia
                                   TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
@@ -150,6 +154,7 @@ namespace Data.DAO
                                   IDDauSach = a.IDDauSach,
                                   IDCTTacGia = a.IDCTTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  // TenTacGia get Data từ IDTacGia
                                   TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
@@ -174,6 +179,7 @@ namespace Data.DAO
                                   IDDauSach = a.IDDauSach,
                                   IDCTTacGia = a.IDCTTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
+                                  // TenTacGia get Data từ IDTacGia
                                   TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
