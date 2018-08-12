@@ -1,0 +1,2 @@
+C:\Users\BaoDuy\Documents\QLTVVer2\FirstVer29062018\QLTV\Data\bin\Debug\Data.exe.config
+C:\Users\BaoDuy\Documents\QLTVVer2\FirstVer29062018\QLTV\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

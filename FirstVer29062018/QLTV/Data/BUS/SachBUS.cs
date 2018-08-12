@@ -41,21 +41,21 @@ namespace Data.BUS
                     if (sach.IDDauSach.Equals(ID))
                     {
                        
-                        var checkIDTacGia = (from a in db.CT_TACGIA
-                                             where a.IDCTTacGia.Equals(sach.IDCTTacGia)
-                                             select a).FirstOrDefault();
-                        if (checkID == null) return false;
-                        db.SACHes.Add(new SACH()
-                        {
-                            IDSach = IDsach,
-                            IDDauSach = ID,
-                            IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia),
-                            GiaTien = sach.GiaTien,
-                            NamXB = sach.NamXB,
-                            SoLuongTon = 0,
-                            NhaXB = sach.NhaXB,
+                        //var checkIDTacGia = (from a in db.CT_TACGIA
+                        //                     where a.IDCTTacGia.Equals(sach.IDCTTacGia)
+                        //                     select a).FirstOrDefault();
+                        //if (checkID == null) return false;
+                        //db.SACHes.Add(new SACH()
+                        //{
+                        //    IDSach = IDsach,
+                        //    IDDauSach = ID,
+                        //    IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia),
+                        //    GiaTien = sach.GiaTien,
+                        //    NamXB = sach.NamXB,
+                        //    SoLuongTon = 0,
+                        //    NhaXB = sach.NhaXB,
 
-                        });
+                        //});
                         if (sach.IDSach.Equals(IDsach))
                         {
                             int IDCT = CTPhieuNhapSachDAO.Instance.IDPlus();
@@ -112,7 +112,7 @@ namespace Data.BUS
                                     select a).FirstOrDefault();
                     if (EditSach == null) return false;
                     EditSach.IDDauSach = sach.IDDauSach;
-                    EditSach.IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia);
+                    //EditSach.IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia);
                     EditSach.NamXB = sach.NamXB;
                     EditSach.NhaXB = sach.NhaXB;
                     EditSach.SoLuongTon = sach.SoLuongTon + sach.SoLuong;

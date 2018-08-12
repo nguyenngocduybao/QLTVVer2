@@ -147,112 +147,109 @@
     <Compile Include="IBUS\IUseradminBUS.cs" />
     <Compile Include="IBUS\IUserBUS.cs" />
     <Compile Include="Model\BCSACHTRATRE.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\BCTINHHINHMUONSACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_BCTINHHINHMUONSACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_PHIEUMUON.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_PHIEUNHAPSACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_PHIEUTRA.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CT_TACGIA.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_USERADMIN.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CUONSACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DAUSACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LOAIDOCGIA.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LOAISACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PHIEUMUON.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PHIEUNHAPSACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PHIEUTHUTIENPHAT.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PHIEUTRA.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\QLTVEntities.Context.cs">
+    <Compile Include="Model\QuanLyThuVienEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTVEntities.Context.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\QLTVEntities.cs">
+    <Compile Include="Model\QuanLyThuVienEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\QLTVEntities.Designer.cs">
+    <Compile Include="Model\QuanLyThuVienEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTVEntities.edmx</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\SACH.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TACGIA.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\THEDOCGIA.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\USER.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\USERADMIN.cs">
-      <DependentUpon>QLTVEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model\QLTVEntities.edmx">
+    <EntityDeploy Include="Model\QuanLyThuVienEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLTVEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyThuVienEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\QLTVEntities.edmx.diagram">
-      <DependentUpon>QLTVEntities.edmx</DependentUpon>
+    <None Include="Model\QuanLyThuVienEntities.edmx.diagram">
+      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Model\QLTVEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTVEntities.edmx</DependentUpon>
-      <LastGenOutput>QLTVEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\QLTVEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTVEntities.edmx</DependentUpon>
-      <LastGenOutput>QLTVEntities.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model\QuanLyThuVienEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVienEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\QuanLyThuVienEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVienEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
