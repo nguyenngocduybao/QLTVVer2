@@ -159,6 +159,7 @@
         <MappingFragment StoreEntitySet="SACH">
           <ScalarProperty Name="IDSach" ColumnName="IDSach" />
           <ScalarProperty Name="IDDauSach" ColumnName="IDDauSach" />
+          <ScalarProperty Name="IDTacGia" ColumnName="IDTacGia" />
           <ScalarProperty Name="NhaXB" ColumnName="NhaXB" />
           <ScalarProperty Name="NamXB" ColumnName="NamXB" />
           <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />

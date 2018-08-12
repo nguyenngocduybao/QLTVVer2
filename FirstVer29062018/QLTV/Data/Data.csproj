@@ -59,7 +59,6 @@
     <Compile Include="BUS\CTPhieuMuonBUS.cs" />
     <Compile Include="BUS\CTPhieuNhapSachBUS.cs" />
     <Compile Include="BUS\CTPhieuTraBUS.cs" />
-    <Compile Include="BUS\CTTacGiaBUS.cs" />
     <Compile Include="BUS\CTUserAdminBUS.cs" />
     <Compile Include="BUS\CuonSachBUS.cs" />
     <Compile Include="BUS\DauSachBUS.cs" />
@@ -131,7 +130,6 @@
     <Compile Include="IBUS\ICTPhieuMuonBUS.cs" />
     <Compile Include="IBUS\ICTPhieuNhapSachBUS.cs" />
     <Compile Include="IBUS\ICTPhieuTraBUS.cs" />
-    <Compile Include="IBUS\ICTTacGiaBUS.cs" />
     <Compile Include="IBUS\ICTUserAdminBUS.cs" />
     <Compile Include="IBUS\ICuonSachBUS.cs" />
     <Compile Include="IBUS\IDauSachBUS.cs" />
@@ -235,10 +233,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Model\QuanLyThuVienEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -250,6 +244,9 @@
       <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
       <LastGenOutput>QuanLyThuVienEntities.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

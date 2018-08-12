@@ -146,6 +146,7 @@
     </Key>
     <Property Name="IDSach" Type="int" Nullable="false" />
     <Property Name="IDDauSach" Type="int" />
+    <Property Name="IDTacGia" Type="int" />
     <Property Name="NhaXB" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="NamXB" Type="int" Nullable="false" />
     <Property Name="SoLuongTon" Type="int" />
@@ -201,7 +202,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
     <Property Name="Pwd" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="IDDocGia" Type="int" />
   </EntityType>
-  <Association Name="FK__BCSACHTRA__IDCuo__75A278F5">
+  <Association Name="FK__BCSACHTRA__IDCuo__76969D2E">
     <End Role="CUONSACH" Type="Self.CUONSACH" Multiplicity="0..1" />
     <End Role="BCSACHTRATRE" Type="Self.BCSACHTRATRE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -213,7 +214,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BCSACHTRA__IDPhi__76969D2E">
+  <Association Name="FK__BCSACHTRA__IDPhi__778AC167">
     <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="0..1" />
     <End Role="BCSACHTRATRE" Type="Self.BCSACHTRATRE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -225,7 +226,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_BCTINH__IDBCM__6FE99F9F">
+  <Association Name="FK__CT_BCTINH__IDBCM__70DDC3D8">
     <End Role="BCTINHHINHMUONSACH" Type="Self.BCTINHHINHMUONSACH" Multiplicity="0..1" />
     <End Role="CT_BCTINHHINHMUONSACH" Type="Self.CT_BCTINHHINHMUONSACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -237,7 +238,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_BCTINH__IDLoa__70DDC3D8">
+  <Association Name="FK__CT_BCTINH__IDLoa__71D1E811">
     <End Role="LOAISACH" Type="Self.LOAISACH" Multiplicity="0..1" />
     <End Role="CT_BCTINHHINHMUONSACH" Type="Self.CT_BCTINHHINHMUONSACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -249,7 +250,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUM__IDCuo__59FA5E80">
+  <Association Name="FK__CT_PHIEUM__IDCuo__5AEE82B9">
     <End Role="CUONSACH" Type="Self.CUONSACH" Multiplicity="1" />
     <End Role="CT_PHIEUMUON" Type="Self.CT_PHIEUMUON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -261,7 +262,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUM__IDPhi__59063A47">
+  <Association Name="FK__CT_PHIEUM__IDPhi__59FA5E80">
     <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="0..1" />
     <End Role="CT_PHIEUMUON" Type="Self.CT_PHIEUMUON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -273,7 +274,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUN__IDPhi__4F7CD00D">
+  <Association Name="FK__CT_PHIEUN__IDPhi__5070F446">
     <End Role="PHIEUNHAPSACH" Type="Self.PHIEUNHAPSACH" Multiplicity="0..1" />
     <End Role="CT_PHIEUNHAPSACH" Type="Self.CT_PHIEUNHAPSACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -285,7 +286,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUN__IDSac__5070F446">
+  <Association Name="FK__CT_PHIEUN__IDSac__5165187F">
     <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
     <End Role="CT_PHIEUNHAPSACH" Type="Self.CT_PHIEUNHAPSACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -297,7 +298,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUT__IDCuo__6383C8BA">
+  <Association Name="FK__CT_PHIEUT__IDCuo__6477ECF3">
     <End Role="CUONSACH" Type="Self.CUONSACH" Multiplicity="1" />
     <End Role="CT_PHIEUTRA" Type="Self.CT_PHIEUTRA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -309,7 +310,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUT__IDPhi__628FA481">
+  <Association Name="FK__CT_PHIEUT__IDPhi__6383C8BA">
     <End Role="PHIEUTRA" Type="Self.PHIEUTRA" Multiplicity="0..1" />
     <End Role="CT_PHIEUTRA" Type="Self.CT_PHIEUTRA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -321,7 +322,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CT_PHIEUT__IDPhi__6477ECF3">
+  <Association Name="FK__CT_PHIEUT__IDPhi__656C112C">
     <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="0..1" />
     <End Role="CT_PHIEUTRA" Type="Self.CT_PHIEUTRA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -333,7 +334,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CUONSACH__IDSach__48CFD27E">
+  <Association Name="FK__CUONSACH__IDSach__49C3F6B7">
     <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
     <End Role="CUONSACH" Type="Self.CUONSACH" Multiplicity="*" />
     <ReferentialConstraint>
@@ -357,7 +358,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHIEUMUON__IDDoc__5629CD9C">
+  <Association Name="FK__PHIEUMUON__IDDoc__571DF1D5">
     <End Role="THEDOCGIA" Type="Self.THEDOCGIA" Multiplicity="0..1" />
     <End Role="PHIEUMUON" Type="Self.PHIEUMUON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -369,7 +370,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHIEUTHUT__IDDoc__68487DD7">
+  <Association Name="FK__PHIEUTHUT__IDDoc__693CA210">
     <End Role="THEDOCGIA" Type="Self.THEDOCGIA" Multiplicity="0..1" />
     <End Role="PHIEUTHUTIENPHAT" Type="Self.PHIEUTHUTIENPHAT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -381,7 +382,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHIEUTRA__IDDocG__5CD6CB2B">
+  <Association Name="FK__PHIEUTRA__IDDocG__5DCAEF64">
     <End Role="THEDOCGIA" Type="Self.THEDOCGIA" Multiplicity="0..1" />
     <End Role="PHIEUTRA" Type="Self.PHIEUTRA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -405,6 +406,18 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SACH__IDTacGia__44FF419A">
+    <End Role="TACGIA" Type="Self.TACGIA" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TACGIA">
+        <PropertyRef Name="IDTacGia" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="IDTacGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__THEDOCGIA__IDLoa__398D8EEE">
     <End Role="LOAIDOCGIA" Type="Self.LOAIDOCGIA" Multiplicity="0..1" />
     <End Role="THEDOCGIA" Type="Self.THEDOCGIA" Multiplicity="*" />
@@ -417,7 +430,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__USERADMIN__IDAdm__7E37BEF6">
+  <Association Name="FK__USERADMIN__IDAdm__7F2BE32F">
     <End Role="CT_USERADMIN" Type="Self.CT_USERADMIN" Multiplicity="0..1" />
     <End Role="USERADMIN" Type="Self.USERADMIN" Multiplicity="*" />
     <ReferentialConstraint>
@@ -429,7 +442,7 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__USERS__IDDocGia__797309D9">
+  <Association Name="FK__USERS__IDDocGia__7A672E12">
     <End Role="THEDOCGIA" Type="Self.THEDOCGIA" Multiplicity="0..1" />
     <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -462,51 +475,51 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
     <EntitySet Name="THEDOCGIA" EntityType="Self.THEDOCGIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERADMIN" EntityType="Self.USERADMIN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__BCSACHTRA__IDCuo__75A278F5" Association="Self.FK__BCSACHTRA__IDCuo__75A278F5">
+    <AssociationSet Name="FK__BCSACHTRA__IDCuo__76969D2E" Association="Self.FK__BCSACHTRA__IDCuo__76969D2E">
       <End Role="CUONSACH" EntitySet="CUONSACH" />
       <End Role="BCSACHTRATRE" EntitySet="BCSACHTRATRE" />
     </AssociationSet>
-    <AssociationSet Name="FK__BCSACHTRA__IDPhi__76969D2E" Association="Self.FK__BCSACHTRA__IDPhi__76969D2E">
+    <AssociationSet Name="FK__BCSACHTRA__IDPhi__778AC167" Association="Self.FK__BCSACHTRA__IDPhi__778AC167">
       <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
       <End Role="BCSACHTRATRE" EntitySet="BCSACHTRATRE" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_BCTINH__IDBCM__6FE99F9F" Association="Self.FK__CT_BCTINH__IDBCM__6FE99F9F">
+    <AssociationSet Name="FK__CT_BCTINH__IDBCM__70DDC3D8" Association="Self.FK__CT_BCTINH__IDBCM__70DDC3D8">
       <End Role="BCTINHHINHMUONSACH" EntitySet="BCTINHHINHMUONSACH" />
       <End Role="CT_BCTINHHINHMUONSACH" EntitySet="CT_BCTINHHINHMUONSACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_BCTINH__IDLoa__70DDC3D8" Association="Self.FK__CT_BCTINH__IDLoa__70DDC3D8">
+    <AssociationSet Name="FK__CT_BCTINH__IDLoa__71D1E811" Association="Self.FK__CT_BCTINH__IDLoa__71D1E811">
       <End Role="LOAISACH" EntitySet="LOAISACH" />
       <End Role="CT_BCTINHHINHMUONSACH" EntitySet="CT_BCTINHHINHMUONSACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUM__IDCuo__59FA5E80" Association="Self.FK__CT_PHIEUM__IDCuo__59FA5E80">
+    <AssociationSet Name="FK__CT_PHIEUM__IDCuo__5AEE82B9" Association="Self.FK__CT_PHIEUM__IDCuo__5AEE82B9">
       <End Role="CUONSACH" EntitySet="CUONSACH" />
       <End Role="CT_PHIEUMUON" EntitySet="CT_PHIEUMUON" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUM__IDPhi__59063A47" Association="Self.FK__CT_PHIEUM__IDPhi__59063A47">
+    <AssociationSet Name="FK__CT_PHIEUM__IDPhi__59FA5E80" Association="Self.FK__CT_PHIEUM__IDPhi__59FA5E80">
       <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
       <End Role="CT_PHIEUMUON" EntitySet="CT_PHIEUMUON" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUN__IDPhi__4F7CD00D" Association="Self.FK__CT_PHIEUN__IDPhi__4F7CD00D">
+    <AssociationSet Name="FK__CT_PHIEUN__IDPhi__5070F446" Association="Self.FK__CT_PHIEUN__IDPhi__5070F446">
       <End Role="PHIEUNHAPSACH" EntitySet="PHIEUNHAPSACH" />
       <End Role="CT_PHIEUNHAPSACH" EntitySet="CT_PHIEUNHAPSACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUN__IDSac__5070F446" Association="Self.FK__CT_PHIEUN__IDSac__5070F446">
+    <AssociationSet Name="FK__CT_PHIEUN__IDSac__5165187F" Association="Self.FK__CT_PHIEUN__IDSac__5165187F">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="CT_PHIEUNHAPSACH" EntitySet="CT_PHIEUNHAPSACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUT__IDCuo__6383C8BA" Association="Self.FK__CT_PHIEUT__IDCuo__6383C8BA">
+    <AssociationSet Name="FK__CT_PHIEUT__IDCuo__6477ECF3" Association="Self.FK__CT_PHIEUT__IDCuo__6477ECF3">
       <End Role="CUONSACH" EntitySet="CUONSACH" />
       <End Role="CT_PHIEUTRA" EntitySet="CT_PHIEUTRA" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUT__IDPhi__628FA481" Association="Self.FK__CT_PHIEUT__IDPhi__628FA481">
+    <AssociationSet Name="FK__CT_PHIEUT__IDPhi__6383C8BA" Association="Self.FK__CT_PHIEUT__IDPhi__6383C8BA">
       <End Role="PHIEUTRA" EntitySet="PHIEUTRA" />
       <End Role="CT_PHIEUTRA" EntitySet="CT_PHIEUTRA" />
     </AssociationSet>
-    <AssociationSet Name="FK__CT_PHIEUT__IDPhi__6477ECF3" Association="Self.FK__CT_PHIEUT__IDPhi__6477ECF3">
+    <AssociationSet Name="FK__CT_PHIEUT__IDPhi__656C112C" Association="Self.FK__CT_PHIEUT__IDPhi__656C112C">
       <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
       <End Role="CT_PHIEUTRA" EntitySet="CT_PHIEUTRA" />
     </AssociationSet>
-    <AssociationSet Name="FK__CUONSACH__IDSach__48CFD27E" Association="Self.FK__CUONSACH__IDSach__48CFD27E">
+    <AssociationSet Name="FK__CUONSACH__IDSach__49C3F6B7" Association="Self.FK__CUONSACH__IDSach__49C3F6B7">
       <End Role="SACH" EntitySet="SACH" />
       <End Role="CUONSACH" EntitySet="CUONSACH" />
     </AssociationSet>
@@ -514,15 +527,15 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       <End Role="LOAISACH" EntitySet="LOAISACH" />
       <End Role="DAUSACH" EntitySet="DAUSACH" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHIEUMUON__IDDoc__5629CD9C" Association="Self.FK__PHIEUMUON__IDDoc__5629CD9C">
+    <AssociationSet Name="FK__PHIEUMUON__IDDoc__571DF1D5" Association="Self.FK__PHIEUMUON__IDDoc__571DF1D5">
       <End Role="THEDOCGIA" EntitySet="THEDOCGIA" />
       <End Role="PHIEUMUON" EntitySet="PHIEUMUON" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHIEUTHUT__IDDoc__68487DD7" Association="Self.FK__PHIEUTHUT__IDDoc__68487DD7">
+    <AssociationSet Name="FK__PHIEUTHUT__IDDoc__693CA210" Association="Self.FK__PHIEUTHUT__IDDoc__693CA210">
       <End Role="THEDOCGIA" EntitySet="THEDOCGIA" />
       <End Role="PHIEUTHUTIENPHAT" EntitySet="PHIEUTHUTIENPHAT" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHIEUTRA__IDDocG__5CD6CB2B" Association="Self.FK__PHIEUTRA__IDDocG__5CD6CB2B">
+    <AssociationSet Name="FK__PHIEUTRA__IDDocG__5DCAEF64" Association="Self.FK__PHIEUTRA__IDDocG__5DCAEF64">
       <End Role="THEDOCGIA" EntitySet="THEDOCGIA" />
       <End Role="PHIEUTRA" EntitySet="PHIEUTRA" />
     </AssociationSet>
@@ -530,15 +543,19 @@ warning 6013: The table/view 'QuanLyThuVien.dbo.THAMSO' does not have a primary 
       <End Role="DAUSACH" EntitySet="DAUSACH" />
       <End Role="SACH" EntitySet="SACH" />
     </AssociationSet>
+    <AssociationSet Name="FK__SACH__IDTacGia__44FF419A" Association="Self.FK__SACH__IDTacGia__44FF419A">
+      <End Role="TACGIA" EntitySet="TACGIA" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
     <AssociationSet Name="FK__THEDOCGIA__IDLoa__398D8EEE" Association="Self.FK__THEDOCGIA__IDLoa__398D8EEE">
       <End Role="LOAIDOCGIA" EntitySet="LOAIDOCGIA" />
       <End Role="THEDOCGIA" EntitySet="THEDOCGIA" />
     </AssociationSet>
-    <AssociationSet Name="FK__USERADMIN__IDAdm__7E37BEF6" Association="Self.FK__USERADMIN__IDAdm__7E37BEF6">
+    <AssociationSet Name="FK__USERADMIN__IDAdm__7F2BE32F" Association="Self.FK__USERADMIN__IDAdm__7F2BE32F">
       <End Role="CT_USERADMIN" EntitySet="CT_USERADMIN" />
       <End Role="USERADMIN" EntitySet="USERADMIN" />
     </AssociationSet>
-    <AssociationSet Name="FK__USERS__IDDocGia__797309D9" Association="Self.FK__USERS__IDDocGia__797309D9">
+    <AssociationSet Name="FK__USERS__IDDocGia__7A672E12" Association="Self.FK__USERS__IDDocGia__7A672E12">
       <End Role="THEDOCGIA" EntitySet="THEDOCGIA" />
       <End Role="USERS" EntitySet="USERS" />
     </AssociationSet>

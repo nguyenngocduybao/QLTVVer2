@@ -17,7 +17,7 @@ namespace Data.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TACGIA()
         {
-            this.CT_TACGIA = new HashSet<CT_TACGIA>();
+            this.SACHes = new HashSet<SACH>();
         }
     
         public int IDTacGia { get; set; }
@@ -25,6 +25,6 @@ namespace Data.Model
         public System.DateTime NgaySinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_TACGIA> CT_TACGIA { get; set; }
+        public virtual ICollection<SACH> SACHes { get; set; }
     }
 }
