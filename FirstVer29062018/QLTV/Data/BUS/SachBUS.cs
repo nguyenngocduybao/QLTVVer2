@@ -40,7 +40,7 @@ namespace Data.BUS
                     int IDsach = SachDAO.Instance.IDPlus();
                     if (sach.IDDauSach.Equals(ID))
                     {
-                       
+                        //Thay hàm check IDTacGia bằng hàm check TenTacGia có thuộc bảng TacGia và IDCTTacGia trong Sách thay bằng IDTacGia(Get tên tác giả thành IDTG)
                         //var checkIDTacGia = (from a in db.CT_TACGIA
                         //                     where a.IDCTTacGia.Equals(sach.IDCTTacGia)
                         //                     select a).FirstOrDefault();
@@ -112,6 +112,7 @@ namespace Data.BUS
                                     select a).FirstOrDefault();
                     if (EditSach == null) return false;
                     EditSach.IDDauSach = sach.IDDauSach;
+                    //giá trị của IDTacGia = get Data từ tên tác giả
                     //EditSach.IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia);
                     EditSach.NamXB = sach.NamXB;
                     EditSach.NhaXB = sach.NhaXB;
