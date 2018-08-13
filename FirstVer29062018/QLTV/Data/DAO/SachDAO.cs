@@ -50,10 +50,9 @@ namespace Data.DAO
                               {
                                   IDSach = a.IDSach,
                                   IDDauSach = a.IDDauSach,
-                                  IDCTTacGia=a.IDCTTacGia,
+                                  IDTacGia=a.IDTacGia,
                                   TenDauSach=GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
-                                  // TenTacGia get Data từ IDTacGia
-                                  TenTG=GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
+                                  TenTG=GetDataDAO.Instance.getTenTacGiaToIDTacGia(a.IDTacGia),
                                   NamXB=a.NamXB,
                                   NhaXB=a.NhaXB,
                                   GiaTien=a.GiaTien,
@@ -76,10 +75,9 @@ namespace Data.DAO
                               {
                                   IDDauSach = a.IDDauSach,
                                   IDSach = b.IDSach,
-                                  IDCTTacGia = b.IDCTTacGia,
+                                  IDTacGia=b.IDTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
-                                  // TenTacGia get Data từ IDTacGia
-                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(b.IDCTTacGia),
+                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDTacGia(b.IDTacGia),
                                   NamXB = b.NamXB,
                                   NhaXB = b.NhaXB,
                                   GiaTien = b.GiaTien,
@@ -102,10 +100,9 @@ namespace Data.DAO
                               {
                                   IDSach = a.IDSach,
                                   IDDauSach = a.IDDauSach,
-                                  IDCTTacGia = a.IDCTTacGia,
+                                  IDTacGia=a.IDTacGia,  
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
-                                  // TenTacGia get Data từ IDTacGia
-                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
+                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDTacGia(a.IDTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
                                   GiaTien = a.GiaTien,
@@ -127,10 +124,9 @@ namespace Data.DAO
                               {
                                   IDSach = a.IDSach,
                                   IDDauSach = a.IDDauSach,
-                                  IDCTTacGia = a.IDCTTacGia,
+                                  IDTacGia = a.IDTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
-                                  // TenTacGia get Data từ IDTacGia
-                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
+                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDTacGia(a.IDTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
                                   GiaTien = a.GiaTien,
@@ -152,10 +148,9 @@ namespace Data.DAO
                               {
                                   IDSach = a.IDSach,
                                   IDDauSach = a.IDDauSach,
-                                  IDCTTacGia = a.IDCTTacGia,
+                                  IDTacGia = a.IDTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
-                                  // TenTacGia get Data từ IDTacGia
-                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
+                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDTacGia(a.IDTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
                                   GiaTien = a.GiaTien,
@@ -177,10 +172,9 @@ namespace Data.DAO
                               {
                                   IDSach = a.IDSach,
                                   IDDauSach = a.IDDauSach,
-                                  IDCTTacGia = a.IDCTTacGia,
+                                  IDTacGia = a.IDTacGia,
                                   TenDauSach = GetDataDAO.Instance.getTenDausachToIDDauSach(a.IDDauSach),
-                                  // TenTacGia get Data từ IDTacGia
-                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDCTTacGia(a.IDCTTacGia),
+                                  TenTG = GetDataDAO.Instance.getTenTacGiaToIDTacGia(a.IDTacGia),
                                   NamXB = a.NamXB,
                                   NhaXB = a.NhaXB,
                                   GiaTien = a.GiaTien,
@@ -193,13 +187,67 @@ namespace Data.DAO
         }
         #endregion
         #region getALl Form DauSach And CTPhieuNhap And "Sach"
-        //public List<SachDTO> getAllFormDauSachAndCTPhieuNhapAndSach()
-        //{
-        //    using (var db = new QuanLyThuVienEntities())
-        //    {
-        //        var DauSach=(from a in db.DAUSACHes)
-        //    }
-        //}
+        public List<SachDTO> getAllFormDauSachandCTPhieuNhapAndSach()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var getAll = (from a in db.DAUSACHes
+                              join b in db.SACHes on a.IDDauSach equals b.IDDauSach
+                              select new SachDTO()
+                              {
+                                  IDSach = b.IDSach,
+                                  IDDauSach = b.IDDauSach,
+                                  IDTacGia = b.IDTacGia,
+                                  NamXB = b.NamXB,
+                                  NhaXB = b.NhaXB,
+                                  IDLoaiSach = a.IDLoaiSach,
+                                  SoLuongTon = b.SoLuongTon,
+                                  TenDauSach = a.TenDauSach,
+                                  GiaTien = b.GiaTien,
+                              }
+                            ).ToList<SachDTO>();
+                var GetAll = (from a in getAll
+                              join b in db.CT_PHIEUNHAPSACH on a.IDSach equals b.IDSach
+                              select new SachDTO()
+                              {
+                                  IDSach = a.IDSach,
+                                  IDDauSach = a.IDDauSach,
+                                  IDTacGia = a.IDTacGia,
+                                  NamXB = a.NamXB,
+                                  NhaXB = a.NhaXB,
+                                  IDLoaiSach = a.IDLoaiSach,
+                                  SoLuongTon = a.SoLuongTon,
+                                  TenDauSach = a.TenDauSach,
+                                  GiaTien = a.GiaTien,
+                                  SoLuong = b.SoLuong,
+                                  DonGia = b.DonGia,
+                                  IDCTPhieuNhap = b.IDCTPhieuNhap,
+                                  IDPhieuNhap = b.IDPhieuNhap,
+                              }).ToList<SachDTO>();
+                var getAllForm = (from a in GetAll
+                                  select new SachDTO()
+                                  {
+                                      IDSach = a.IDSach,
+                                      IDDauSach = a.IDDauSach,
+                                      IDTacGia = a.IDTacGia,
+                                      NamXB = a.NamXB,
+                                      NhaXB = a.NhaXB,
+                                      IDLoaiSach = a.IDLoaiSach,
+                                      SoLuongTon = a.SoLuongTon,
+                                      TenDauSach = a.TenDauSach,
+                                      GiaTien = a.GiaTien,
+                                      SoLuong = a.SoLuong,
+                                      DonGia = a.DonGia,
+                                      IDCTPhieuNhap = a.IDCTPhieuNhap,
+                                      IDPhieuNhap = a.IDPhieuNhap,
+                                      TenLoaiSach = GetDataDAO.Instance.getTenLoaiSachToIDLoaiSach(a.IDLoaiSach),
+                                      TenTG = GetDataDAO.Instance.getTenTacGiaToIDTacGia(a.IDTacGia),
+                                  }).ToList<SachDTO>();
+                if (getAllForm.Count > 0)
+                    return getAllForm;
+                return new List<SachDTO>();
+            }
+        }
         #endregion 
     }
 }

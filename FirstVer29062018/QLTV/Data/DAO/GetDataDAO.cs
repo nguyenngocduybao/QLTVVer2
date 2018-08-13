@@ -37,16 +37,16 @@ namespace Data.DAO
                 return TenDocGia;
             }
         }
-        //get TenTacGia to IDCTTacGia
-        public string getTenTacGiaToIDCTTacGia(int ID)
+        //get IDTacGia To TenTacGia
+        public int getIDTacGiaToTenTacGia(string TenTacGia)
         {
             using (var db = new QuanLyThuVienEntities())
             {
-                var TenTacGia = (from a in db.TACGIAs
-                                 from b in db.CT_TACGIA
-                                 where b.IDTacGia.Equals(a.IDTacGia) && a.IDTacGia.Equals(ID)
-                                 select a.TenTacGia).ToString();
-                return TenTacGia;
+                var Id = (from a in db.TACGIAs
+                          where a.TenTacGia.Equals(TenTacGia)
+                          select a.IDTacGia).ToString();
+                int IdTacGia = int.Parse(Id);
+                return IdTacGia;
             }
         }
         //get TenDauSach to IDDauSach
@@ -110,20 +110,6 @@ namespace Data.DAO
                 return ID;
             }
         }
-        // Bỏ get DaTa IDCTTG
-        // Bổ sung thêm hàm get IDTG từ TenTG
-        public int getIDTGToTenTacGia(string TenTG)
-        {
-            using (var db = new QuanLyThuVienEntities())
-            {
-                var IDTacGia = (from a in db.TACGIAs
-                                where a.TenTacGia.Equals(TenTG)
-                                select a.IDTacGia).ToString();
-                int ID = int.Parse(IDTacGia);
-                return ID;
-            }
-
-        }
        // getIDPhieuNhap to NgayNhapSach
        public int getIDPhieuNhapToNgayNhapSach(DateTime NgayNhap)
         {
@@ -149,6 +135,17 @@ namespace Data.DAO
                               select b.HanTra).ToString();
                 DateTime HanTraS = DateTime.Parse(HanTra);
                 return HanTraS;
+            }
+        }
+        // get TenTacGia To IDTacGia
+        public string getTenTacGiaToIDTacGia(int IDTG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var TenTacGia = (from a in db.TACGIAs
+                                 where a.IDTacGia.Equals(IDTG)
+                                 select a.TenTacGia).ToString();
+                return TenTacGia;
             }
         }
         #endregion

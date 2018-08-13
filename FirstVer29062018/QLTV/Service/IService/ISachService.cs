@@ -13,6 +13,8 @@ namespace Service.IService
         void ADDFormSach(SachDTO sach);
         //EditForm DauSach, Sach, CT_PhieuNhap
         void editFormDauSachAndSachAndCTPhieuNhap(SachDTO sach);
+        //getALl Form DauSach And CTPhieuNhap And "Sach"
+        List<SachDTO> getAllFormDauSachandCTPhieuNhapAndSach();
         #region getListSearch SachDTO
         //get List Search IDSach 
         List<SachDTO> getFormSachSearchIDSach(int IDsach);
