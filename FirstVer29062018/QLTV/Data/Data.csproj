@@ -79,7 +79,6 @@
     <Compile Include="DAO\CTPhieuMuonDAO.cs" />
     <Compile Include="DAO\CTPhieuNhapSachDAO.cs" />
     <Compile Include="DAO\CTPhieuTraDAO.cs" />
-    <Compile Include="DAO\CTTacGiaDAO.cs" />
     <Compile Include="DAO\CTUserAdminDAO.cs" />
     <Compile Include="DAO\CuonSachDAO.cs" />
     <Compile Include="DAO\DauSachDAO.cs" />

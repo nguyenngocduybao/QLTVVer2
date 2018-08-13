@@ -40,22 +40,21 @@ namespace Data.BUS
                     int IDsach = SachDAO.Instance.IDPlus();
                     if (sach.IDDauSach.Equals(ID))
                     {
-                        //Thay hàm check IDTacGia bằng hàm check TenTacGia có thuộc bảng TacGia và IDCTTacGia trong Sách thay bằng IDTacGia(Get tên tác giả thành IDTG)
-                        //var checkIDTacGia = (from a in db.CT_TACGIA
-                        //                     where a.IDCTTacGia.Equals(sach.IDCTTacGia)
-                        //                     select a).FirstOrDefault();
-                        //if (checkID == null) return false;
-                        //db.SACHes.Add(new SACH()
-                        //{
-                        //    IDSach = IDsach,
-                        //    IDDauSach = ID,
-                        //    IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia),
-                        //    GiaTien = sach.GiaTien,
-                        //    NamXB = sach.NamXB,
-                        //    SoLuongTon = 0,
-                        //    NhaXB = sach.NhaXB,
+                        var checkTenTacGia = (from a in db.TACGIAs
+                                              where a.TenTacGia.Equals(sach.TenTG)
+                                              select a).FirstOrDefault();
+                        if (checkTenTacGia == null) return false;
+                        db.SACHes.Add(new SACH()
+                        {
+                            IDSach = IDsach,
+                            IDDauSach = ID,
+                            IDTacGia=GetDataDAO.Instance.getIDTacGiaToTenTacGia(sach.TenTG),
+                            GiaTien = sach.GiaTien,
+                            NamXB = sach.NamXB,
+                            SoLuongTon = 0,
+                            NhaXB = sach.NhaXB,
 
-                        //});
+                        });
                         if (sach.IDSach.Equals(IDsach))
                         {
                             int IDCT = CTPhieuNhapSachDAO.Instance.IDPlus();
@@ -111,9 +110,8 @@ namespace Data.BUS
                                     where a.IDSach.Equals(sach.IDSach)
                                     select a).FirstOrDefault();
                     if (EditSach == null) return false;
-                    EditSach.IDDauSach = sach.IDDauSach;
-                    //giá trị của IDTacGia = get Data từ tên tác giả
-                    //EditSach.IDCTTacGia = GetDataDAO.Instance.getIDCTTacGiaToTenTacGia(sach.TenTacGia);
+                    EditSach.IDDauSach = sach.IDDauSach;   
+                    EditSach.IDTacGia = GetDataDAO.Instance.getIDTacGiaToTenTacGia(sach.TenTG);
                     EditSach.NamXB = sach.NamXB;
                     EditSach.NhaXB = sach.NhaXB;
                     EditSach.SoLuongTon = sach.SoLuongTon + sach.SoLuong;
@@ -135,7 +133,7 @@ namespace Data.BUS
 
                 return false;
             }
-        }
+        }  
         #endregion
         #region getListSearch SachDTO
         //get List Search NamXuatban
@@ -220,6 +218,22 @@ namespace Data.BUS
             {
                 List<SachDTO> listSach = new List<SachDTO>();
                 listSach = SachDAO.Instance.getFormSachTenDauSach(TenDauSach);
+                return listSach;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
+        #region GetallFormDauSachand Sach And CTPhieuNhap
+        public List<SachDTO> getAllFormDauSachandCTPhieuNhapAndSach()
+        {
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getAllFormDauSachandCTPhieuNhapAndSach();
                 return listSach;
             }
             catch (Exception)

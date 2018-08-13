@@ -27,6 +27,11 @@ namespace Service.ABSTRACT
         {
             this._iSachBUS.editFormDauSachAndSachAndCTPhieuNhap(sach);
         }
+        //getALl Form DauSach And CTPhieuNhap And "Sach"
+        public List<SachDTO> getAllFormDauSachandCTPhieuNhapAndSach()
+        {
+            return this._iSachBUS.getAllFormDauSachandCTPhieuNhapAndSach();
+        }
         #region getListSearch SachDTO
         //get List Search Namxuatban
         public List<SachDTO> getFormSachNamXuatBan(string NamXB)

@@ -50,8 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABSTRACT\BCSachTraTreService.cs" />
-    <Compile Include="ABSTRACT\CTPhieuMuonService.cs" />
-    <Compile Include="ABSTRACT\CTTacGiaService.cs" />
     <Compile Include="ABSTRACT\CTUserAdminService.cs" />
     <Compile Include="ABSTRACT\LoaiDocGiaService.cs" />
     <Compile Include="ABSTRACT\LoaiSachService.cs" />
@@ -63,8 +61,6 @@
     <Compile Include="ABSTRACT\TheDocGiaService.cs" />
     <Compile Include="ABSTRACT\UserService.cs" />
     <Compile Include="IService\IBCSachTraTreService.cs" />
-    <Compile Include="IService\ICTPhieuMuonService.cs" />
-    <Compile Include="IService\ICTTacGiaService.cs" />
     <Compile Include="IService\ICTUserAdminService.cs" />
     <Compile Include="IService\ILoaiDocGiaService.cs" />
     <Compile Include="IService\ILoaiSachService.cs" />

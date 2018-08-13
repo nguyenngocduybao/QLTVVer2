@@ -10,8 +10,7 @@ namespace Data.DTO
     {
         public int IDSach { get; set; }
         public int IDDauSach { get; set; }
-        public int IDCTTacGia { get; set; }
-        public string TenTacGia { get; set; }
+        public int IDTacGia { get; set; }
         public string TenTG { get; set; }
         public string NhaXB { get; set; }
         public int NamXB { get; set; }
