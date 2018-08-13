@@ -22,18 +22,18 @@ namespace Data.Model
         }
     
         public int IDSach { get; set; }
-        public int IDDauSach { get; set; }
-        public int IDCTTacGia { get; set; }
+        public Nullable<int> IDDauSach { get; set; }
+        public Nullable<int> IDTacGia { get; set; }
         public string NhaXB { get; set; }
         public int NamXB { get; set; }
-        public int SoLuongTon { get; set; }
+        public Nullable<int> SoLuongTon { get; set; }
         public decimal GiaTien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PHIEUNHAPSACH> CT_PHIEUNHAPSACH { get; set; }
-        public virtual CT_TACGIA CT_TACGIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CUONSACH> CUONSACHes { get; set; }
         public virtual DAUSACH DAUSACH { get; set; }
+        public virtual TACGIA TACGIA { get; set; }
     }
 }
