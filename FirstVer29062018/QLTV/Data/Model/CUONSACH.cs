@@ -23,7 +23,7 @@ namespace Data.Model
         }
     
         public int IDCuonSach { get; set; }
-        public Nullable<int> IDSach { get; set; }
+        public int IDSach { get; set; }
         public string TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

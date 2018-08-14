@@ -15,11 +15,11 @@ namespace Data.Model
     public partial class CT_PHIEUNHAPSACH
     {
         public int IDCTPhieuNhap { get; set; }
-        public Nullable<int> IDPhieuNhap { get; set; }
-        public Nullable<int> IDSach { get; set; }
+        public int IDPhieuNhap { get; set; }
+        public int IDSach { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGia { get; set; }
-        public Nullable<decimal> ThanhTien { get; set; }
+        public decimal ThanhTien { get; set; }
     
         public virtual PHIEUNHAPSACH PHIEUNHAPSACH { get; set; }
         public virtual SACH SACH { get; set; }

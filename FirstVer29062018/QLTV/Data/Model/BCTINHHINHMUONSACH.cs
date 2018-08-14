@@ -21,7 +21,7 @@ namespace Data.Model
         }
     
         public int IDBCMuonSach { get; set; }
-        public Nullable<System.DateTime> NgayLap { get; set; }
+        public System.DateTime NgayLap { get; set; }
         public int Thang { get; set; }
         public int Nam { get; set; }
         public Nullable<int> TongSoLuotMuon { get; set; }

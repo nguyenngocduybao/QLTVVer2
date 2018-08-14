@@ -15,10 +15,10 @@ namespace Data.Model
     public partial class PHIEUTHUTIENPHAT
     {
         public int IDPhieuThu { get; set; }
-        public Nullable<int> IDDocGia { get; set; }
+        public int IDDocGia { get; set; }
         public System.DateTime NgayLap { get; set; }
-        public Nullable<decimal> SoTienThu { get; set; }
-        public Nullable<decimal> ConLai { get; set; }
+        public decimal SoTienThu { get; set; }
+        public decimal ConLai { get; set; }
     
         public virtual THEDOCGIA THEDOCGIA { get; set; }
     }

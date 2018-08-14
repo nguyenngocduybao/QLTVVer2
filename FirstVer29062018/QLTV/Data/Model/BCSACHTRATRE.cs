@@ -16,9 +16,9 @@ namespace Data.Model
     {
         public int IDBCSachTre { get; set; }
         public System.DateTime NgayThangNam { get; set; }
-        public Nullable<int> IDCuonSach { get; set; }
-        public Nullable<int> IDPhieuMuon { get; set; }
-        public Nullable<int> SoNgayTraTre { get; set; }
+        public int IDCuonSach { get; set; }
+        public int IDPhieuMuon { get; set; }    
+        public int SoNgayTraTre { get; set; }
     
         public virtual CUONSACH CUONSACH { get; set; }
         public virtual PHIEUMUON PHIEUMUON { get; set; }

@@ -15,11 +15,11 @@ namespace Data.Model
     public partial class CT_PHIEUTRA
     {
         public int IDCTPhieuTra { get; set; }
-        public Nullable<int> IDPhieuTra { get; set; }
+        public int IDPhieuTra { get; set; }
         public int IDCuonSach { get; set; }
-        public Nullable<int> IDPhieuMuon { get; set; }
-        public Nullable<int> SoNgayMuon { get; set; }
-        public Nullable<decimal> TienPhat { get; set; }
+        public int IDPhieuMuon { get; set; }
+        public int SoNgayMuon { get; set; }
+        public decimal TienPhat { get; set; }
     
         public virtual CUONSACH CUONSACH { get; set; }
         public virtual PHIEUTRA PHIEUTRA { get; set; }

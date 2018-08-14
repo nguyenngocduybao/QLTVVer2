@@ -22,7 +22,7 @@ namespace Data.Model
     
         public int IDPhieuNhap { get; set; }
         public System.DateTime NgayNhap { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public decimal TongTien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PHIEUNHAPSACH> CT_PHIEUNHAPSACH { get; set; }
