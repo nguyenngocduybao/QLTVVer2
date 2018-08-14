@@ -21,11 +21,11 @@ namespace Data.Model
         }
     
         public int IDPhieuTra { get; set; }
-        public Nullable<int> IDDocGia { get; set; }
+        public int IDDocGia { get; set; }
         public System.DateTime NgayTra { get; set; }
-        public Nullable<decimal> TienPhatKyNay { get; set; }
-        public Nullable<decimal> SoTienTra { get; set; }
-        public Nullable<decimal> TienNoKyNay { get; set; }
+        public decimal TienPhatKyNay { get; set; }
+        public decimal SoTienTra { get; set; }
+        public decimal TienNoKyNay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PHIEUTRA> CT_PHIEUTRA { get; set; }
