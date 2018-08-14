@@ -18,7 +18,7 @@ namespace Data.Model
         public Nullable<int> IDPhieuTra { get; set; }
         public int IDCuonSach { get; set; }
         public Nullable<int> IDPhieuMuon { get; set; }
-        public int SoNgayMuon { get; set; }
+        public Nullable<int> SoNgayMuon { get; set; }
         public Nullable<decimal> TienPhat { get; set; }
     
         public virtual CUONSACH CUONSACH { get; set; }

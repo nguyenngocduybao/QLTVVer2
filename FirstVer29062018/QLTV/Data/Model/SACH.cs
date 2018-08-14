@@ -22,11 +22,11 @@ namespace Data.Model
         }
     
         public int IDSach { get; set; }
-        public int IDDauSach { get; set; }
-        public int IDTacGia { get; set; }
+        public Nullable<int> IDDauSach { get; set; }
+        public Nullable<int> IDTacGia { get; set; }
         public string NhaXB { get; set; }
         public int NamXB { get; set; }
-        public int SoLuongTon { get; set; }
+        public Nullable<int> SoLuongTon { get; set; }
         public decimal GiaTien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

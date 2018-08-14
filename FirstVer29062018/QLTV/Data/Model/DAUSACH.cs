@@ -22,7 +22,7 @@ namespace Data.Model
     
         public int IDDauSach { get; set; }
         public string TenDauSach { get; set; }
-        public int IDLoaiSach { get; set; }
+        public Nullable<int> IDLoaiSach { get; set; }
     
         public virtual LOAISACH LOAISACH { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

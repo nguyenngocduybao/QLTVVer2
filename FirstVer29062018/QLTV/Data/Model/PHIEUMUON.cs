@@ -23,9 +23,9 @@ namespace Data.Model
         }
     
         public int IDPhieuMuon { get; set; }
-        public int IDDocGia { get; set; }
+        public Nullable<int> IDDocGia { get; set; }
         public System.DateTime NgayMuon { get; set; }
-        public System.DateTime HanTra { get; set; }
+        public Nullable<System.DateTime> HanTra { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BCSACHTRATRE> BCSACHTRATREs { get; set; }
