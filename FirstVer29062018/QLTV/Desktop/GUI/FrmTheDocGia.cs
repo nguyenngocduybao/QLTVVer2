@@ -121,6 +121,21 @@ namespace Desktop.GUI
             fillAllDataFromTableTheDocGia();
         }
 
+        private void toolStripBt_Muon_Click(object sender, EventArgs e)
+        {
+            frmPhieuMuon frm = new frmPhieuMuon();
+            frm.HoTenDG = dgv_DuLieu.CurrentRow.Cells["cl_HoTen"].Value.ToString();
+            frm.IDLoaiDG = Int32.Parse(dgv_DuLieu.CurrentRow.Cells["cl_ID"].Value.ToString());
+            frm.Show();
+        }
+
+        private void toolStrip_Tra_Click(object sender, EventArgs e)
+        {
+            frmPhieuTra frm = new frmPhieuTra();
+            frm.HoTenDG = dgv_DuLieu.CurrentRow.Cells["cl_HoTen"].Value.ToString();
+            frm.IDLoaiDG = Int32.Parse(dgv_DuLieu.CurrentRow.Cells["cl_ID"].Value.ToString());
+            frm.Show();
+        }
         #endregion
         #region Event KeyPress
         private void tb_HoTenDG_KeyPress(object sender, KeyPressEventArgs e)
@@ -154,7 +169,9 @@ namespace Desktop.GUI
             ls = TDGsv.getAllDocGiaAndUser();
             dgv_DuLieu.DataSource = ls;
         }
+
         #endregion
+
 
 
     }

@@ -71,6 +71,10 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBt_Reset = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBt_Muon = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStrip_Tra = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBt_Thoat = new System.Windows.Forms.ToolStripButton();
             this.dgv_DuLieu = new System.Windows.Forms.DataGridView();
             this.cl_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -455,7 +459,7 @@
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl2.Location = new System.Drawing.Point(627, 52);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(609, 500);
+            this.groupControl2.Size = new System.Drawing.Size(796, 500);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Dữ liệu độc giả";
             // 
@@ -477,6 +481,10 @@
             this.toolStripSeparator4,
             this.toolStripBt_Reset,
             this.toolStripSeparator5,
+            this.toolStripBt_Muon,
+            this.toolStripSeparator6,
+            this.toolStrip_Tra,
+            this.toolStrip,
             this.toolStripBt_Thoat});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 38);
             this.bindingNavigator1.MoveFirstItem = null;
@@ -485,7 +493,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(609, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(796, 31);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -565,6 +573,38 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
+            // toolStripBt_Muon
+            // 
+            this.toolStripBt_Muon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripBt_Muon.ForeColor = System.Drawing.Color.Red;
+            this.toolStripBt_Muon.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBt_Muon.Image")));
+            this.toolStripBt_Muon.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBt_Muon.Name = "toolStripBt_Muon";
+            this.toolStripBt_Muon.Size = new System.Drawing.Size(122, 28);
+            this.toolStripBt_Muon.Text = "Mượn sách";
+            this.toolStripBt_Muon.Click += new System.EventHandler(this.toolStripBt_Muon_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 31);
+            // 
+            // toolStrip_Tra
+            // 
+            this.toolStrip_Tra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip_Tra.ForeColor = System.Drawing.Color.Red;
+            this.toolStrip_Tra.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_Tra.Image")));
+            this.toolStrip_Tra.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_Tra.Name = "toolStrip_Tra";
+            this.toolStrip_Tra.Size = new System.Drawing.Size(99, 28);
+            this.toolStrip_Tra.Text = "Trả sách";
+            this.toolStrip_Tra.Click += new System.EventHandler(this.toolStrip_Tra_Click);
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(6, 31);
+            // 
             // toolStripBt_Thoat
             // 
             this.toolStripBt_Thoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -593,8 +633,9 @@
             this.cl_TenLoaiDG,
             this.cl_TongNo});
             this.dgv_DuLieu.Location = new System.Drawing.Point(0, 66);
+            this.dgv_DuLieu.MultiSelect = false;
             this.dgv_DuLieu.Name = "dgv_DuLieu";
-            this.dgv_DuLieu.Size = new System.Drawing.Size(609, 431);
+            this.dgv_DuLieu.Size = new System.Drawing.Size(796, 431);
             this.dgv_DuLieu.TabIndex = 0;
             // 
             // cl_ID
@@ -681,7 +722,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 560);
+            this.ClientSize = new System.Drawing.Size(1423, 560);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.InactiveGlowColor = System.Drawing.Color.White;
@@ -765,5 +806,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_NgayHetHan;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenLoaiDG;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TongNo;
+        private System.Windows.Forms.ToolStripSeparator toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripBt_Muon;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton toolStrip_Tra;
     }
 }

@@ -18,6 +18,8 @@ namespace Desktop.GUI
             InitializeComponent();
         }
         #region Value
+        public string HoTenDG { set; get; }
+        public int IDLoaiDG { set; get; }
         public DateTime NgayMuon;
         #endregion
         #region Event KeyPress 
@@ -37,5 +39,11 @@ namespace Desktop.GUI
         }
 
         #endregion
+
+        private void frmPhieuMuon_Load(object sender, EventArgs e)
+        {
+            tb_TenTacGia.Text = HoTenDG;
+            int IDGiuBien = IDLoaiDG;
+        }
     }
 }
