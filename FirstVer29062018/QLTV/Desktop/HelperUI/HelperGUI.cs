@@ -169,6 +169,13 @@ namespace Desktop.HelperUI
             col.AddRange(sv.getArrayTenTacGia());
             tb.AutoCompleteCustomSource = col;
         }
+        public void autocompleteNhaXuatBan(TextBox tb)
+        {
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            GetDataDAO sv = new GetDataDAO();
+            col.AddRange(sv.getArrNhaXB());
+            tb.AutoCompleteCustomSource = col;
+        }
         #endregion
     }
 }
