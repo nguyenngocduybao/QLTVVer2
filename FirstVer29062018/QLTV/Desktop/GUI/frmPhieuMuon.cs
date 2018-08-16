@@ -39,11 +39,12 @@ namespace Desktop.GUI
         }
 
         #endregion
-
+        #region Load Du Lieu
         private void frmPhieuMuon_Load(object sender, EventArgs e)
         {
             tb_TenTacGia.Text = HoTenDG;
             int IDGiuBien = IDLoaiDG;
         }
+        #endregion
     }
 }

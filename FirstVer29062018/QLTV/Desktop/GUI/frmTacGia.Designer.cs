@@ -33,7 +33,7 @@
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl_TTTG = new DevExpress.XtraEditors.GroupControl();
             this.dt_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_TenTacGia = new System.Windows.Forms.TextBox();
@@ -68,8 +68,8 @@
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).BeginInit();
-            this.groupControl_TTDG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTTG)).BeginInit();
+            this.groupControl_TTTG.SuspendLayout();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -103,7 +103,7 @@
             // 
             this.navigationPage2.Caption = "Thêm tác giả";
             this.navigationPage2.Controls.Add(this.navigationFrame1);
-            this.navigationPage2.Controls.Add(this.groupControl_TTDG);
+            this.navigationPage2.Controls.Add(this.groupControl_TTTG);
             this.navigationPage2.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
@@ -120,28 +120,28 @@
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
-            // groupControl_TTDG
+            // groupControl_TTTG
             // 
-            this.groupControl_TTDG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupControl_TTTG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupControl_TTDG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.Appearance.Options.UseFont = true;
-            this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.AppearanceCaption.Options.UseFont = true;
-            this.groupControl_TTDG.AutoSize = true;
-            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
-            this.groupControl_TTDG.Controls.Add(this.dt_NgaySinh);
-            this.groupControl_TTDG.Controls.Add(this.label1);
-            this.groupControl_TTDG.Controls.Add(this.tb_TenTacGia);
-            this.groupControl_TTDG.Controls.Add(this.label2);
-            this.groupControl_TTDG.Controls.Add(this.bt_Lamlai);
-            this.groupControl_TTDG.Controls.Add(this.bt_CNDL);
-            this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(526, 567);
-            this.groupControl_TTDG.TabIndex = 0;
-            this.groupControl_TTDG.Text = "Thông tin tác giả";
+            this.groupControl_TTTG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTTG.Appearance.Options.UseFont = true;
+            this.groupControl_TTTG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTTG.AppearanceCaption.Options.UseFont = true;
+            this.groupControl_TTTG.AutoSize = true;
+            this.groupControl_TTTG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_TTTG.Controls.Add(this.dt_NgaySinh);
+            this.groupControl_TTTG.Controls.Add(this.label1);
+            this.groupControl_TTTG.Controls.Add(this.tb_TenTacGia);
+            this.groupControl_TTTG.Controls.Add(this.label2);
+            this.groupControl_TTTG.Controls.Add(this.bt_Lamlai);
+            this.groupControl_TTTG.Controls.Add(this.bt_CNDL);
+            this.groupControl_TTTG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.groupControl_TTTG.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_TTTG.Name = "groupControl_TTTG";
+            this.groupControl_TTTG.Size = new System.Drawing.Size(526, 567);
+            this.groupControl_TTTG.TabIndex = 0;
+            this.groupControl_TTTG.Text = "Thông tin tác giả";
             // 
             // dt_NgaySinh
             // 
@@ -196,6 +196,7 @@
             this.bt_Lamlai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_Lamlai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Lamlai.UseVisualStyleBackColor = true;
+            this.bt_Lamlai.Click += new System.EventHandler(this.bt_Lamlai_Click);
             // 
             // bt_CNDL
             // 
@@ -209,6 +210,7 @@
             this.bt_CNDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_CNDL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_CNDL.UseVisualStyleBackColor = true;
+            this.bt_CNDL.Click += new System.EventHandler(this.bt_CNDL_Click);
             // 
             // navigationPage1
             // 
@@ -248,6 +250,7 @@
             this.bt_TimKiem.Text = "Tìm kiếm";
             this.bt_TimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_TimKiem.UseVisualStyleBackColor = true;
+            this.bt_TimKiem.Click += new System.EventHandler(this.bt_TimKiem_Click);
             // 
             // tb_NhapTT
             // 
@@ -272,12 +275,7 @@
             this.cbb_ThongTinTimKiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_ThongTinTimKiem.FormattingEnabled = true;
             this.cbb_ThongTinTimKiem.Items.AddRange(new object[] {
-            "Tên đầu sách",
-            "Nhà xuất bản",
-            "Năm xuất bản",
-            "Số lượng",
-            "Số lượng tồn",
-            "Giá tiền"});
+            "Họ và tên"});
             this.cbb_ThongTinTimKiem.Location = new System.Drawing.Point(211, 95);
             this.cbb_ThongTinTimKiem.Name = "cbb_ThongTinTimKiem";
             this.cbb_ThongTinTimKiem.Size = new System.Drawing.Size(267, 31);
@@ -483,9 +481,9 @@
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).EndInit();
-            this.groupControl_TTDG.ResumeLayout(false);
-            this.groupControl_TTDG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTTG)).EndInit();
+            this.groupControl_TTTG.ResumeLayout(false);
+            this.groupControl_TTTG.PerformLayout();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
@@ -506,7 +504,7 @@
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraEditors.GroupControl groupControl_TTDG;
+        private DevExpress.XtraEditors.GroupControl groupControl_TTTG;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_TenTacGia;
         private System.Windows.Forms.Label label2;

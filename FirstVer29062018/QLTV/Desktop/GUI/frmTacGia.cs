@@ -13,6 +13,7 @@ using Service.ABSTRACT;
 using Data.DAO;
 using Service.ABSTRACT;
 using Desktop.HelperUI;
+using Data.DTO;
 
 namespace Desktop.GUI
 {
@@ -47,8 +48,46 @@ namespace Desktop.GUI
         #region LoadfrmTacGia
         private void frmTacGia_Load(object sender, EventArgs e)
         {
+            dgv_DuLieu.AutoGenerateColumns = false;
+            fillAllDataFromTableTacGia();
             AutoCompleteTenTG();
         }
         #endregion
+        #region Event Click
+        private void bt_CNDL_Click(object sender, EventArgs e)
+        {
+            TacGiaService sv = new TacGiaService();
+            TacGiaDtos tdg = new TacGiaDtos();
+            TenTacGia = HelperGUI.Instance.KiemTraHoTen(tb_TenTacGia.Text);
+            NgaySinh = dt_NgaySinh.Value;
+            tdg.TenTacGia = TenTacGia;
+            tdg.NgaySinh = NgaySinh;
+            sv.AddFormTacGia(tdg);
+            MessageBox.Show("Thêm thành công!");
+            fillAllDataFromTableTacGia();
+            HelperGUI.ResetAllControls(groupControl_TTTG);
+        }
+        private void bt_Lamlai_Click(object sender, EventArgs e)
+        {
+            HelperGUI.ResetAllControls(groupControl_TTTG);
+        }
+        private void bt_TimKiem_Click(object sender, EventArgs e)
+        {
+            TacGiaService sv = new TacGiaService();
+            List<TacGiaDtos> ls = new List<TacGiaDtos>();
+            if(cbb_ThongTinTimKiem.Text=="Họ và tên")
+            {
+                ls = sv.getFormTacGiaSearchTenTacGia(tb_NhapTT.Text);
+                dgv_DuLieu.DataSource = ls;
+            }
+        }
+        #endregion
+        public void fillAllDataFromTableTacGia()
+        {
+            List<TacGiaDtos> ls = new List<TacGiaDtos>();
+            TacGiaService TDGsv = new TacGiaService();
+            ls = TDGsv.getAllFormTacGia();
+            dgv_DuLieu.DataSource = ls;
+        }
     }
 }
