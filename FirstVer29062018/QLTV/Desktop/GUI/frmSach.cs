@@ -89,12 +89,17 @@ namespace Desktop.GUI
         {
             HelperGUI.Instance.autocompleteTenTacGia(tb_TenTacGia);
         }
+        public void AutocompleteNhaSX()
+        {
+            HelperGUI.Instance.autocompleteNhaXuatBan(tb_NhaXuatBan);
+        }
         #endregion
         #region Load Du Lieu
         private void frmSach_Load(object sender, EventArgs e)
         {
             fillTheLoaiSachDataFromTableSach();
             AutocompleteTenTG();
+            AutocompleteNhaSX();
         }
         #endregion
     }

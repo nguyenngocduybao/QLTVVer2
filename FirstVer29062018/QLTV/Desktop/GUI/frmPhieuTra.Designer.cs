@@ -34,7 +34,6 @@
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
-            this.btn_XoaSachRaKhoiList = new DevExpress.XtraEditors.SimpleButton();
             this.btn_ChonSachVaoList = new DevExpress.XtraEditors.SimpleButton();
             this.listbox_TenDauSach = new System.Windows.Forms.ListBox();
             this.dgv_DuLieuTra = new System.Windows.Forms.DataGridView();
@@ -75,6 +74,7 @@
             this.cl_TienTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_XoaSachRaKhoiList = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
@@ -158,14 +158,6 @@
             this.groupControl_TTDG.Size = new System.Drawing.Size(532, 573);
             this.groupControl_TTDG.TabIndex = 0;
             this.groupControl_TTDG.Text = "Thông tin phiếu trả";
-            // 
-            // btn_XoaSachRaKhoiList
-            // 
-            this.btn_XoaSachRaKhoiList.Location = new System.Drawing.Point(415, 284);
-            this.btn_XoaSachRaKhoiList.Name = "btn_XoaSachRaKhoiList";
-            this.btn_XoaSachRaKhoiList.Size = new System.Drawing.Size(108, 31);
-            this.btn_XoaSachRaKhoiList.TabIndex = 28;
-            this.btn_XoaSachRaKhoiList.Text = "Xóa khỏi danh sách";
             // 
             // btn_ChonSachVaoList
             // 
@@ -567,6 +559,14 @@
             this.cl_TienNo.Name = "cl_TienNo";
             this.cl_TienNo.Width = 250;
             // 
+            // btn_XoaSachRaKhoiList
+            // 
+            this.btn_XoaSachRaKhoiList.Location = new System.Drawing.Point(415, 284);
+            this.btn_XoaSachRaKhoiList.Name = "btn_XoaSachRaKhoiList";
+            this.btn_XoaSachRaKhoiList.Size = new System.Drawing.Size(108, 31);
+            this.btn_XoaSachRaKhoiList.TabIndex = 28;
+            this.btn_XoaSachRaKhoiList.Text = "Xóa khỏi danh sách";
+            // 
             // frmPhieuTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,6 +576,7 @@
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmPhieuTra";
             this.Text = "frmPhieuTra";
+            this.Load += new System.EventHandler(this.frmPhieuTra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPage2.ResumeLayout(false);
@@ -606,7 +607,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
         private DevExpress.XtraEditors.GroupControl groupControl_TTDG;
-        private DevExpress.XtraEditors.SimpleButton btn_XoaSachRaKhoiList;
         private DevExpress.XtraEditors.SimpleButton btn_ChonSachVaoList;
         private System.Windows.Forms.ListBox listbox_TenDauSach;
         private System.Windows.Forms.DataGridView dgv_DuLieuTra;
@@ -647,5 +647,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienTra;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienPhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienNo;
+        private DevExpress.XtraEditors.SimpleButton btn_XoaSachRaKhoiList;
     }
 }

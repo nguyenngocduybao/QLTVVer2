@@ -598,6 +598,7 @@
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmPhieuMuon";
             this.Text = "Phiếu mượn";
+            this.Load += new System.EventHandler(this.frmPhieuMuon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPage2.ResumeLayout(false);
