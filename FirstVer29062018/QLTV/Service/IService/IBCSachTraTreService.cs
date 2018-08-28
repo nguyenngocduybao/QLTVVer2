@@ -13,5 +13,7 @@ namespace Service.IService
         List<BCSachTraTreDtos> LoadForm();
         //getListAll BCSachTratre
         List<BCSachTraTreDtos> getListAllBCSachTraTre();
+        //Load BaoCao to Date
+        List<BCSachTraTreDtos> loadBaoCaoToDate(DateTime NgayLapBaoCao);
     }
 }
