@@ -44,9 +44,9 @@ namespace Data.DAO
             {
                 var Id = (from a in db.TACGIAs
                           where a.TenTacGia.Equals(TenTacGia)
-                          select a.IDTacGia).ToString();
-                int IdTacGia = int.Parse(Id);
-                return IdTacGia;
+                          select a.IDTacGia).FirstOrDefault();
+
+                return Id;
             }
         }
         //get TenDauSach to IDDauSach
@@ -67,7 +67,7 @@ namespace Data.DAO
             {
                 var TenLoaiSach = (from a in db.LOAISACHes
                                    where a.IDLoaiSach.Equals(ID)
-                                   select a.TenLoaiSach).ToString();
+                                   select a.TenLoaiSach).FirstOrDefault();
                 return TenLoaiSach;
             }
         }
@@ -105,9 +105,9 @@ namespace Data.DAO
             {
                 var IDLoaiSach = (from a in db.LOAISACHes
                                   where a.TenLoaiSach.Equals(TenLoaiSach)
-                                  select a.IDLoaiSach).ToString();
-                int ID = Int32.Parse(IDLoaiSach);
-                return ID;
+                                  select a.IDLoaiSach).FirstOrDefault();
+
+                return IDLoaiSach;
             }
         }
        // getIDPhieuNhap to NgayNhapSach
@@ -144,7 +144,7 @@ namespace Data.DAO
             {
                 var TenTacGia = (from a in db.TACGIAs
                                  where a.IDTacGia.Equals(IDTG)
-                                 select a.TenTacGia).ToString();
+                                 select a.TenTacGia).FirstOrDefault();
                 return TenTacGia;
             }
         }
@@ -267,6 +267,16 @@ namespace Data.DAO
                 var listNhaXB = (from a in db.SACHes
                                  select a.NhaXB.ToString()).ToArray();
                 return listNhaXB;
+            }
+        }
+        //get Arr TenDauSach
+        public String[] getArrTenDauSach()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ArrTenDauSach = (from a in db.DAUSACHes
+                                     select a.TenDauSach.ToString()).ToArray();
+                return ArrTenDauSach;
             }
         }
         #endregion

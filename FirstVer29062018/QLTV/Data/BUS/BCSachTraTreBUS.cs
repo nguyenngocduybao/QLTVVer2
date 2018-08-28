@@ -77,5 +77,38 @@ namespace Data.BUS
             }
         }
         #endregion
+        #region Load BaoCao to Date
+        public List<BCSachTraTreDtos> loadBaoCaoToDate(DateTime NgayLapBaoCao)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var load = (from a in db.BCSACHTRATREs
+                            where a.NgayThangNam.Equals(NgayLapBaoCao)
+                            select new BCSachTraTreDtos()
+                            {
+                                IDBCSachTre = a.IDBCSachTre,
+                                IDCuonSach = a.IDCuonSach,
+                                IDPhieuMuon = a.IDPhieuMuon,
+                                NgayThangNam = a.NgayThangNam,
+                                SoNgayTraTre = a.SoNgayTraTre,
+                            }
+                          ).ToList<BCSachTraTreDtos>();
+                var LoadBaoCao = (from a in load
+                                  select new BCSachTraTreDtos()
+                                  {
+                                      IDBCSachTre = a.IDBCSachTre,
+                                      IDCuonSach = a.IDCuonSach,
+                                      IDPhieuMuon = a.IDPhieuMuon,
+                                      NgayThangNam = a.NgayThangNam,
+                                      SoNgayTraTre = a.SoNgayTraTre,
+                                      TenCuonSach = GetDataDAO.Instance.getTenCuonSach(a.IDCuonSach),
+                                  }
+                                ).ToList<BCSachTraTreDtos>();
+                if (LoadBaoCao.Count > 0)
+                    return LoadBaoCao;
+                return new List<BCSachTraTreDtos>();
+            }
+        }
+        #endregion
     }
 }

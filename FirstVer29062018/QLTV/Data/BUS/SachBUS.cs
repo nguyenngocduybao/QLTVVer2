@@ -20,72 +20,61 @@ namespace Data.BUS
             {
                 using (var db = new QuanLyThuVienEntities())
                 {
-                    var checkTenDauSach = (from a in db.DAUSACHes
-                                           where a.TenDauSach.ToUpper().Equals(sach.TenDauSach)
-                                           select a).FirstOrDefault();
                     int ID = DauSachDAO.Instance.IDPlus();
-                    var checkID = (from a in db.LOAISACHes
-                                   where a.IDLoaiSach.Equals(sach.IDLoaiSach)
-                                   select a).FirstOrDefault();
-                    if (checkID == null) return false;
-                    if (checkTenDauSach == null)
+                    db.DAUSACHes.Add(new DAUSACH()
                     {
-                        db.DAUSACHes.Add(new DAUSACH()
-                        {
-                            IDDauSach = ID,
-                            IDLoaiSach = GetDataDAO.Instance.getIDLoaiSachToTenLoaiSach(sach.TenLoaiSach),
-                            TenDauSach = sach.TenDauSach,
-                        });
-                    }
+                        IDDauSach = ID,
+                        IDLoaiSach = GetDataDAO.Instance.getIDLoaiSachToTenLoaiSach(sach.TenLoaiSach),
+                        TenDauSach = sach.TenDauSach
+                    });
                     int IDsach = SachDAO.Instance.IDPlus();
-                    if (sach.IDDauSach.Equals(ID))
+                    db.SACHes.Add(new SACH()
                     {
-                        var checkTenTacGia = (from a in db.TACGIAs
-                                              where a.TenTacGia.Equals(sach.TenTG)
-                                              select a).FirstOrDefault();
-                        if (checkTenTacGia == null) return false;
-                        db.SACHes.Add(new SACH()
-                        {
-                            IDSach = IDsach,
-                            IDDauSach = ID,
-                            IDTacGia=GetDataDAO.Instance.getIDTacGiaToTenTacGia(sach.TenTG),
-                            GiaTien = sach.GiaTien,
-                            NamXB = sach.NamXB,
-                            SoLuongTon = 0,
-                            NhaXB = sach.NhaXB,
-
-                        });
-                        if (sach.IDSach.Equals(IDsach))
-                        {
-                            int IDCT = CTPhieuNhapSachDAO.Instance.IDPlus();
-                            var checkIDPhieuNhapSach = (from a in db.PHIEUNHAPSACHes
-                                                        where a.IDPhieuNhap.Equals(sach.IDPhieuNhap)
-                                                        select a).FirstOrDefault();
-                            if (checkIDPhieuNhapSach == null) return false;
-                            db.CT_PHIEUNHAPSACH.Add(new CT_PHIEUNHAPSACH()
-                            {
-                                IDCTPhieuNhap = IDCT,
-                                IDSach = IDsach,
-                                IDPhieuNhap = GetDataDAO.Instance.getIDPhieuNhapToNgayNhapSach(sach.NgayNhap),
-                                SoLuong = sach.SoLuong,
-                                DonGia = sach.DonGia,
-                                ThanhTien = sach.DonGia * sach.SoLuong,
-                            });
-                            var update = (
-                                          from b in db.PHIEUNHAPSACHes
-                                          where b.IDPhieuNhap.Equals(sach.IDPhieuNhap)
-                                          select b).FirstOrDefault<PHIEUNHAPSACH>();
-                            update.TongTien = update.TongTien + (sach.DonGia * sach.SoLuong);
-                        }
-                    }
+                        IDSach = IDsach,
+                        IDDauSach = ID,
+                        IDTacGia = GetDataDAO.Instance.getIDTacGiaToTenTacGia(sach.TenTG),
+                        GiaTien = sach.GiaTien,
+                        NamXB = sach.NamXB,
+                        SoLuongTon = 0,
+                        NhaXB = sach.NhaXB,
+                    });
+                    int IDPhieuNhap = PhieuNhapSachDAO.Instance.IDPlus();
+                    db.PHIEUNHAPSACHes.Add(new PHIEUNHAPSACH()
+                    {
+                        IDPhieuNhap = IDPhieuNhap,
+                        NgayNhap = sach.NgayNhap,
+                        TongTien = sach.DonGia*sach.SoLuong,
+                    });
+                    int IDCT = CTPhieuNhapSachDAO.Instance.IDPlus();
+                    db.CT_PHIEUNHAPSACH.Add(new CT_PHIEUNHAPSACH()
+                    {
+                        IDCTPhieuNhap = IDCT,
+                        IDPhieuNhap = IDPhieuNhap,
+                        IDSach = IDsach,
+                        SoLuong = sach.SoLuong,
+                        DonGia = sach.DonGia,
+                        ThanhTien = sach.DonGia*sach.SoLuong,
+                    });
+                    db.SaveChanges();
                     var updateSoLuong = (from a in db.SACHes
                                          where a.IDSach.Equals(IDsach)
                                          select a).FirstOrDefault<SACH>();
                     updateSoLuong.SoLuongTon = updateSoLuong.SoLuongTon + sach.SoLuong;
-                    CuonSachDAO.Instance.addFormCuonSach(sach.SoLuong, IDsach);
+                    for (int i = 0; i < sach.SoLuong; i++)
+                    {
+                        int IDCuonSach = CuonSachDAO.Instance.IDPlus();
+                        db.CUONSACHes.Add(new CUONSACH()
+                        {
+                            IDCuonSach = IDCuonSach,
+                            IDSach = IDsach,
+                            TinhTrang = "Chưa cho mượn",
+
+                        });
+                        db.SaveChanges();
+                    }
                     db.SaveChanges();
                     return true;
-                }  
+                }
             }
             catch (Exception)
             {
@@ -154,17 +143,11 @@ namespace Data.BUS
         //get List Search NhaXuatBan
         public List<SachDTO> getFormSachNhaXuatBan(string NhaxB)
         {
-            try
-            {
-                List<SachDTO> listSach = new List<SachDTO>();
-                listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
-                return listSach;
-            }
-            catch (Exception)
-            {
+            List<SachDTO> listSach = new List<SachDTO>();
+            listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
+            return listSach;
 
-                throw;
-            }
+
         }
         //get List Search GiaTien
         public List<SachDTO> getFormSachSearchGiaTien(decimal tien)
