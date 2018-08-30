@@ -33,7 +33,7 @@
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl_TTPM = new DevExpress.XtraEditors.GroupControl();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_TimSach = new DevExpress.XtraEditors.SimpleButton();
             this.btn_XoaSachRaKhoiList = new DevExpress.XtraEditors.SimpleButton();
@@ -43,10 +43,10 @@
             this.cl_STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tb_PhieuMuon = new System.Windows.Forms.TextBox();
+            this.tb_TenDauSach = new System.Windows.Forms.TextBox();
             this.dt_NgayMuon = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_TenTacGia = new System.Windows.Forms.TextBox();
+            this.tb_TenNguoiMuon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bt_Lamlai = new System.Windows.Forms.Button();
             this.bt_CNDL = new System.Windows.Forms.Button();
@@ -76,12 +76,14 @@
             this.cl_TenDauSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_NgayMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_HanTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbb_TenTacGia = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).BeginInit();
-            this.groupControl_TTDG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTPM)).BeginInit();
+            this.groupControl_TTPM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DuLieuSach)).BeginInit();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -106,9 +108,9 @@
             this.navigationPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage2,
             this.navigationPage1});
-            this.navigationPane1.RegularSize = new System.Drawing.Size(624, 610);
+            this.navigationPane1.RegularSize = new System.Drawing.Size(624, 674);
             this.navigationPane1.SelectedPage = this.navigationPage2;
-            this.navigationPane1.Size = new System.Drawing.Size(624, 610);
+            this.navigationPane1.Size = new System.Drawing.Size(624, 674);
             this.navigationPane1.TabIndex = 3;
             this.navigationPane1.Text = "Tìm kiếm thông tin độc giả";
             // 
@@ -116,12 +118,12 @@
             // 
             this.navigationPage2.Caption = "Thêm phiếu mượn";
             this.navigationPage2.Controls.Add(this.navigationFrame1);
-            this.navigationPage2.Controls.Add(this.groupControl_TTDG);
+            this.navigationPage2.Controls.Add(this.groupControl_TTPM);
             this.navigationPage2.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
             this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(526, 550);
+            this.navigationPage2.Size = new System.Drawing.Size(526, 614);
             // 
             // navigationFrame1
             // 
@@ -133,42 +135,44 @@
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
-            // groupControl_TTDG
+            // groupControl_TTPM
             // 
-            this.groupControl_TTDG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupControl_TTPM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupControl_TTDG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.Appearance.Options.UseFont = true;
-            this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.AppearanceCaption.Options.UseFont = true;
-            this.groupControl_TTDG.AutoSize = true;
-            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
-            this.groupControl_TTDG.Controls.Add(this.label3);
-            this.groupControl_TTDG.Controls.Add(this.btn_TimSach);
-            this.groupControl_TTDG.Controls.Add(this.btn_XoaSachRaKhoiList);
-            this.groupControl_TTDG.Controls.Add(this.btn_ChonSachVaoList);
-            this.groupControl_TTDG.Controls.Add(this.listbox_TenDauSach);
-            this.groupControl_TTDG.Controls.Add(this.dgv_DuLieuSach);
-            this.groupControl_TTDG.Controls.Add(this.tb_PhieuMuon);
-            this.groupControl_TTDG.Controls.Add(this.dt_NgayMuon);
-            this.groupControl_TTDG.Controls.Add(this.label1);
-            this.groupControl_TTDG.Controls.Add(this.tb_TenTacGia);
-            this.groupControl_TTDG.Controls.Add(this.label2);
-            this.groupControl_TTDG.Controls.Add(this.bt_Lamlai);
-            this.groupControl_TTDG.Controls.Add(this.bt_CNDL);
-            this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(535, 573);
-            this.groupControl_TTDG.TabIndex = 0;
-            this.groupControl_TTDG.Text = "Thông tin phiếu mượn";
+            this.groupControl_TTPM.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTPM.Appearance.Options.UseFont = true;
+            this.groupControl_TTPM.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTPM.AppearanceCaption.Options.UseFont = true;
+            this.groupControl_TTPM.AutoSize = true;
+            this.groupControl_TTPM.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_TTPM.Controls.Add(this.cbb_TenTacGia);
+            this.groupControl_TTPM.Controls.Add(this.label4);
+            this.groupControl_TTPM.Controls.Add(this.label3);
+            this.groupControl_TTPM.Controls.Add(this.btn_TimSach);
+            this.groupControl_TTPM.Controls.Add(this.btn_XoaSachRaKhoiList);
+            this.groupControl_TTPM.Controls.Add(this.btn_ChonSachVaoList);
+            this.groupControl_TTPM.Controls.Add(this.listbox_TenDauSach);
+            this.groupControl_TTPM.Controls.Add(this.dgv_DuLieuSach);
+            this.groupControl_TTPM.Controls.Add(this.tb_TenDauSach);
+            this.groupControl_TTPM.Controls.Add(this.dt_NgayMuon);
+            this.groupControl_TTPM.Controls.Add(this.label1);
+            this.groupControl_TTPM.Controls.Add(this.tb_TenNguoiMuon);
+            this.groupControl_TTPM.Controls.Add(this.label2);
+            this.groupControl_TTPM.Controls.Add(this.bt_Lamlai);
+            this.groupControl_TTPM.Controls.Add(this.bt_CNDL);
+            this.groupControl_TTPM.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.groupControl_TTPM.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_TTPM.Name = "groupControl_TTPM";
+            this.groupControl_TTPM.Size = new System.Drawing.Size(535, 641);
+            this.groupControl_TTPM.TabIndex = 0;
+            this.groupControl_TTPM.Text = "Thông tin phiếu mượn";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(11, 137);
+            this.label3.Location = new System.Drawing.Point(11, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 23);
             this.label3.TabIndex = 30;
@@ -202,7 +206,7 @@
             // 
             this.listbox_TenDauSach.FormattingEnabled = true;
             this.listbox_TenDauSach.ItemHeight = 23;
-            this.listbox_TenDauSach.Location = new System.Drawing.Point(15, 333);
+            this.listbox_TenDauSach.Location = new System.Drawing.Point(15, 379);
             this.listbox_TenDauSach.Name = "listbox_TenDauSach";
             this.listbox_TenDauSach.Size = new System.Drawing.Size(394, 142);
             this.listbox_TenDauSach.TabIndex = 26;
@@ -214,7 +218,7 @@
             this.cl_STT,
             this.cl_TenSach,
             this.cl_TrangThai});
-            this.dgv_DuLieuSach.Location = new System.Drawing.Point(15, 166);
+            this.dgv_DuLieuSach.Location = new System.Drawing.Point(15, 212);
             this.dgv_DuLieuSach.Name = "dgv_DuLieuSach";
             this.dgv_DuLieuSach.Size = new System.Drawing.Size(394, 161);
             this.dgv_DuLieuSach.TabIndex = 25;
@@ -242,13 +246,15 @@
             this.cl_TrangThai.Name = "cl_TrangThai";
             this.cl_TrangThai.Width = 139;
             // 
-            // tb_PhieuMuon
+            // tb_TenDauSach
             // 
-            this.tb_PhieuMuon.Location = new System.Drawing.Point(151, 130);
-            this.tb_PhieuMuon.Name = "tb_PhieuMuon";
-            this.tb_PhieuMuon.Size = new System.Drawing.Size(258, 30);
-            this.tb_PhieuMuon.TabIndex = 23;
-            this.tb_PhieuMuon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_PhieuMuon_KeyPress);
+            this.tb_TenDauSach.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tb_TenDauSach.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tb_TenDauSach.Location = new System.Drawing.Point(151, 133);
+            this.tb_TenDauSach.Name = "tb_TenDauSach";
+            this.tb_TenDauSach.Size = new System.Drawing.Size(258, 30);
+            this.tb_TenDauSach.TabIndex = 23;
+            this.tb_TenDauSach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_PhieuMuon_KeyPress);
             // 
             // dt_NgayMuon
             // 
@@ -270,13 +276,13 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Ngày mượn:";
             // 
-            // tb_TenTacGia
+            // tb_TenNguoiMuon
             // 
-            this.tb_TenTacGia.Location = new System.Drawing.Point(151, 55);
-            this.tb_TenTacGia.Name = "tb_TenTacGia";
-            this.tb_TenTacGia.Size = new System.Drawing.Size(258, 30);
-            this.tb_TenTacGia.TabIndex = 20;
-            this.tb_TenTacGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_TenTacGia_KeyPress);
+            this.tb_TenNguoiMuon.Location = new System.Drawing.Point(151, 55);
+            this.tb_TenNguoiMuon.Name = "tb_TenNguoiMuon";
+            this.tb_TenNguoiMuon.Size = new System.Drawing.Size(258, 30);
+            this.tb_TenNguoiMuon.TabIndex = 20;
+            this.tb_TenNguoiMuon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_TenTacGia_KeyPress);
             // 
             // label2
             // 
@@ -293,7 +299,7 @@
             // 
             this.bt_Lamlai.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Lamlai.Image = ((System.Drawing.Image)(resources.GetObject("bt_Lamlai.Image")));
-            this.bt_Lamlai.Location = new System.Drawing.Point(268, 490);
+            this.bt_Lamlai.Location = new System.Drawing.Point(278, 558);
             this.bt_Lamlai.Name = "bt_Lamlai";
             this.bt_Lamlai.Size = new System.Drawing.Size(94, 42);
             this.bt_Lamlai.TabIndex = 15;
@@ -301,12 +307,13 @@
             this.bt_Lamlai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_Lamlai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Lamlai.UseVisualStyleBackColor = true;
+            this.bt_Lamlai.Click += new System.EventHandler(this.bt_Lamlai_Click);
             // 
             // bt_CNDL
             // 
             this.bt_CNDL.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_CNDL.Image = ((System.Drawing.Image)(resources.GetObject("bt_CNDL.Image")));
-            this.bt_CNDL.Location = new System.Drawing.Point(29, 490);
+            this.bt_CNDL.Location = new System.Drawing.Point(44, 558);
             this.bt_CNDL.Name = "bt_CNDL";
             this.bt_CNDL.Size = new System.Drawing.Size(142, 42);
             this.bt_CNDL.TabIndex = 14;
@@ -314,6 +321,7 @@
             this.bt_CNDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_CNDL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_CNDL.UseVisualStyleBackColor = true;
+            this.bt_CNDL.Click += new System.EventHandler(this.bt_CNDL_Click);
             // 
             // navigationPage1
             // 
@@ -414,7 +422,7 @@
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl2.Location = new System.Drawing.Point(627, 52);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(613, 558);
+            this.groupControl2.Size = new System.Drawing.Size(613, 622);
             this.groupControl2.TabIndex = 4;
             this.groupControl2.Text = "Dữ liệu độc giả";
             // 
@@ -547,7 +555,7 @@
             this.cl_HanTra});
             this.dgv_DuLieu.Location = new System.Drawing.Point(0, 66);
             this.dgv_DuLieu.Name = "dgv_DuLieu";
-            this.dgv_DuLieu.Size = new System.Drawing.Size(613, 492);
+            this.dgv_DuLieu.Size = new System.Drawing.Size(613, 556);
             this.dgv_DuLieu.TabIndex = 0;
             // 
             // cl_IDTacGia
@@ -589,11 +597,31 @@
             this.cl_HanTra.HeaderText = "ngày trả";
             this.cl_HanTra.Name = "cl_HanTra";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(11, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 23);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Tên tác giả:";
+            // 
+            // cbb_TenTacGia
+            // 
+            this.cbb_TenTacGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_TenTacGia.FormattingEnabled = true;
+            this.cbb_TenTacGia.Location = new System.Drawing.Point(151, 173);
+            this.cbb_TenTacGia.Name = "cbb_TenTacGia";
+            this.cbb_TenTacGia.Size = new System.Drawing.Size(258, 31);
+            this.cbb_TenTacGia.TabIndex = 32;
+            // 
             // frmPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 610);
+            this.ClientSize = new System.Drawing.Size(1240, 674);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmPhieuMuon";
@@ -604,9 +632,9 @@
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).EndInit();
-            this.groupControl_TTDG.ResumeLayout(false);
-            this.groupControl_TTDG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTPM)).EndInit();
+            this.groupControl_TTPM.ResumeLayout(false);
+            this.groupControl_TTPM.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DuLieuSach)).EndInit();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
@@ -628,10 +656,10 @@
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraEditors.GroupControl groupControl_TTDG;
+        private DevExpress.XtraEditors.GroupControl groupControl_TTPM;
         private System.Windows.Forms.DateTimePicker dt_NgayMuon;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_TenTacGia;
+        private System.Windows.Forms.TextBox tb_TenNguoiMuon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bt_Lamlai;
         private System.Windows.Forms.Button bt_CNDL;
@@ -661,7 +689,7 @@
         private DevExpress.XtraEditors.SimpleButton btn_ChonSachVaoList;
         private System.Windows.Forms.ListBox listbox_TenDauSach;
         private System.Windows.Forms.DataGridView dgv_DuLieuSach;
-        private System.Windows.Forms.TextBox tb_PhieuMuon;
+        private System.Windows.Forms.TextBox tb_TenDauSach;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenSach;
@@ -671,5 +699,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenDauSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_NgayMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_HanTra;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbb_TenTacGia;
     }
 }

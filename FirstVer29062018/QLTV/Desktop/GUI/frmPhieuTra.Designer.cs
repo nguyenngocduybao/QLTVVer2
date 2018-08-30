@@ -33,7 +33,7 @@
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.groupControl_TTDG = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl_TTPT = new DevExpress.XtraEditors.GroupControl();
             this.btn_ChonSachVaoList = new DevExpress.XtraEditors.SimpleButton();
             this.listbox_TenDauSach = new System.Windows.Forms.ListBox();
             this.dgv_DuLieuTra = new System.Windows.Forms.DataGridView();
@@ -74,13 +74,12 @@
             this.cl_TienTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_XoaSachRaKhoiList = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).BeginInit();
-            this.groupControl_TTDG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTPT)).BeginInit();
+            this.groupControl_TTPT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DuLieuTra)).BeginInit();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -115,7 +114,7 @@
             // 
             this.navigationPage2.Caption = "Thêm phiếu trả";
             this.navigationPage2.Controls.Add(this.navigationFrame1);
-            this.navigationPage2.Controls.Add(this.groupControl_TTDG);
+            this.navigationPage2.Controls.Add(this.groupControl_TTPT);
             this.navigationPage2.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
@@ -132,32 +131,32 @@
             this.navigationFrame1.TabIndex = 2;
             this.navigationFrame1.Text = "navigationFrame1";
             // 
-            // groupControl_TTDG
+            // groupControl_TTPT
             // 
-            this.groupControl_TTDG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupControl_TTDG.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.Appearance.Options.UseFont = true;
-            this.groupControl_TTDG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl_TTDG.AppearanceCaption.Options.UseFont = true;
-            this.groupControl_TTDG.AutoSize = true;
-            this.groupControl_TTDG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
-            this.groupControl_TTDG.Controls.Add(this.btn_XoaSachRaKhoiList);
-            this.groupControl_TTDG.Controls.Add(this.btn_ChonSachVaoList);
-            this.groupControl_TTDG.Controls.Add(this.listbox_TenDauSach);
-            this.groupControl_TTDG.Controls.Add(this.dgv_DuLieuTra);
-            this.groupControl_TTDG.Controls.Add(this.dt_NgayTra);
-            this.groupControl_TTDG.Controls.Add(this.label1);
-            this.groupControl_TTDG.Controls.Add(this.tb_TenNguoiMuon);
-            this.groupControl_TTDG.Controls.Add(this.label2);
-            this.groupControl_TTDG.Controls.Add(this.bt_Lamlai);
-            this.groupControl_TTDG.Controls.Add(this.bt_CNDL);
-            this.groupControl_TTDG.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl_TTDG.Location = new System.Drawing.Point(0, 0);
-            this.groupControl_TTDG.Name = "groupControl_TTDG";
-            this.groupControl_TTDG.Size = new System.Drawing.Size(532, 573);
-            this.groupControl_TTDG.TabIndex = 0;
-            this.groupControl_TTDG.Text = "Thông tin phiếu trả";
+            this.groupControl_TTPT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl_TTPT.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTPT.Appearance.Options.UseFont = true;
+            this.groupControl_TTPT.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl_TTPT.AppearanceCaption.Options.UseFont = true;
+            this.groupControl_TTPT.AutoSize = true;
+            this.groupControl_TTPT.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_TTPT.Controls.Add(this.btn_ChonSachVaoList);
+            this.groupControl_TTPT.Controls.Add(this.listbox_TenDauSach);
+            this.groupControl_TTPT.Controls.Add(this.dgv_DuLieuTra);
+            this.groupControl_TTPT.Controls.Add(this.dt_NgayTra);
+            this.groupControl_TTPT.Controls.Add(this.label1);
+            this.groupControl_TTPT.Controls.Add(this.tb_TenNguoiMuon);
+            this.groupControl_TTPT.Controls.Add(this.label2);
+            this.groupControl_TTPT.Controls.Add(this.bt_Lamlai);
+            this.groupControl_TTPT.Controls.Add(this.bt_CNDL);
+            this.groupControl_TTPT.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.groupControl_TTPT.Location = new System.Drawing.Point(0, 0);
+            this.groupControl_TTPT.Name = "groupControl_TTPT";
+            this.groupControl_TTPT.Size = new System.Drawing.Size(532, 573);
+            this.groupControl_TTPT.TabIndex = 0;
+            this.groupControl_TTPT.Text = "Thông tin phiếu trả";
             // 
             // btn_ChonSachVaoList
             // 
@@ -260,6 +259,7 @@
             this.bt_Lamlai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_Lamlai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Lamlai.UseVisualStyleBackColor = true;
+            this.bt_Lamlai.Click += new System.EventHandler(this.bt_Lamlai_Click);
             // 
             // bt_CNDL
             // 
@@ -273,6 +273,7 @@
             this.bt_CNDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bt_CNDL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_CNDL.UseVisualStyleBackColor = true;
+            this.bt_CNDL.Click += new System.EventHandler(this.bt_CNDL_Click);
             // 
             // navigationPage1
             // 
@@ -559,14 +560,6 @@
             this.cl_TienNo.Name = "cl_TienNo";
             this.cl_TienNo.Width = 250;
             // 
-            // btn_XoaSachRaKhoiList
-            // 
-            this.btn_XoaSachRaKhoiList.Location = new System.Drawing.Point(415, 284);
-            this.btn_XoaSachRaKhoiList.Name = "btn_XoaSachRaKhoiList";
-            this.btn_XoaSachRaKhoiList.Size = new System.Drawing.Size(108, 31);
-            this.btn_XoaSachRaKhoiList.TabIndex = 28;
-            this.btn_XoaSachRaKhoiList.Text = "Xóa khỏi danh sách";
-            // 
             // frmPhieuTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,16 +568,16 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmPhieuTra";
-            this.Text = "frmPhieuTra";
+            this.Text = "Phiếu trả";
             this.Load += new System.EventHandler(this.frmPhieuTra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTDG)).EndInit();
-            this.groupControl_TTDG.ResumeLayout(false);
-            this.groupControl_TTDG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl_TTPT)).EndInit();
+            this.groupControl_TTPT.ResumeLayout(false);
+            this.groupControl_TTPT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DuLieuTra)).EndInit();
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
@@ -606,7 +599,7 @@
         private DevExpress.XtraBars.Navigation.NavigationPane navigationPane1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraEditors.GroupControl groupControl_TTDG;
+        private DevExpress.XtraEditors.GroupControl groupControl_TTPT;
         private DevExpress.XtraEditors.SimpleButton btn_ChonSachVaoList;
         private System.Windows.Forms.ListBox listbox_TenDauSach;
         private System.Windows.Forms.DataGridView dgv_DuLieuTra;
@@ -647,6 +640,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienTra;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienPhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienNo;
-        private DevExpress.XtraEditors.SimpleButton btn_XoaSachRaKhoiList;
     }
 }

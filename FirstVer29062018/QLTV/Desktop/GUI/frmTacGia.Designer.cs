@@ -129,7 +129,7 @@
             this.groupControl_TTTG.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl_TTTG.AppearanceCaption.Options.UseFont = true;
             this.groupControl_TTTG.AutoSize = true;
-            this.groupControl_TTTG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTDG.CaptionImageOptions.Image")));
+            this.groupControl_TTTG.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTTG.CaptionImageOptions.Image")));
             this.groupControl_TTTG.Controls.Add(this.dt_NgaySinh);
             this.groupControl_TTTG.Controls.Add(this.label1);
             this.groupControl_TTTG.Controls.Add(this.tb_TenTacGia);
@@ -474,7 +474,7 @@
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.navigationPane1);
             this.Name = "frmTacGia";
-            this.Text = "frmTacGia";
+            this.Text = "Tác giả";
             this.Load += new System.EventHandler(this.frmTacGia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).EndInit();
             this.navigationPane1.ResumeLayout(false);
