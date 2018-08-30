@@ -72,7 +72,7 @@ namespace Desktop.GUI
                     tdg.EmailDG = EmailDG;
                     user.Password = Pwd;
                     user.UserName = UserName;
-                    sv.AddTheDocGiaAndUser(tdg, user);
+                    sv.AddTheDocGiaAndUser(tdg, user);  
                     MessageBox.Show("Thêm thành công!");
                     fillAllDataFromTableTheDocGia();
                     HelperGUI.ResetAllControls(groupControl_TTDG);
