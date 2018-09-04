@@ -60,6 +60,7 @@ namespace Data.BUS
                                          where a.IDSach.Equals(IDsach)
                                          select a).FirstOrDefault<SACH>();
                     updateSoLuong.SoLuongTon = updateSoLuong.SoLuongTon + sach.SoLuong;
+                    db.SaveChanges();
                     for (int i = 0; i < sach.SoLuong; i++)
                     {
                         int IDCuonSach = CuonSachDAO.Instance.IDPlus();
@@ -67,8 +68,7 @@ namespace Data.BUS
                         {
                             IDCuonSach = IDCuonSach,
                             IDSach = IDsach,
-                            TinhTrang = "Chưa cho mượn",
-
+                            TinhTrang = "Chưa cho mượn"
                         });
                         db.SaveChanges();
                     }
@@ -143,11 +143,17 @@ namespace Data.BUS
         //get List Search NhaXuatBan
         public List<SachDTO> getFormSachNhaXuatBan(string NhaxB)
         {
-            List<SachDTO> listSach = new List<SachDTO>();
-            listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
-            return listSach;
+            try
+            {
+                List<SachDTO> listSach = new List<SachDTO>();
+                listSach = SachDAO.Instance.getFormSachNhaXuatBan(NhaxB);
+                return listSach;
+            }
+            catch (Exception)
+            {
 
-
+                throw;
+            }
         }
         //get List Search GiaTien
         public List<SachDTO> getFormSachSearchGiaTien(decimal tien)

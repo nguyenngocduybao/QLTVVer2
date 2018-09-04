@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
 using Data.Model;
+using Data.DTO;
+
 namespace Data.DAO
 {
     public class PhieuTraDAO
@@ -38,16 +40,15 @@ namespace Data.DAO
             }
         }
         //Tinh So ngay muon 
-        public int SoNgayMuon(DateTime ngaytra ,int IDCTPhieuTra)
+        public int SoNgayMuon(DateTime ngaytra, int IDCTPhieuTra)
         {
             using (var db = new QuanLyThuVienEntities())
             {
                 var ngaymuon = (from a in db.CT_PHIEUTRA
                                 from b in db.PHIEUMUONs
                                 where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && a.IDCTPhieuTra.Equals(IDCTPhieuTra)
-                                select b.NgayMuon).ToString();
-                DateTime NgayMuonSach = DateTime.Parse(ngaymuon);
-                return (ngaytra - NgayMuonSach).Days;
+                                select b.NgayMuon).FirstOrDefault();
+                return (ngaytra - ngaymuon).Days;
             }
         }
         //Tinh tien phat
@@ -56,14 +57,13 @@ namespace Data.DAO
             using (var db = new QuanLyThuVienEntities())
             {
                 var HanTra = (from a in db.CT_PHIEUTRA
-                                from b in db.PHIEUMUONs
-                                where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && a.IDCTPhieuTra.Equals(IDCTPhieuTra)
-                                select b.HanTra).ToString();
-                DateTime HanTraSach = DateTime.Parse(HanTra);
-                if ((ngaytra - HanTraSach).Days <= 0)
+                              from b in db.PHIEUMUONs
+                              where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && a.IDCTPhieuTra.Equals(IDCTPhieuTra)
+                              select b.HanTra).FirstOrDefault();
+                if ((ngaytra - HanTra).Days <= 0)
                     return 0;
                 else
-                    return (ngaytra - HanTraSach).Days * 1000;
+                    return (ngaytra - HanTra).Days * 1000;
             }
         }
         #endregion
@@ -78,6 +78,44 @@ namespace Data.DAO
                             where a.IDPhieuMuon.Equals(tb_IDPhieuMuon) && c.TinhTrang == "Đã cho mượn"
                             select b.IDCuonSach).ToList<int>();
                 return list;
+            }
+        }
+        public List<CTPhieuTraDTO> getALlFormPhieuTraAndCTPhieuTra()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var getAll = (from a in db.PHIEUTRAs
+                              join b in db.CT_PHIEUTRA on a.IDPhieuTra equals b.IDPhieuTra
+                              select new CTPhieuTraDTO()
+                              {
+                                  IDPhieuMuon = b.IDPhieuMuon,
+                                  IDDocGia = a.IDDocGia,
+                                  IDCTPhieuTra = b.IDCTPhieuTra,
+                                  NgayTra = a.NgayTra,
+                                  IDPhieuTra = a.IDPhieuTra,
+                                  SoNgayMuon = b.SoNgayMuon,
+                                  SoTienTra=a.SoTienTra,
+                                  TienPhat = b.TienPhat,
+                                  IDCuonSach = b.IDCuonSach,
+                              }).ToList<CTPhieuTraDTO>();
+                var getAllForm = (from a in getAll
+                                  select new CTPhieuTraDTO()
+                                  {
+                                      IDPhieuMuon = a.IDPhieuMuon,
+                                      IDDocGia = a.IDDocGia,
+                                      IDCTPhieuTra = a.IDCTPhieuTra,
+                                      NgayTra = a.NgayTra,
+                                      IDPhieuTra = a.IDPhieuTra,
+                                      SoNgayMuon = a.SoNgayMuon,
+                                      SoTienTra = a.SoTienTra,
+                                      TienPhat = a.TienPhat,
+                                      TenDocGia = GetDataDAO.Instance.getTenDocGiaToIDDocGia(a.IDDocGia),
+                                      TenDauSach = GetDataDAO.Instance.getTenCuonSach(a.IDCuonSach),
+                                  }
+                                ).ToList<CTPhieuTraDTO>();
+                if (getAllForm.Count > 0)
+                    return getAllForm;
+                return new List<CTPhieuTraDTO>();
             }
         }
     }

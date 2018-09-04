@@ -13,7 +13,7 @@ namespace Data.IBUS
         // editForm PhieuMuon And CTPhieuMuon
         bool editFormPhieuMuonAndCTPhieuMuon(PhieuMuonDTO phieumuon);
         //Add Form PhieuMuon and CTPhieuMuon
-        bool AddFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> TenDauSach);
+        bool AddFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<int> TenDauSach);
         #region getList Search PhieuMuonDTO
         //get List Search IDDocGia
         List<PhieuMuonDTO> getFormPhieuMuonSearchIDDocGia(int ID);

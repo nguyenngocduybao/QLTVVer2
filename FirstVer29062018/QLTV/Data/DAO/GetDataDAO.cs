@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Dtos;
+using Data.DTO;
 using Data.Model;
 namespace Data.DAO
 {
@@ -33,7 +34,7 @@ namespace Data.DAO
             {
                 var TenDocGia = (from a in db.THEDOCGIAs
                                  where a.IDDocGia.Equals(ID)
-                                 select a.HoTenDG).ToString();
+                                 select a.HoTenDG).FirstOrDefault();
                 return TenDocGia;
             }
         }
@@ -94,7 +95,7 @@ namespace Data.DAO
                                    from b in db.DAUSACHes
                                    from c in db.SACHes
                                    where a.IDCuonSach.Equals(IDCuonSach) && a.IDSach.Equals(c.IDSach) && b.IDDauSach.Equals(c.IDDauSach)
-                                   select b.TenDauSach).ToString();
+                                   select b.TenDauSach).FirstOrDefault();
                 return TenCuonSach;
             }
         }
@@ -146,6 +147,17 @@ namespace Data.DAO
                                  where a.IDTacGia.Equals(IDTG)
                                  select a.TenTacGia).FirstOrDefault();
                 return TenTacGia;
+            }
+        }
+        //get IDDG to HoTenDG
+        public int getIDDocGiaToHoTenDG(string HoTenDG)
+        {
+            using (var db =new QuanLyThuVienEntities())
+            {
+                var IDDG = (from a in db.THEDOCGIAs
+                            where a.HoTenDG.Equals(HoTenDG)
+                            select a.IDDocGia).FirstOrDefault();
+                return IDDG;
             }
         }
         #endregion
@@ -277,6 +289,102 @@ namespace Data.DAO
                 var ArrTenDauSach = (from a in db.DAUSACHes
                                      select a.TenDauSach.ToString()).ToArray();
                 return ArrTenDauSach;
+            }
+        }
+        public string[] getArrTenDG()
+        {
+            using (var db=new QuanLyThuVienEntities())
+            {
+                var arr = (from a in db.THEDOCGIAs
+                           select a.HoTenDG.ToString()).ToArray();
+                return arr;
+            }
+        }
+        //get list TenTac Gia To TenDauSach
+        public List<string> getListTenTacGiaToTenDauSach(string TenDauSach)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+
+                var listTenTacGia = (from a in db.DAUSACHes
+                                     from b in db.SACHes
+                                     from c in db.TACGIAs
+                                     where a.TenDauSach.Equals(TenDauSach) && a.IDDauSach.Equals(b.IDDauSach) && b.IDTacGia.Equals(c.IDTacGia)
+                                     select c.TenTacGia.ToString()).ToList();
+                return listTenTacGia;
+            }
+        }
+        // get list CuonSachDTO
+        public List<CuonSachDTO> getList(string TenDauSach, string TenTacGia)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var list = (from a in db.DAUSACHes
+                            join b in db.SACHes on a.IDDauSach equals b.IDDauSach
+                            join c in db.TACGIAs on b.IDTacGia equals c.IDTacGia
+                            join d in db.CUONSACHes on b.IDSach equals d.IDSach
+                            where a.TenDauSach.Equals(TenDauSach) && c.TenTacGia.Equals(TenTacGia) && d.TinhTrang == "Chưa cho mượn"
+                            select new CuonSachDTO()
+                            {
+                                IDCuonSach = d.IDCuonSach,
+                                IDSach = d.IDSach,
+                                TinhTrang = "Chưa cho mượn",
+                                TenDauSach = TenDauSach,
+                                TenTacGia = TenTacGia,
+                            }).ToList<CuonSachDTO>();
+                var getList = (from a in list
+                               select new CuonSachDTO()
+                               {
+                                   IDCuonSach = a.IDCuonSach,
+                                   IDSach = a.IDSach,
+                                   TenDauSach = a.TenDauSach,
+                                   TenTacGia = a.TenTacGia,
+                                   TinhTrang = a.TinhTrang,
+                               }).ToList<CuonSachDTO>();
+                if (getList.Count > 0)
+                    return getList;
+                return new List<CuonSachDTO>();
+            }
+        }
+        //get List cuonsachDtos to HoTenDG
+        public List<CuonSachDtos> getListCuonSachDtos(string HoTenDG)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var list = (
+                          from b in db.THEDOCGIAs
+                          from d in db.PHIEUMUONs
+                          from c in db.CUONSACHes
+                          from a in db.CT_PHIEUMUON
+                          where b.HoTenDG.Equals(HoTenDG) && b.IDDocGia.Equals(d.IDDocGia) && d.IDPhieuMuon.Equals(a.IDPhieuMuon)
+                          && c.IDCuonSach.Equals(a.IDCuonSach)
+                          select new CuonSachDtos()
+                          {
+                              IDCuonSach = a.IDCuonSach,
+                              IDSach = c.IDSach,
+                          }).ToList<CuonSachDtos>();
+                var listkq = (from a in list
+                              select new CuonSachDtos()
+                              {
+                                  IDCuonSach = a.IDCuonSach,
+                                  IDSach = a.IDSach,
+                                  TenCuonSach=getTenCuonSach(a.IDCuonSach),
+                              }).ToList<CuonSachDtos>();
+                if (listkq.Count > 0)
+                    return listkq;
+                return new List<CuonSachDtos>();
+            }
+        }
+        // get list IDPhieumuon to HoTenDG
+        public List<string> getListIDPhieuMuonToHoTenDG(string HoTenDG)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var listID = (from a in db.THEDOCGIAs
+                              from b in db.PHIEUMUONs
+                              where a.HoTenDG.Equals(HoTenDG) && a.IDDocGia.Equals(b.IDDocGia)
+                              select b.IDPhieuMuon.ToString()).ToList();
+                return listID;
             }
         }
         #endregion

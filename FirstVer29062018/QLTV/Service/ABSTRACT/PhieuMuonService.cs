@@ -20,7 +20,7 @@ namespace Service.ABSTRACT
             this._iPhieuMuonBUS = new PhieuMuonBUS();
         }
         //add Form "PhieuMuon" And Form "CTPhieuMuon"
-        public void addFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> tb_TenSach)
+        public void addFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<int> tb_TenSach)
         {
             this._iPhieuMuonBUS.AddFormPhieuMuonAndCTPhieuMuon(phieuMuon, tb_TenSach);
         }

@@ -207,10 +207,11 @@ namespace Data.DAO
                                   IDCuonSach = c.IDCuonSach,
                                   NgayMuon = c.NgayMuon,
                                   HanTra = c.HanTra,
+                                  TenNguoiMuon = GetDataDAO.Instance.getTenDocGiaToIDDocGia(c.IDDocGia),
                                   TenDauSach = GetDataDAO.Instance.getTenCuonSach(c.IDCuonSach),
                               }).ToList<PhieuMuonDTO>();
                 if (Result.Count > 0)
-                    return result;                              
+                    return Result;                             
                 return new List<PhieuMuonDTO>();
             }
         }
