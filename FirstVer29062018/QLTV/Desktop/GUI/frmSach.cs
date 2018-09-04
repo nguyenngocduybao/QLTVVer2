@@ -189,6 +189,7 @@ namespace Desktop.GUI
             NgayNhap = dt_NgayNhap.Value;
         }
         #endregion
+        #region LoadDataGV
         public void fillTheLoaiSachDataFromTableSach()
         {
             List<SachDTO> ls = new List<SachDTO>();
@@ -196,5 +197,6 @@ namespace Desktop.GUI
             ls = TDGsv.getAllFormDauSachandCTPhieuNhapAndSach();
             dgv_DuLieuSach.DataSource = ls;
         }
+        #endregion
     }
 }
