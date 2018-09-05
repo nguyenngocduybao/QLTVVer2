@@ -1,4 +1,5 @@
-﻿using Data.Dtos;
+﻿using Data.DTO;
+using Data.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Data.IBUS
     {
         //Add Form "PhieuTra"
         bool AddFormPhieuTra(PhieuTraDtos phieutra, List<int> IDCuonSach);
+        //get AllFrmPhieuTra And CTPhieuTra
+        List<CTPhieuTraDTO> getALlFormPhieuTraAndCTPhieuTra();
     }
 }

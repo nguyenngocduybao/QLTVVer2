@@ -119,6 +119,7 @@
     <Compile Include="DTO\CTPhieuMuonDTO.cs" />
     <Compile Include="DTO\CTPhieuTraDTO.cs" />
     <Compile Include="DTO\CTTacGiaDTO.cs" />
+    <Compile Include="DTO\CuonSachDTO.cs" />
     <Compile Include="DTO\PhieuMuonDTO.cs" />
     <Compile Include="DTO\SachDTO.cs" />
     <Compile Include="DTO\TheDocGiaDTO.cs" />

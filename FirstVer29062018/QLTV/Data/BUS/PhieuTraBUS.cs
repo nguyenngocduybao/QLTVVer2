@@ -21,20 +21,17 @@ namespace Data.BUS
                 using (var db = new QuanLyThuVienEntities())
                 {
                     int ID = PhieuTraDAO.Instance.IDPlus();
-                    var checkIDDocGia = (from a in db.PHIEUMUONs
-                                             where a.IDDocGia.Equals(phieutra.IDDocGia)
-                                             select a).FirstOrDefault();
-                    if (checkIDDocGia == null) return false;
                     db.PHIEUTRAs.Add(new PHIEUTRA()
                     {
                         IDPhieuTra = ID,
-                        IDDocGia = phieutra.IDDocGia,
+                        IDDocGia = GetDataDAO.Instance.getIDDocGiaToHoTenDG(phieutra.TenDG),
                         NgayTra = phieutra.NgayTra,
                         SoTienTra = 0,
                         TienNoKyNay = 0,
                         TienPhatKyNay = 0,
                     });
-                    for (int i = 0; i <IDCuonSach.Count; i++)
+                    db.SaveChanges();
+                    for (int i = 0; i <IDCuonSach.Count(); i++)
                     {
                         int IDCT = CTPhieuTraDAO.Instance.IDPlus();
                         db.CT_PHIEUTRA.Add(new CT_PHIEUTRA()
@@ -46,24 +43,25 @@ namespace Data.BUS
                             SoNgayMuon=PhieuTraDAO.Instance.SoNgayMuon(phieutra.NgayTra,IDCT),
                             TienPhat=PhieuTraDAO.Instance.TinhTienPhat(phieutra.NgayTra,IDCT),
                         });
+                        db.SaveChanges();
                         var updateTinhTrang = (from a in db.CUONSACHes
                                                where a.IDCuonSach.Equals(IDCuonSach[i])
                                                select a).FirstOrDefault<CUONSACH>();
                         updateTinhTrang.TinhTrang = "Chưa cho mượn";
                         db.SaveChanges();
-                        if(HelperDAO.Instance.CheckTraTre(IDCT)==true)
-                        {
-                            int IDBC = BCSachTraTreDAO.Instance.IDPlus();
-                            db.BCSACHTRATREs.Add(new BCSACHTRATRE()
-                            {
-                                IDBCSachTre=IDCT,
-                                IDCuonSach=IDCuonSach[i],
-                                IDPhieuMuon=phieutra.IDPhieuMuon,
-                                NgayThangNam=phieutra.NgayTra,
-                                SoNgayTraTre=(GetDataDAO.Instance.HanTraSachToIDCTPhieuTra(IDCT)-phieutra.NgayTra).Days,
-                            });
-                            db.SaveChanges();
-                        }
+                        //if(HelperDAO.Instance.CheckTraTre(IDCT)==true)
+                        //{
+                        //    int IDBC = BCSachTraTreDAO.Instance.IDPlus();
+                        //    db.BCSACHTRATREs.Add(new BCSACHTRATRE()
+                        //    {
+                        //        IDBCSachTre=IDCT,
+                        //        IDCuonSach=IDCuonSach[i],
+                        //        IDPhieuMuon=phieutra.IDPhieuMuon,
+                        //        NgayThangNam=phieutra.NgayTra,
+                        //        SoNgayTraTre=(GetDataDAO.Instance.HanTraSachToIDCTPhieuTra(IDCT)-phieutra.NgayTra).Days,
+                        //    });
+                        //    db.SaveChanges();
+                        //}
                     }
                     db.SaveChanges();
                             
@@ -76,8 +74,26 @@ namespace Data.BUS
                 return false;
             }
         }
+
+
         #endregion
-        
-      
+        #region  get all from phieutra and CTPhieuTra
+        public List<CTPhieuTraDTO> getALlFormPhieuTraAndCTPhieuTra()
+        {
+            try
+            {
+                List<CTPhieuTraDTO> phieutra = new List<CTPhieuTraDTO>();
+                phieutra = PhieuTraDAO.Instance.getALlFormPhieuTraAndCTPhieuTra();
+                return phieutra;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
+
+
     }
 }

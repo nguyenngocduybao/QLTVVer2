@@ -13,7 +13,7 @@ namespace Data.BUS
     public class PhieuMuonBUS:IPhieuMuonBUS
     {
         #region Add Form PhieuMuon and CTPhieuMuon 
-        public bool AddFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos  phieuMuon,List<string> TenDauSach)
+        public bool AddFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos  phieuMuon,List<int> IDCuonSach)
         {
             try
             {
@@ -21,31 +21,30 @@ namespace Data.BUS
                 using (var db = new QuanLyThuVienEntities())
                 {
                     int ID = PhieuMuonDAO.Instance.IDPlus();
-                    var checkIDDocGia = (from a in db.THEDOCGIAs
-                                         where a.IDDocGia.Equals(phieuMuon.IDDocGia)
-                                         select a).FirstOrDefault();
-                    if (checkIDDocGia == null) return false;
                     db.PHIEUMUONs.Add(new PHIEUMUON()
                     {
                         IDPhieuMuon = ID,
-                        IDDocGia = phieuMuon.IDDocGia,
+                        IDDocGia = GetDataDAO.Instance.getIDDocGiaToHoTenDG(phieuMuon.TenDocGia),
                         NgayMuon = phieuMuon.NgayMuon,
                         HanTra = PhieuMuonDAO.Instance.HanMuonSach(phieuMuon.NgayMuon),
                     });
-                    for (int i = 0; i < TenDauSach.Count; i++)
+                    db.SaveChanges();
+                    for (int i = 0; i <IDCuonSach.Count(); i++)
                     {
                         
                         int IDCT = CTPhieuMuonDAO.Instance.IDPlus();
                         db.CT_PHIEUMUON.Add(new CT_PHIEUMUON()
                         {
                             IDCTPhieuMuon = IDCT,
-                            IDCuonSach = GetDataDAO.Instance.getIDCuonSach(TenDauSach[i]),
+                            IDCuonSach = IDCuonSach[i],
                             IDPhieuMuon = ID,
                         });
+                        db.SaveChanges();
                         var updateTinhTrang = (from a in db.CUONSACHes
-                                               where a.IDCuonSach.Equals(GetDataDAO.Instance.getIDCuonSach(TenDauSach[i]))
+                                               where a.IDCuonSach.Equals(IDCuonSach[i])
                                                select a).FirstOrDefault<CUONSACH>();
                         updateTinhTrang.TinhTrang = "Đã cho mượn";
+                        db.SaveChanges();
                     }
 
                     db.SaveChanges();

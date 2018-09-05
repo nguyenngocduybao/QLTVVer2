@@ -13,7 +13,7 @@ namespace Service.IService
         // editForm PhieuMuon And CTPhieuMuon
         void editFormPhieuMuonAndCTPhieuMuon(PhieuMuonDTO phieumuon);
         //Add Form PhieuMuon and CTPhieuMuon
-        void  addFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<string> tb_TenSach);
+        void  addFormPhieuMuonAndCTPhieuMuon(PhieuMuonDtos phieuMuon, List<int> tb_TenSach);
         #region getList Search PhieuMuonDTO
         //get List Search IDDocGia
         List<PhieuMuonDTO> getFormPhieuMuonSearchIDDocGia(int ID);

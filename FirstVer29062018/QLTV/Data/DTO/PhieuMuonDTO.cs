@@ -10,6 +10,7 @@ namespace Data.DTO
     {
         public int IDPhieuMuon { get; set; }
         public int IDDocGia { get; set; }
+        public string TenNguoiMuon { get; set; }
         public DateTime NgayMuon { get; set; }
         public DateTime HanTra { get; set; }
         public int IDCuonSach { get; set; }
