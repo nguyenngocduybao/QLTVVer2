@@ -160,6 +160,20 @@ namespace Data.DAO
                 return IDDG;
             }
         }
+        //get Idphieumuon to IDCuonSach
+        public int getIDPhieuMuonToIDCuonSach(int IDCuonSach)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var IDPhieuMuon = (
+                                 from b in db.PHIEUMUONs
+                                 from c in db.CT_PHIEUMUON
+                                 where c.IDCuonSach.Equals(IDCuonSach) && b.IDPhieuMuon.Equals(c.IDPhieuMuon)
+                                 select b.IDPhieuMuon).FirstOrDefault();
+                return IDPhieuMuon;
+                                 
+            }
+        }
         #endregion
         #region Get list and Array 
         //getList TenTheLoai Sach

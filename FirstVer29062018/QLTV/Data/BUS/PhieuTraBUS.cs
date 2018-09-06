@@ -38,7 +38,7 @@ namespace Data.BUS
                         {
                             IDCTPhieuTra=IDCT,
                             IDPhieuTra=ID,
-                            IDPhieuMuon=phieutra.IDPhieuMuon,
+                            IDPhieuMuon=GetDataDAO.Instance.getIDPhieuMuonToIDCuonSach(IDCuonSach[i]),
                             IDCuonSach=IDCuonSach[i],     
                             SoNgayMuon=PhieuTraDAO.Instance.SoNgayMuon(phieutra.NgayTra,IDCT),
                             TienPhat=PhieuTraDAO.Instance.TinhTienPhat(phieutra.NgayTra,IDCT),
@@ -49,19 +49,19 @@ namespace Data.BUS
                                                select a).FirstOrDefault<CUONSACH>();
                         updateTinhTrang.TinhTrang = "Chưa cho mượn";
                         db.SaveChanges();
-                        //if(HelperDAO.Instance.CheckTraTre(IDCT)==true)
-                        //{
-                        //    int IDBC = BCSachTraTreDAO.Instance.IDPlus();
-                        //    db.BCSACHTRATREs.Add(new BCSACHTRATRE()
-                        //    {
-                        //        IDBCSachTre=IDCT,
-                        //        IDCuonSach=IDCuonSach[i],
-                        //        IDPhieuMuon=phieutra.IDPhieuMuon,
-                        //        NgayThangNam=phieutra.NgayTra,
-                        //        SoNgayTraTre=(GetDataDAO.Instance.HanTraSachToIDCTPhieuTra(IDCT)-phieutra.NgayTra).Days,
-                        //    });
-                        //    db.SaveChanges();
-                        //}
+                        if (HelperDAO.Instance.CheckTraTre(IDCT) == true)
+                        {
+                            int IDBC = BCSachTraTreDAO.Instance.IDPlus();
+                            db.BCSACHTRATREs.Add(new BCSACHTRATRE()
+                            {
+                                IDBCSachTre = IDCT,
+                                IDCuonSach = IDCuonSach[i],
+                                IDPhieuMuon = phieutra.IDPhieuMuon,
+                                NgayThangNam = phieutra.NgayTra,
+                                SoNgayTraTre = (GetDataDAO.Instance.HanTraSachToIDCTPhieuTra(IDCT) - phieutra.NgayTra).Days,
+                            });
+                            db.SaveChanges();
+                        }
                     }
                     db.SaveChanges();
                             
