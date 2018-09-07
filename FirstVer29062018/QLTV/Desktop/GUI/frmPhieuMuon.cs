@@ -27,9 +27,10 @@ namespace Desktop.GUI
         public int IDLoaiDG { set; get; }
         public string TenDauSach;
         public string TenTacGia;
-        public int Ten { set; get; }
-        public int KT;
+        public int ID { set; get; }
         public DateTime NgayMuon;
+        List<int> IDCuonSach = new List<int>();
+        public string TenSach { get; set; }
         #endregion
         #region Event KeyPress 
         private void tb_TenTacGia_KeyPress(object sender, KeyPressEventArgs e)
@@ -47,6 +48,7 @@ namespace Desktop.GUI
             if (string.IsNullOrEmpty(tb_TenNguoiMuon.Text)) { MessageBox.Show("Không được để trống họ tên người mượn.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_TenNguoiMuon.Focus(); }
             else if (string.IsNullOrEmpty(tb_TenDauSach.Text)) { MessageBox.Show("Không được để trống tên đầu sách.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_TenDauSach.Focus(); }
             else if (string.IsNullOrEmpty(cbb_TenTacGia.Text)) { MessageBox.Show("Không được để trống tên tác giả.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); cbb_TenTacGia.Focus(); }
+            else if (listbox_TenDauSach.Items.Count==0) { MessageBox.Show("Không được để trống dữ liệu sách.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); listbox_TenDauSach.Focus(); }
             else
             {
                 try
@@ -58,10 +60,7 @@ namespace Desktop.GUI
                     TenDauSach = tb_TenDauSach.Text;
                     PM.NgayMuon = NgayMuon;
                     PM.TenDocGia = HoTenDG;
-                    List<int> ID = new List<int>();
-                    var myOtherList = listbox_TenDauSach.Items.Cast<int>().ToList();
-                    ID = myOtherList;
-                    Sv.addFormPhieuMuonAndCTPhieuMuon(PM, ID);
+                    Sv.addFormPhieuMuonAndCTPhieuMuon(PM, IDCuonSach);
                     MessageBox.Show("Thêm thành công");
                     fillTheLoaiSachDataFromTableSach();
                     listbox_TenDauSach.Items.Clear(); 
@@ -81,14 +80,21 @@ namespace Desktop.GUI
         {
             TenDauSach = tb_TenDauSach.Text;
             TenTacGia = cbb_TenTacGia.Text;
-            List<CuonSachDTO> list = new List<CuonSachDTO>();
-            list = GetDataDAO.Instance.getList(TenDauSach, TenTacGia);
-            dgv_DuLieuTT.DataSource = list;
+            fillTenSach();
         }
         private void btn_ChonSachVaoList_Click(object sender, EventArgs e)
         {
-            Ten = Int32.Parse(dgv_DuLieuTT.CurrentRow.Cells["IDCuonSach"].Value.ToString());
-            listbox_TenDauSach.Items.Add(Ten);
+            ID = Int32.Parse(dgv_DuLieuTT.CurrentRow.Cells["cl_IDCuonSach"].Value.ToString());
+            IDCuonSach.Add(ID);
+            TenDauSach = dgv_DuLieuTT.CurrentRow.Cells["cl_DS"].Value.ToString();
+            if (listbox_TenDauSach.Items.Contains(TenDauSach))
+            {
+                MessageBox.Show("Dữ liệu đã tồn tại");
+            }
+            else
+            {
+                listbox_TenDauSach.Items.Add(TenDauSach);
+            }
         }
         private void btn_XoaSachRaKhoiList_Click(object sender, EventArgs e)
         {
@@ -105,11 +111,13 @@ namespace Desktop.GUI
         #region Load Du Lieu
         private void frmPhieuMuon_Load(object sender, EventArgs e)
         {
+            dgv_DuLieuTT.AutoGenerateColumns = false;
             dgv_DuLieuPM.AutoGenerateColumns = false;
             tb_TenNguoiMuon.Text = HoTenDG;
             int IDGiuBien = IDLoaiDG;
             AutocompleteTenSach();
             fillTheLoaiSachDataFromTableSach();
+            fillTenSach();
         }
         #endregion
         #region Autocomplete
@@ -131,6 +139,12 @@ namespace Desktop.GUI
             PhieuMuonService PMsv = new PhieuMuonService();
             ls = PMsv.getAllFormPhieuMuonAndCTPhieuMuon();
             dgv_DuLieuPM.DataSource = ls;
+        }
+        public void fillTenSach()
+        {
+            List<CuonSachDTO> list = new List<CuonSachDTO>();
+            list = GetDataDAO.Instance.getList(TenDauSach, TenTacGia);
+            dgv_DuLieuTT.DataSource = list;
         }
         #endregion
     }

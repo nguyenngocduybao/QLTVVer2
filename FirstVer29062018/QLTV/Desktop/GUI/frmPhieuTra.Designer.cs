@@ -70,8 +70,8 @@
             this.cl_HanTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_SoNgayMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbb_IDPhieuMuon = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cl_IDCuonSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TenCuonSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
@@ -140,8 +140,6 @@
             this.groupControl_TTPT.AppearanceCaption.Options.UseFont = true;
             this.groupControl_TTPT.AutoSize = true;
             this.groupControl_TTPT.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl_TTPT.CaptionImageOptions.Image")));
-            this.groupControl_TTPT.Controls.Add(this.label3);
-            this.groupControl_TTPT.Controls.Add(this.cbb_IDPhieuMuon);
             this.groupControl_TTPT.Controls.Add(this.btn_ChonSachVaoList);
             this.groupControl_TTPT.Controls.Add(this.listbox_TenDauSach);
             this.groupControl_TTPT.Controls.Add(this.dgv_DuLieuTra);
@@ -160,11 +158,11 @@
             // 
             // btn_ChonSachVaoList
             // 
-            this.btn_ChonSachVaoList.Location = new System.Drawing.Point(415, 189);
+            this.btn_ChonSachVaoList.Location = new System.Drawing.Point(415, 264);
             this.btn_ChonSachVaoList.Name = "btn_ChonSachVaoList";
             this.btn_ChonSachVaoList.Size = new System.Drawing.Size(108, 26);
             this.btn_ChonSachVaoList.TabIndex = 27;
-            this.btn_ChonSachVaoList.Text = "Chọn ID";
+            this.btn_ChonSachVaoList.Text = "Chọn sách";
             this.btn_ChonSachVaoList.Click += new System.EventHandler(this.btn_ChonSachVaoList_Click);
             // 
             // listbox_TenDauSach
@@ -179,6 +177,9 @@
             // dgv_DuLieuTra
             // 
             this.dgv_DuLieuTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DuLieuTra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_IDCuonSach,
+            this.cl_TenCuonSach});
             this.dgv_DuLieuTra.Location = new System.Drawing.Point(15, 166);
             this.dgv_DuLieuTra.Name = "dgv_DuLieuTra";
             this.dgv_DuLieuTra.Size = new System.Drawing.Size(394, 161);
@@ -533,24 +534,18 @@
             this.cl_TienPhat.Name = "cl_TienPhat";
             this.cl_TienPhat.Width = 250;
             // 
-            // cbb_IDPhieuMuon
+            // cl_IDCuonSach
             // 
-            this.cbb_IDPhieuMuon.FormattingEnabled = true;
-            this.cbb_IDPhieuMuon.Location = new System.Drawing.Point(151, 130);
-            this.cbb_IDPhieuMuon.Name = "cbb_IDPhieuMuon";
-            this.cbb_IDPhieuMuon.Size = new System.Drawing.Size(258, 31);
-            this.cbb_IDPhieuMuon.TabIndex = 28;
+            this.cl_IDCuonSach.DataPropertyName = "IDCuonSach";
+            this.cl_IDCuonSach.HeaderText = "STT";
+            this.cl_IDCuonSach.Name = "cl_IDCuonSach";
             // 
-            // label3
+            // cl_TenCuonSach
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(11, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 23);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "IDPhieuMuon:";
+            this.cl_TenCuonSach.DataPropertyName = "TenCuonSach";
+            this.cl_TenCuonSach.HeaderText = "Tên cuốn sách";
+            this.cl_TenCuonSach.Name = "cl_TenCuonSach";
+            this.cl_TenCuonSach.Width = 250;
             // 
             // frmPhieuTra
             // 
@@ -628,7 +623,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_HanTra;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_SoNgayMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TienPhat;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbb_IDPhieuMuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDCuonSach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenCuonSach;
     }
 }

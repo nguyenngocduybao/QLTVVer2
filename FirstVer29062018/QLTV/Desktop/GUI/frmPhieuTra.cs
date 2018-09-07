@@ -24,9 +24,11 @@ namespace Desktop.GUI
         #region VaLue
         public string HoTenDG { set; get; }
         public int IDLoaiDG { set; get; }
-        public int Ten { set; get; }
+        public int ID { set; get; }
         public int IDPhieuMuon { get; set; }
         public DateTime NgayTra;
+        List<int> IDCuonSach = new List<int>();
+        public string TenSach { get; set; }
         #endregion
         #region Load DateGridview
         private void frmPhieuTra_Load(object sender, EventArgs e)
@@ -46,21 +48,17 @@ namespace Desktop.GUI
                 try
                 {
                     if (string.IsNullOrEmpty(tb_TenNguoiMuon.Text)) { MessageBox.Show("Không được để trống họ tên người mượn.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); tb_TenNguoiMuon.Focus(); }
+                    else if (listbox_TenDauSach.Items.Count == 0) { MessageBox.Show("Không được để trống dữ liệu sách.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning); listbox_TenDauSach.Focus(); }
                     else
                     {
-                        //viet ham add ha a?
                         PhieuTraService PTSv = new PhieuTraService();
                         PhieuTraDtos ls = new PhieuTraDtos();
-                        IDPhieuMuon =Int32.Parse(cbb_IDPhieuMuon.Text);
                         HoTenDG = tb_TenNguoiMuon.Text;
                         NgayTra = dt_NgayTra.Value;
                         ls.NgayTra = NgayTra;
                         ls.TenDG = HoTenDG;
-                        ls.IDPhieuMuon = IDPhieuMuon;
-                        List<int> ID = new List<int>();
-                        var myOtherList = listbox_TenDauSach.Items.Cast<int>().ToList();
-                        ID = myOtherList;
-                        PTSv.AddFormPhieuTra(ls, ID);
+                       
+                        PTSv.AddFormPhieuTra(ls, IDCuonSach);
                         MessageBox.Show("Thêm thành công");
                         fillPhieuTra();
                         listbox_TenDauSach.Items.Clear();
@@ -82,16 +80,20 @@ namespace Desktop.GUI
             List<CuonSachDtos> cuonsach = new List<CuonSachDtos>();
             cuonsach = GetDataDAO.Instance.getListCuonSachDtos(tb_TenNguoiMuon.Text);
             dgv_DuLieuTra.DataSource = cuonsach;
-            List<string> ID = new List<string>();
-            ID = GetDataDAO.Instance.getListIDPhieuMuonToHoTenDG(tb_TenNguoiMuon.Text);
-            cbb_IDPhieuMuon.DataSource = ID;
         }
         private void btn_ChonSachVaoList_Click(object sender, EventArgs e)
         {
-            Ten = Int32.Parse(dgv_DuLieuTra.CurrentRow.Cells["IDCuonSach"].Value.ToString());
-            listbox_TenDauSach.Items.Add(Ten);
-           
-            
+            ID = Int32.Parse(dgv_DuLieuTra.CurrentRow.Cells["cl_IDCuonSach"].Value.ToString());
+            IDCuonSach.Add(ID);
+            TenSach = dgv_DuLieuTra.CurrentRow.Cells["cl_TenCuonSach"].Value.ToString();
+            if (listbox_TenDauSach.Items.Contains(TenSach))
+            {
+                MessageBox.Show("Dữ liệu đã tồn tại");
+            }
+            else
+            {
+                listbox_TenDauSach.Items.Add(TenSach);
+            }
         }
         #endregion
         #region DatetimepickerChanged
