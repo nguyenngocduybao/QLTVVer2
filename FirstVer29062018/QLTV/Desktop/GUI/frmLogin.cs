@@ -60,11 +60,18 @@ namespace Desktop.GUI
         {
             if(e.KeyCode==Keys.Enter)
             {
-                frmMain frm = new frmMain();
-                this.Hide();
-                MessageBox.Show("Đăng nhập thành công");
-                frm.ShowDialog();
-                this.Close();
+                if (GetDataDAO.Instance.CheckTaiKhoanAndMatKhau(tb_user.Text, tb_passwork.Text))
+                {
+                    frmMain frm = new frmMain();
+                    this.Hide();
+                    MessageBox.Show("Đăng nhập thành công");
+                    frm.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản mật khẩu không đúng!");
+                }
             }
         }
         #endregion
