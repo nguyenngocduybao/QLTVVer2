@@ -26,6 +26,9 @@ namespace Data.IBUS
         #endregion
         //Get All Form "PhieuMuon" and "CTPhieuMuon"
         List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon();
-        
+        //Xuat file excel
+        bool ExportToCsvFile(List<PhieuMuonDTO> PM, string fileName);
+
+
     }
 }

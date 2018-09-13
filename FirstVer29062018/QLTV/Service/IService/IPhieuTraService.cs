@@ -14,5 +14,7 @@ namespace Service.IService
         void AddFormPhieuTra(PhieuTraDtos phieutra, List<int> IDCuonSach);
         //get AllFrmPhieuTra And CTPhieuTra
         List<CTPhieuTraDTO> getALlFormPhieuTraAndCTPhieuTra();
+        //Xuat file excel
+        bool ExportToCsvFile(List<CTPhieuTraDTO> PT, string fileName);
     }
 }

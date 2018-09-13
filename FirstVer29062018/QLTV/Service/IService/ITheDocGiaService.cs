@@ -24,6 +24,8 @@ namespace Service.IService
         List<TheDocGiaDTO> getFormTheDocGiaSearchNgaySinhDG(DateTime NgaySinh);
         List<TheDocGiaDTO> getFormTheDocGiaSearchUserName(string Username);
         #endregion
+        // Xuat file excel
+        bool ExportToCsvFile(List<TheDocGiaDTO> TheDocGia, string fileName);
 
     }
 }

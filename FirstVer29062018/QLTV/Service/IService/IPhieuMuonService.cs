@@ -26,5 +26,7 @@ namespace Service.IService
         #endregion
         // getAll Form "PhieuMuon" And "CTPhieuMuon"
         List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon();
+        //Xuat file excel
+        bool ExportToCsvFile(List<PhieuMuonDTO> PM, string fileName);
     }
 }

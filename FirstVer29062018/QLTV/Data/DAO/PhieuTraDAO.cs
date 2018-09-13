@@ -48,7 +48,22 @@ namespace Data.DAO
                                 from b in db.PHIEUMUONs
                                 where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && a.IDCTPhieuTra.Equals(IDCTPhieuTra)
                                 select b.NgayMuon).FirstOrDefault();
-                return (ngaytra - ngaymuon).Days;
+
+                DateTime ngay = ngaymuon;
+                TimeSpan songay = ngaytra - ngaymuon;
+                int t = songay.Days;
+                return t;
+            }
+        }
+        public DateTime ngaymuontoID(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var ngaymuon = (from a in db.CT_PHIEUTRA
+                                from b in db.PHIEUMUONs
+                                where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && a.IDCTPhieuTra.Equals(ID)
+                                select b.NgayMuon).FirstOrDefault();
+                return ngaymuon;
             }
         }
         //Tinh tien phat
@@ -60,10 +75,12 @@ namespace Data.DAO
                               from b in db.PHIEUMUONs
                               where a.IDPhieuMuon.Equals(b.IDPhieuMuon) && a.IDCTPhieuTra.Equals(IDCTPhieuTra)
                               select b.HanTra).FirstOrDefault();
-                if ((ngaytra - HanTra).Days <= 0)
+                TimeSpan SoNgay = ngaytra - HanTra;
+                int Ngay = SoNgay.Days;
+                if (Ngay <= 0)
                     return 0;
                 else
-                    return (ngaytra - HanTra).Days * 1000;
+                    return Ngay * 1000;
             }
         }
         #endregion

@@ -21,5 +21,7 @@ namespace Data.IBUS
         List<TacGiaDtos> getFormTacGiaSearchTenTacGia(string TenTG);
         //getList Search NgaySinhTacGia From "TacGia"
         List<TacGiaDtos> getFormTacGiaSearchNgaySinhTG(DateTime NgaySinh);
+        //Xuat file excel
+        bool ExportToCsvFile(List<TacGiaDtos> tacgia, string fileName);
     }
 }

@@ -9,6 +9,9 @@ using Data.BUS;
 using Data.Dtos;
 using Data.Model;
 using Data.DAO;
+using System.IO;
+//using Microsoft.Office.Interop.Excel;
+//using app = Microsoft.Office.Interop.Excel.Application;
 namespace Data.BUS
 {
     public class PhieuTraBUS:IPhieuTraBUS
@@ -20,6 +23,7 @@ namespace Data.BUS
             {
                 using (var db = new QuanLyThuVienEntities())
                 {
+                    int IDCT;
                     int ID = PhieuTraDAO.Instance.IDPlus();
                     db.PHIEUTRAs.Add(new PHIEUTRA()
                     {
@@ -30,10 +34,9 @@ namespace Data.BUS
                         TienNoKyNay = 0,
                         TienPhatKyNay = 0,
                     });
-                    db.SaveChanges();
                     for (int i = 0; i <IDCuonSach.Count(); i++)
-                    {
-                        int IDCT = CTPhieuTraDAO.Instance.IDPlus();
+                    { 
+                        IDCT = CTPhieuTraDAO.Instance.IDPlus();
                         db.CT_PHIEUTRA.Add(new CT_PHIEUTRA()
                         {
                             IDCTPhieuTra=IDCT,
@@ -44,27 +47,31 @@ namespace Data.BUS
                             TienPhat=PhieuTraDAO.Instance.TinhTienPhat(phieutra.NgayTra,IDCT),
                         });
                         db.SaveChanges();
-                        var updateTinhTrang = (from a in db.CUONSACHes
-                                               where a.IDCuonSach.Equals(IDCuonSach[i])
-                                               select a).FirstOrDefault<CUONSACH>();
-                        updateTinhTrang.TinhTrang = "Chưa cho mượn";
-                        db.SaveChanges();
-                        if (HelperDAO.Instance.CheckTraTre(IDCT) == true)
+                        if (HelperDAO.Instance.CheckTraTre(IDCT,phieutra.NgayTra) == true)
                         {
                             int IDBC = BCSachTraTreDAO.Instance.IDPlus();
                             db.BCSACHTRATREs.Add(new BCSACHTRATRE()
                             {
-                                IDBCSachTre = IDCT,
+                                IDBCSachTre = IDBC,
                                 IDCuonSach = IDCuonSach[i],
-                                IDPhieuMuon = phieutra.IDPhieuMuon,
+                                IDPhieuMuon = GetDataDAO.Instance.getIDPhieuMuonToIDCTPhieuTra(IDCT),
                                 NgayThangNam = phieutra.NgayTra,
-                                SoNgayTraTre = (GetDataDAO.Instance.HanTraSachToIDCTPhieuTra(IDCT) - phieutra.NgayTra).Days,
+                                SoNgayTraTre = GetDataDAO.Instance.getSoNgayMuonToIDCTPhieuTra(IDCT),
                             });
                             db.SaveChanges();
                         }
                     }
-                    db.SaveChanges();
-                            
+                    
+                    for (int i = 0; i < IDCuonSach.Count(); i++)
+                    {
+                        int IDCuonsach = IDCuonSach[i];
+                        var updateTinhTrang = (from a in db.CUONSACHes
+                                               where a.IDCuonSach.Equals(IDCuonsach)
+                                               select a).FirstOrDefault<CUONSACH>();
+                        updateTinhTrang.TinhTrang = "Chưa cho mượn";
+                        db.SaveChanges();
+                    }
+                    db.SaveChanges();                      
                     return true;
                 }
             }
@@ -93,7 +100,22 @@ namespace Data.BUS
             }
         }
         #endregion
+        #region Xuat file excel
+        public bool ExportToCsvFile(List<CTPhieuTraDTO> PT, string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create), Encoding.UTF8))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("STT,Tên người trả,Tên sách");
+                foreach (var p in PT)
+                {
+                    sb.AppendLine(string.Format("{0},{1},{2}", p.IDCTPhieuTra,p.TenDocGia,p.TenDauSach));
+                }
 
-
+                sw.Write(sb.ToString());
+                return true;
+            }
+        }
+        #endregion
     }
 }

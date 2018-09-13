@@ -7,6 +7,7 @@ using Data.IBUS;
 using Data.Model;
 using Data.DAO;
 using Data.Dtos;
+using System.IO;
 
 namespace Data.BUS
 {
@@ -125,7 +126,24 @@ namespace Data.BUS
             }
         }
 
-      
+
+        #endregion
+        #region Xuat file excel
+        public bool ExportToCsvFile(List<TacGiaDtos> tacgia, string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create), Encoding.UTF8))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("STT,Tên tác giả,Ngày sinh");
+                foreach (var p in tacgia)
+                {
+                    sb.AppendLine(string.Format("{0},{1},{2}", p.IDTacGia,p.TenTacGia,p.NgaySinh.ToString("dd-MM-yyyy")));
+                }
+
+                sw.Write(sb.ToString());
+                return true;
+            }
+        }
         #endregion
     }
 }
