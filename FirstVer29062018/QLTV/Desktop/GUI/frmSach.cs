@@ -152,6 +152,35 @@ namespace Desktop.GUI
                 dgv_DuLieuSach.DataSource = lsSach;
             }
         }
+        private void toolStripBt_XuatCSV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "csv File (.csv)|.csv|All files (.)|*.*";
+                    sfd.Title = "Save an Excel File";
+                    sfd.ShowDialog();
+
+                    string DuongDan;
+                    DuongDan = sfd.FileName;
+                    List<TacGiaDtos> ls = new List<TacGiaDtos>();
+                    TacGiaService pro = new TacGiaService();
+                    ls = pro.getAllFormTacGia();
+                    DialogResult dlg = MessageBox.Show("Bạn có chắc chắn xuất CSV!!", "Thông báo!!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (dlg.Equals(DialogResult.OK))
+                    {
+                        pro.ExportToCsvFile(ls, DuongDan);
+                        MessageBox.Show("Xuất thành công!!", "Thông báo!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
         #endregion
         #region Load Data to Combobox
         //get Thể Loại Sáchd Database
@@ -198,5 +227,7 @@ namespace Desktop.GUI
             dgv_DuLieuSach.DataSource = ls;
         }
         #endregion
+
+       
     }
 }

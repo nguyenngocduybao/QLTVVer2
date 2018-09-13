@@ -169,7 +169,7 @@
             // 
             this.btn_MuonSach.Caption = "Mượn sách";
             this.btn_MuonSach.Id = 11;
-            this.btn_MuonSach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btn_MuonSach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_MuonSach.ImageOptions.LargeImage")));
             this.btn_MuonSach.Name = "btn_MuonSach";
             this.btn_MuonSach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_MuonSach_ItemClick);
             // 
@@ -177,7 +177,7 @@
             // 
             this.btn_TraSach.Caption = "Trả sách";
             this.btn_TraSach.Id = 12;
-            this.btn_TraSach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btn_TraSach.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TraSach.ImageOptions.LargeImage")));
             this.btn_TraSach.Name = "btn_TraSach";
             this.btn_TraSach.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TraSach_ItemClick);
             // 
@@ -299,6 +299,7 @@
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
+            this.Tag = "";
             this.Text = "frmMain";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedfMain)).EndInit();

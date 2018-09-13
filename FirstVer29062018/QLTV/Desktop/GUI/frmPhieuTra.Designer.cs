@@ -37,6 +37,8 @@
             this.btn_ChonSachVaoList = new DevExpress.XtraEditors.SimpleButton();
             this.listbox_TenDauSach = new System.Windows.Forms.ListBox();
             this.dgv_DuLieuTra = new System.Windows.Forms.DataGridView();
+            this.cl_IDCuonSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_TenCuonSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dt_NgayTra = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_TenNguoiMuon = new System.Windows.Forms.TextBox();
@@ -70,8 +72,6 @@
             this.cl_HanTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_SoNgayMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_IDCuonSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_TenCuonSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.navigationPage2.SuspendLayout();
@@ -184,6 +184,19 @@
             this.dgv_DuLieuTra.Name = "dgv_DuLieuTra";
             this.dgv_DuLieuTra.Size = new System.Drawing.Size(394, 161);
             this.dgv_DuLieuTra.TabIndex = 25;
+            // 
+            // cl_IDCuonSach
+            // 
+            this.cl_IDCuonSach.DataPropertyName = "IDCuonSach";
+            this.cl_IDCuonSach.HeaderText = "STT";
+            this.cl_IDCuonSach.Name = "cl_IDCuonSach";
+            // 
+            // cl_TenCuonSach
+            // 
+            this.cl_TenCuonSach.DataPropertyName = "TenCuonSach";
+            this.cl_TenCuonSach.HeaderText = "Tên cuốn sách";
+            this.cl_TenCuonSach.Name = "cl_TenCuonSach";
+            this.cl_TenCuonSach.Width = 250;
             // 
             // dt_NgayTra
             // 
@@ -437,6 +450,7 @@
             this.toolStripBt_XuatCSV.Name = "toolStripBt_XuatCSV";
             this.toolStripBt_XuatCSV.Size = new System.Drawing.Size(107, 28);
             this.toolStripBt_XuatCSV.Text = "Xuất CSV";
+            this.toolStripBt_XuatCSV.Click += new System.EventHandler(this.toolStripBt_XuatCSV_Click);
             // 
             // toolStripSeparator4
             // 
@@ -533,19 +547,6 @@
             this.cl_TienPhat.HeaderText = "Tiền phạt kì này";
             this.cl_TienPhat.Name = "cl_TienPhat";
             this.cl_TienPhat.Width = 250;
-            // 
-            // cl_IDCuonSach
-            // 
-            this.cl_IDCuonSach.DataPropertyName = "IDCuonSach";
-            this.cl_IDCuonSach.HeaderText = "STT";
-            this.cl_IDCuonSach.Name = "cl_IDCuonSach";
-            // 
-            // cl_TenCuonSach
-            // 
-            this.cl_TenCuonSach.DataPropertyName = "TenCuonSach";
-            this.cl_TenCuonSach.HeaderText = "Tên cuốn sách";
-            this.cl_TenCuonSach.Name = "cl_TenCuonSach";
-            this.cl_TenCuonSach.Width = 250;
             // 
             // frmPhieuTra
             // 
