@@ -79,6 +79,35 @@ namespace Desktop.GUI
                 dgv_DuLieu.DataSource = ls;
             }
         }
+        private void toolStripBt_XuatCSV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "csv File (.csv)|.csv|All files (.)|*.*";
+                    sfd.Title = "Save an Excel File";
+                    sfd.ShowDialog();
+
+                    string DuongDan;
+                    DuongDan = sfd.FileName;
+                    List<TacGiaDtos> ls = new List<TacGiaDtos>();
+                    TacGiaService pro = new TacGiaService();
+                    ls = pro.getAllFormTacGia();
+                    DialogResult dlg = MessageBox.Show("Bạn có chắc chắn xuất CSV!!", "Thông báo!!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (dlg.Equals(DialogResult.OK))
+                    {
+                        pro.ExportToCsvFile(ls, DuongDan);
+                        MessageBox.Show("Xuất thành công!!", "Thông báo!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
         #endregion
         public void fillAllDataFromTableTacGia()
         {
@@ -86,6 +115,6 @@ namespace Desktop.GUI
             TacGiaService TDGsv = new TacGiaService();
             ls = TDGsv.getAllFormTacGia();
             dgv_DuLieu.DataSource = ls;
-        }
+        } 
     }
 }

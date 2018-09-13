@@ -543,6 +543,7 @@
             this.toolStripBt_XuatCSV.Name = "toolStripBt_XuatCSV";
             this.toolStripBt_XuatCSV.Size = new System.Drawing.Size(107, 28);
             this.toolStripBt_XuatCSV.Text = "Xuất CSV";
+            this.toolStripBt_XuatCSV.Click += new System.EventHandler(this.toolStripBt_XuatCSV_Click);
             // 
             // toolStripSeparator4
             // 
@@ -709,7 +710,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbb_TenTacGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_IDTacGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_TenDauSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_NgayMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_HanTra;
