@@ -24,5 +24,7 @@ namespace Data.IBUS
         #region getlist"TheDocGiaDTO" All"DocGia"and User 
         List<TheDocGiaDTO> getAllDocGiaAndUser();
         #endregion
+        // Xuat file excel
+        bool ExportToCsvFile(List<TheDocGiaDTO> TheDocGia, string fileName);
     }
 }

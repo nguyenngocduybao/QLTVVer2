@@ -23,5 +23,15 @@ namespace Service.ABSTRACT
         {
             this._iPhieuTraBUS.AddFormPhieuTra(phieutra, IDCuonSach);
         }
+        //Xuat file excel
+        public bool ExportToCsvFile(List<CTPhieuTraDTO> PT, string fileName)
+        {
+            return _iPhieuTraBUS.ExportToCsvFile(PT, fileName);
+        }
+
+        public List<CTPhieuTraDTO> getALlFormPhieuTraAndCTPhieuTra()
+        {
+            return this._iPhieuTraBUS.getALlFormPhieuTraAndCTPhieuTra();
+        }
     }
 }

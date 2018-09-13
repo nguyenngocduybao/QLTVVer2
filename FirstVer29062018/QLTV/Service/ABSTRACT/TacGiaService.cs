@@ -29,6 +29,11 @@ namespace Service.ABSTRACT
         {
             this._TacGia.editFormTacGia(tacgia);
         }
+        //Xuat file excel
+        public bool ExportToCsvFile(List<TacGiaDtos> tacgia, string fileName)
+        {
+            return _TacGia.ExportToCsvFile(tacgia, fileName);
+        }
 
         //getAllForm TacGia
         public List<TacGiaDtos> getAllFormTacGia()

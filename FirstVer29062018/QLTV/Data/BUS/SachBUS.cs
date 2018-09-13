@@ -9,6 +9,8 @@ using Data.DAO;
 using Data.BUS;
 using Data.Dtos;
 using Data.DTO;
+using System.IO;
+
 namespace Data.BUS
 {
     public  class SachBUS :ISachBUS
@@ -229,6 +231,23 @@ namespace Data.BUS
             {
 
                 throw;
+            }
+        }
+        #endregion
+        #region Xuat file excel
+        public bool ExportToCsvFile(List<SachDTO> sach, string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create), Encoding.UTF8))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("STT,Tên Sách,Tên tác giả,Thể loại,Nhà xuất bản,Năm xuất bản,Giá tiền");
+                foreach (var p in sach)
+                {
+                    sb.AppendLine(string.Format("{0},{1},{2},{3},{4},{5},{6}",p.IDSach,p.TenDauSach,p.TenTG,p.TenLoaiSach,p.NhaXB,p.NamXB,p.GiaTien ));
+                }
+
+                sw.Write(sb.ToString());
+                return true;
             }
         }
         #endregion

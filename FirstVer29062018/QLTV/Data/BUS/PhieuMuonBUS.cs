@@ -8,6 +8,8 @@ using Data.Model;
 using Data.DAO;
 using Data.DTO;
 using Data.Dtos;
+using System.IO;
+
 namespace Data.BUS
 {
     public class PhieuMuonBUS:IPhieuMuonBUS
@@ -28,7 +30,6 @@ namespace Data.BUS
                         NgayMuon = phieuMuon.NgayMuon,
                         HanTra = PhieuMuonDAO.Instance.HanMuonSach(phieuMuon.NgayMuon),
                     });
-                    db.SaveChanges();
                     for (int i = 0; i <IDCuonSach.Count(); i++)
                     {
                         
@@ -40,13 +41,16 @@ namespace Data.BUS
                             IDPhieuMuon = ID,
                         });
                         db.SaveChanges();
+                    }
+                    for (int i = 0; i < IDCuonSach.Count(); i++)
+                    {
+                        int temp = IDCuonSach[i];
                         var updateTinhTrang = (from a in db.CUONSACHes
-                                               where a.IDCuonSach.Equals(IDCuonSach[i])
+                                               where a.IDCuonSach.Equals(temp)
                                                select a).FirstOrDefault<CUONSACH>();
                         updateTinhTrang.TinhTrang = "Đã cho mượn";
                         db.SaveChanges();
                     }
-
                     db.SaveChanges();
                     return true;
                 }
@@ -172,6 +176,22 @@ namespace Data.BUS
             }
         }
         #endregion
+        #region Xuat file excel
+        public bool ExportToCsvFile(List<PhieuMuonDTO> PM, string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create), Encoding.UTF8))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("STT,Tên người mượn,Tên đầu sách,Ngày mượn");
+                foreach (var p in PM)
+                {
+                    sb.AppendLine(string.Format("{0},{1},{2},{3}", p.IDCTPhieuMuon,p.TenNguoiMuon,p.TenDauSach,p.NgayMuon.ToString("dd-MM-yyyy")));
+                }
 
+                sw.Write(sb.ToString());
+                return true;
+            }
+        }
+        #endregion
     }
 }

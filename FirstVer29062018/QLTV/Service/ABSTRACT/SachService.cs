@@ -27,6 +27,12 @@ namespace Service.ABSTRACT
         {
             this._iSachBUS.editFormDauSachAndSachAndCTPhieuNhap(sach);
         }
+        //Xuat file excel
+        public bool ExportToCsvFile(List<SachDTO> sach, string fileName)
+        {
+            return this._iSachBUS.ExportToCsvFile(sach, fileName);
+        }
+
         //getALl Form DauSach And CTPhieuNhap And "Sach"
         public List<SachDTO> getAllFormDauSachandCTPhieuNhapAndSach()
         {

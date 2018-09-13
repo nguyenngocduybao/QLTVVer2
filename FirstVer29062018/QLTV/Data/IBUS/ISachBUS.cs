@@ -29,5 +29,7 @@ namespace Data.IBUS
         //get List Search SoLuongTon
         List<SachDTO> getFormSachSearchSoLuongTon(int SL);
         #endregion
+        //Xuat file excel
+        bool ExportToCsvFile(List<SachDTO> sach, string fileName);
     }
 }

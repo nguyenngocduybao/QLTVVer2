@@ -56,20 +56,32 @@ namespace Data.DAO
 
         #endregion
         // Check Tra Tre Sach
-        public bool CheckTraTre(int IDCTPhieuTra)
+        public bool CheckTraTre(int IDCTPhieuTra,DateTime ngaytra)
         {
             using (var db = new QuanLyThuVienEntities())
             {
-                var Check = (from a in db.CT_PHIEUTRA
-                             from b in db.PHIEUTRAs
-                             from c in db.PHIEUMUONs
-                             where a.IDCTPhieuTra.Equals(IDCTPhieuTra) && a.IDPhieuTra.Equals(b.IDPhieuTra) && a.IDPhieuMuon.Equals(c.IDPhieuMuon)
-                             && b.NgayTra > c.HanTra
-                             select a.IDCTPhieuTra).ToString();
-                if (Check == null)
-                    return false;
-                else return true;
+               
+                var checkHanTra = (from a in db.CT_PHIEUTRA
+                                   from b in db.PHIEUMUONs
+                                   where a.IDCTPhieuTra.Equals(IDCTPhieuTra) && b.IDPhieuMuon.Equals(a.IDPhieuMuon)
+                                   select b.HanTra).FirstOrDefault();
+                if (ngaytra > checkHanTra)
+                    return true;
+                else return false;
+               
             }
+        }
+        // Check Tai Khoan add Mat khau
+        public bool CheckTaiKhoanAndMatKhau(string TenTk,string Mk)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Check = (from a in db.USERADMINs
+                             where a.UserNameAdmin.Equals(TenTk) &&  a.PasswordAdmin.Equals(Mk)
+                             select a).FirstOrDefault();
+                if (Check == null) return false;
+                else return true;
+             }
         }
 
     }

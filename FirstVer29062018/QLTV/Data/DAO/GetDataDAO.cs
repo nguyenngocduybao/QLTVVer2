@@ -149,6 +149,28 @@ namespace Data.DAO
                 return TenTacGia;
             }
         }
+        // get Songaymuon to IDCT Phieu Tra
+        public int getSoNgayMuonToIDCTPhieuTra(int ID)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var SoNgay = (from a in db.CT_PHIEUTRA 
+                              where a.IDCTPhieuTra.Equals(ID)
+                              select a.SoNgayMuon).FirstOrDefault();
+                return SoNgay; 
+            }
+        }
+        //get IDPhieuMuon to IDCTPhieuTra
+        public int getIDPhieuMuonToIDCTPhieuTra(int ID)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var IDPhieuMuon = (from a in db.CT_PHIEUTRA
+                          select a.IDPhieuMuon).FirstOrDefault();
+                return IDPhieuMuon;
+            }
+        }
+        
         //get IDDG to HoTenDG
         public int getIDDocGiaToHoTenDG(string HoTenDG)
         {
@@ -371,11 +393,12 @@ namespace Data.DAO
                           from c in db.CUONSACHes
                           from a in db.CT_PHIEUMUON
                           where b.HoTenDG.Equals(HoTenDG) && b.IDDocGia.Equals(d.IDDocGia) && d.IDPhieuMuon.Equals(a.IDPhieuMuon)
-                          && c.IDCuonSach.Equals(a.IDCuonSach)
+                          && c.IDCuonSach.Equals(a.IDCuonSach) && c.TinhTrang == "Đã cho mượn"
                           select new CuonSachDtos()
                           {
                               IDCuonSach = a.IDCuonSach,
                               IDSach = c.IDSach,
+                              TinhTrang = c.TinhTrang,
                           }).ToList<CuonSachDtos>();
                 var listkq = (from a in list
                               select new CuonSachDtos()
@@ -383,6 +406,7 @@ namespace Data.DAO
                                   IDCuonSach = a.IDCuonSach,
                                   IDSach = a.IDSach,
                                   TenCuonSach=getTenCuonSach(a.IDCuonSach),
+                                  TinhTrang=a.TinhTrang,
                               }).ToList<CuonSachDtos>();
                 if (listkq.Count > 0)
                     return listkq;

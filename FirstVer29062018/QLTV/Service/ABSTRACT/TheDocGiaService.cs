@@ -66,11 +66,13 @@ namespace Service.ABSTRACT
         {
             return _TheDocGiaBUS.getFormTheDocGiaSearchUserName(Username);
         }
-
-        
-
-
         #endregion
+        // xuat file excel
+        public bool ExportToCsvFile(List<TheDocGiaDTO> TheDocGia, string fileName)
+        {
+            return _TheDocGiaBUS.ExportToCsvFile(TheDocGia, fileName);
+        }
+
     }
 
 }

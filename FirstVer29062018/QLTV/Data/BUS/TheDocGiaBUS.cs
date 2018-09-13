@@ -8,6 +8,8 @@ using Data.Dtos;
 using Data.DTO;
 using Data.Model;
 using Data.DAO;
+using System.IO;
+
 namespace Data.BUS
 {
     public class TheDocGiaBUS:ITheDocGiaBUS
@@ -193,5 +195,23 @@ namespace Data.BUS
             };
         }
         #endregion
+        #region Xuat file excel
+        public bool ExportToCsvFile(List<TheDocGiaDTO> TheDocGia, string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create), Encoding.UTF8))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("STT,Họ và tên,Tài khoản,Địa chỉ,Email,Ngày sinh,Ngày lập thẻ,Ngày hết hạn,Tên loại độc giả");
+                foreach (var p in TheDocGia)
+                {
+                    sb.AppendLine(string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}", p.IDDocGia, p.HoTenDG, p.UserName, p.DiaChiDG, p.EmailDG, p.NgaySinhDG, p.NgayLapThe.ToString("dd-MM-yyyy"), p.NgayHetHan.ToString("dd-MM-yyyy"), p.TenLoaiDocGia));
+                }
+
+                sw.Write(sb.ToString());
+                return true;
+            }
+        }
+        #endregion
+
     }
-}
+    }

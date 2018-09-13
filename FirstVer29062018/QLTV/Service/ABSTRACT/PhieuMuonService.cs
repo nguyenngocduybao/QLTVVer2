@@ -30,6 +30,11 @@ namespace Service.ABSTRACT
             this._iPhieuMuonBUS.editFormPhieuMuonAndCTPhieuMuon(phieumuon);
         }
 
+        public bool ExportToCsvFile(List<PhieuMuonDTO> PM, string fileName)
+        {
+            return this._iPhieuMuonBUS.ExportToCsvFile(PM, fileName);
+        }
+
 
         #region getAll Form PhieuMuon and CTPhieuMuon
         public List<PhieuMuonDTO> getAllFormPhieuMuonAndCTPhieuMuon()
