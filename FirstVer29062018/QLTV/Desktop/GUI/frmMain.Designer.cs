@@ -59,6 +59,8 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedfMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.btn_BaoCaoMuon = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_BaoCaoTra = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedfMain)).BeginInit();
             this.SuspendLayout();
@@ -79,9 +81,11 @@
             this.btn_CTTGia,
             this.btn_Admin,
             this.btn_MuonSach,
-            this.btn_TraSach});
+            this.btn_TraSach,
+            this.btn_BaoCaoMuon,
+            this.btn_BaoCaoTra});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 13;
+            this.ribbon.MaxItemId = 16;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbon_TDGia,
@@ -248,8 +252,10 @@
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_BaoCaoMuon);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_BaoCaoTra);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Báo cáo";
             // 
             // ribbon_TKiem
             // 
@@ -287,6 +293,22 @@
             // xtraTabbedfMain
             // 
             this.xtraTabbedfMain.MdiParent = this;
+            // 
+            // btn_BaoCaoMuon
+            // 
+            this.btn_BaoCaoMuon.Caption = "Báo cáo phiếu mượn";
+            this.btn_BaoCaoMuon.Id = 13;
+            this.btn_BaoCaoMuon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btn_BaoCaoMuon.Name = "btn_BaoCaoMuon";
+            this.btn_BaoCaoMuon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_BaoCaoMuon_ItemClick);
+            // 
+            // btn_BaoCaoTra
+            // 
+            this.btn_BaoCaoTra.Caption = "Báo cáo phiếu trả";
+            this.btn_BaoCaoTra.Id = 15;
+            this.btn_BaoCaoTra.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btn_BaoCaoTra.Name = "btn_BaoCaoTra";
+            this.btn_BaoCaoTra.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_BaoCaoTra_ItemClick);
             // 
             // frmMain
             // 
@@ -339,5 +361,7 @@
         private DevExpress.XtraBars.BarButtonItem btn_MuonSach;
         private DevExpress.XtraBars.BarButtonItem btn_TraSach;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btn_BaoCaoMuon;
+        private DevExpress.XtraBars.BarButtonItem btn_BaoCaoTra;
     }
 }
