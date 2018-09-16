@@ -109,5 +109,37 @@ namespace Desktop.GUI
                 f.Show();
             }
         }
+
+        private void btn_BaoCaoMuon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTra(typeof(frmReportPhieuMuon));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmReportPhieuMuon f = new frmReportPhieuMuon();
+                f.MdiParent = this;
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
+        }
+
+        private void btn_BaoCaoTra_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.KiemTra(typeof(frmReportPhieuTra));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmReportPhieuTra f = new frmReportPhieuTra();
+                f.MdiParent = this;
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
+        }
     }
 }
