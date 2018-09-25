@@ -28,55 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_TaoBaoCao = new DevExpress.XtraEditors.SimpleButton();
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tb_Nam = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tb_Thang = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btn_TaoBaoCao = new DevExpress.XtraEditors.SimpleButton();
+            this.BaoCaoTinhHinhMuonSachDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cl_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Thang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Nam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Muon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BaoCaoTinhHinhMuonSachDTOBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.btn_TaoBaoCao);
-            this.groupBox1.Controls.Add(this.tb_Nam);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tb_Thang);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBox1.Location = new System.Drawing.Point(12, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 152);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thống kê tình hình mượn sách";
-            // 
-            // btn_TaoBaoCao
-            // 
-            this.btn_TaoBaoCao.Location = new System.Drawing.Point(496, 71);
-            this.btn_TaoBaoCao.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_TaoBaoCao.Name = "btn_TaoBaoCao";
-            this.btn_TaoBaoCao.Size = new System.Drawing.Size(91, 28);
-            this.btn_TaoBaoCao.TabIndex = 35;
-            this.btn_TaoBaoCao.Text = "Tạo báo cáo";
             // 
             // tb_Nam
             // 
@@ -85,23 +61,7 @@
             this.tb_Nam.Name = "tb_Nam";
             this.tb_Nam.Size = new System.Drawing.Size(117, 25);
             this.tb_Nam.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(224, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 25);
-            this.label4.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(262, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Năm";
+            this.tb_Nam.TextChanged += new System.EventHandler(this.tb_Nam_TextChanged);
             // 
             // tb_Thang
             // 
@@ -110,15 +70,7 @@
             this.tb_Thang.Name = "tb_Thang";
             this.tb_Thang.Size = new System.Drawing.Size(117, 25);
             this.tb_Thang.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tháng";
+            this.tb_Thang.TextChanged += new System.EventHandler(this.tb_Thang_TextChanged);
             // 
             // label1
             // 
@@ -159,27 +111,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(604, 264);
             this.dataGridView1.TabIndex = 0;
             // 
-            // cl_ID
-            // 
-            this.cl_ID.HeaderText = "STT";
-            this.cl_ID.Name = "cl_ID";
-            // 
-            // cl_Thang
-            // 
-            this.cl_Thang.HeaderText = "Tháng";
-            this.cl_Thang.Name = "cl_Thang";
-            // 
-            // cl_Nam
-            // 
-            this.cl_Nam.HeaderText = "năm";
-            this.cl_Nam.Name = "cl_Nam";
-            // 
-            // cl_Muon
-            // 
-            this.cl_Muon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cl_Muon.HeaderText = "Tổng số lượt mượn";
-            this.cl_Muon.Name = "cl_Muon";
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -198,10 +129,99 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "rpBaoCao";
+            reportDataSource2.Value = this.BaoCaoTinhHinhMuonSachDTOBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Desktop.Report.rpTinhHinhMuonSach.rdlc";
+            this.reportViewer1.LocalReport.ReportPath = "Report/rpTinhHinhMuonSach.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 27);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(633, 407);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // btn_TaoBaoCao
+            // 
+            this.btn_TaoBaoCao.Location = new System.Drawing.Point(496, 71);
+            this.btn_TaoBaoCao.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_TaoBaoCao.Name = "btn_TaoBaoCao";
+            this.btn_TaoBaoCao.Size = new System.Drawing.Size(91, 28);
+            this.btn_TaoBaoCao.TabIndex = 35;
+            this.btn_TaoBaoCao.Text = "Tạo báo cáo";
+            this.btn_TaoBaoCao.Click += new System.EventHandler(this.btn_TaoBaoCao_Click);
+            // 
+            // BaoCaoTinhHinhMuonSachDTOBindingSource
+            // 
+            this.BaoCaoTinhHinhMuonSachDTOBindingSource.DataSource = typeof(Data.DTO.BaoCaoTinhHinhMuonSachDTO);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tháng";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(262, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Năm";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(224, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 25);
+            this.label4.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btn_TaoBaoCao);
+            this.groupBox1.Controls.Add(this.tb_Nam);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.tb_Thang);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.groupBox1.Location = new System.Drawing.Point(12, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(607, 152);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thống kê tình hình mượn sách";
+            // 
+            // cl_ID
+            // 
+            this.cl_ID.DataPropertyName = "IDCTBCMuonSach";
+            this.cl_ID.HeaderText = "STT";
+            this.cl_ID.Name = "cl_ID";
+            // 
+            // cl_Thang
+            // 
+            this.cl_Thang.DataPropertyName = "Thang";
+            this.cl_Thang.HeaderText = "Tháng";
+            this.cl_Thang.Name = "cl_Thang";
+            // 
+            // cl_Nam
+            // 
+            this.cl_Nam.DataPropertyName = "Nam";
+            this.cl_Nam.HeaderText = "Năm";
+            this.cl_Nam.Name = "cl_Nam";
+            // 
+            // cl_Muon
+            // 
+            this.cl_Muon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cl_Muon.DataPropertyName = "TongSoLuotMuon";
+            this.cl_Muon.HeaderText = "Tổng số lượt mượn";
+            this.cl_Muon.Name = "cl_Muon";
             // 
             // frmReportPhieuMuon
             // 
@@ -215,33 +235,34 @@
             this.Name = "frmReportPhieuMuon";
             this.Text = "frmReportPhieuMuon";
             this.Load += new System.EventHandler(this.frmReportPhieuMuon_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BaoCaoTinhHinhMuonSachDTOBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tb_Nam;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_Thang;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton btn_TaoBaoCao;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource BaoCaoTinhHinhMuonSachDTOBindingSource;
+        private DevExpress.XtraEditors.SimpleButton btn_TaoBaoCao;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Thang;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Nam;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Muon;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

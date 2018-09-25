@@ -24,7 +24,7 @@ namespace Data.Model
         public System.DateTime NgayLap { get; set; }
         public int Thang { get; set; }
         public int Nam { get; set; }
-        public Nullable<int> TongSoLuotMuon { get; set; }
+        public int TongSoLuotMuon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_BCTINHHINHMUONSACH> CT_BCTINHHINHMUONSACH { get; set; }

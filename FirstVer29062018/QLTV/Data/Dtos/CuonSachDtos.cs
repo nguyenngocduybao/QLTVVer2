@@ -10,6 +10,7 @@ namespace Data.Dtos
     {
         public int IDCuonSach { get; set; }
         public int IDSach { get; set; }
-        public string TenCuonSach { get; set; }        
+        public string TenCuonSach { get; set; }  
+        public string TinhTrang { get; set; }      
     }
 }

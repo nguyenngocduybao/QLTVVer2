@@ -116,6 +116,7 @@
     <Compile Include="Dtos\TheDocGiaDtos.cs" />
     <Compile Include="Dtos\UserAdminDtos.cs" />
     <Compile Include="Dtos\UserDtos.cs" />
+    <Compile Include="DTO\BaoCaoTinhHinhMuonSachDTO.cs" />
     <Compile Include="DTO\CTPhieuMuonDTO.cs" />
     <Compile Include="DTO\CTPhieuTraDTO.cs" />
     <Compile Include="DTO\CTTacGiaDTO.cs" />

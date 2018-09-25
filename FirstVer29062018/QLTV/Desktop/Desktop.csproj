@@ -49,8 +49,11 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +88,18 @@
     </Compile>
     <Compile Include="GUI\frmPhieuMuon.Designer.cs">
       <DependentUpon>frmPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmReportPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmReportPhieuMuon.Designer.cs">
+      <DependentUpon>frmReportPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmReportPhieuTra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmReportPhieuTra.Designer.cs">
+      <DependentUpon>frmReportPhieuTra.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmSach.cs">
       <SubType>Form</SubType>
@@ -113,6 +134,9 @@
     <Compile Include="HelperUI\HelperGUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmPhieuMuon.resx">
       <DependentUpon>frmPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmReportPhieuMuon.resx">
+      <DependentUpon>frmReportPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmReportPhieuTra.resx">
+      <DependentUpon>frmReportPhieuTra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmSach.resx">
       <DependentUpon>frmSach.cs</DependentUpon>
@@ -147,6 +177,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\rpBaoCaoTraTre.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpTinhHinhMuonSach.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\Data.DAO.BCTinhHinhMuonSachDAO.datasource" />
+    <None Include="Properties\DataSources\Data.DTO.BaoCaoTinhHinhMuonSachDTO.datasource" />
+    <None Include="Properties\DataSources\Data.Dtos.BCSachTraTreDtos.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -158,7 +197,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

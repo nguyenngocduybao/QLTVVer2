@@ -15,10 +15,10 @@ namespace Data.Model
     public partial class CT_BCTINHHINHMUONSACH
     {
         public int IDCTBCMuonSach { get; set; }
-        public Nullable<int> IDBCMuonSach { get; set; }
-        public Nullable<int> IDLoaiSach { get; set; }
-        public Nullable<int> SoLuotMuon { get; set; }
-        public Nullable<double> TiLe { get; set; }
+        public int IDBCMuonSach { get; set; }
+        public int IDLoaiSach { get; set; }
+        public int SoLuotMuon { get; set; }
+        public double TiLe { get; set; }
     
         public virtual BCTINHHINHMUONSACH BCTINHHINHMUONSACH { get; set; }
         public virtual LOAISACH LOAISACH { get; set; }

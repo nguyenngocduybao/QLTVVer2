@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABSTRACT\BaoCaoTinhHinhMuonSachService.cs" />
     <Compile Include="ABSTRACT\BCSachTraTreService.cs" />
     <Compile Include="ABSTRACT\CTUserAdminService.cs" />
     <Compile Include="ABSTRACT\LoaiDocGiaService.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="ABSTRACT\TacGiaService.cs" />
     <Compile Include="ABSTRACT\TheDocGiaService.cs" />
     <Compile Include="ABSTRACT\UserService.cs" />
+    <Compile Include="IService\IBaoCaoTinhHinhMuonSachService.cs" />
     <Compile Include="IService\IBCSachTraTreService.cs" />
     <Compile Include="IService\ICTUserAdminService.cs" />
     <Compile Include="IService\ILoaiDocGiaService.cs" />

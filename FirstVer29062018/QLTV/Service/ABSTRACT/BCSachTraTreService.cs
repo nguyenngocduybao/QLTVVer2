@@ -28,6 +28,11 @@ namespace Service.ABSTRACT
             return this._iBCSach.loadBaoCaoToDate(NgayLapBaoCao);
         }
 
+        public List<BCSachTraTreDtos> loadBaoCaoToThangNam(int Thang, int Nam)
+        {
+            return this._iBCSach.loadBaoCaoToThangNam(Thang, Nam);
+        }
+
         public List<BCSachTraTreDtos> LoadForm()
         {
             return this._iBCSach.LoadForm();
