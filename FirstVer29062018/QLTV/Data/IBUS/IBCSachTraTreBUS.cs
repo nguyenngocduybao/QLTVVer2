@@ -15,5 +15,7 @@ namespace Data.IBUS
         List<BCSachTraTreDtos> getListAllBCSachTraTre();
         //Load BaoCao to Date
         List<BCSachTraTreDtos> loadBaoCaoToDate(DateTime NgayLapBaoCao);
+        //Load Bao cao to Thang Nam
+        List<BCSachTraTreDtos> loadBaoCaoToThangNam(int Thang, int Nam);
     }
 }

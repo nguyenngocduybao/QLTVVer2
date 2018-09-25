@@ -22,6 +22,8 @@ namespace Data.BUS
                 
                 using (var db = new QuanLyThuVienEntities())
                 {
+                    List<int> IDLoaiSachBC = new List<int>();
+                    IDLoaiSachBC = GetDataDAO.Instance.getListTheLoaiSach();
                     int ID = PhieuMuonDAO.Instance.IDPlus();
                     db.PHIEUMUONs.Add(new PHIEUMUON()
                     {
@@ -30,9 +32,9 @@ namespace Data.BUS
                         NgayMuon = phieuMuon.NgayMuon,
                         HanTra = PhieuMuonDAO.Instance.HanMuonSach(phieuMuon.NgayMuon),
                     });
-                    for (int i = 0; i <IDCuonSach.Count(); i++)
+                    for (int i = 0; i < IDCuonSach.Count(); i++)
                     {
-                        
+
                         int IDCT = CTPhieuMuonDAO.Instance.IDPlus();
                         db.CT_PHIEUMUON.Add(new CT_PHIEUMUON()
                         {
@@ -41,16 +43,101 @@ namespace Data.BUS
                             IDPhieuMuon = ID,
                         });
                         db.SaveChanges();
-                    }
-                    for (int i = 0; i < IDCuonSach.Count(); i++)
-                    {
                         int temp = IDCuonSach[i];
                         var updateTinhTrang = (from a in db.CUONSACHes
                                                where a.IDCuonSach.Equals(temp)
                                                select a).FirstOrDefault<CUONSACH>();
                         updateTinhTrang.TinhTrang = "Đã cho mượn";
                         db.SaveChanges();
+                       
                     }
+                    if (HelperDAO.Instance.CheckTonTaiDateTime(phieuMuon.NgayMuon) == true)
+                    {
+                        int IDBCMuonSach = BCTinhHinhMuonSachDAO.Instance.IDPlus();
+                        db.BCTINHHINHMUONSACHes.Add(new BCTINHHINHMUONSACH()
+                        {
+                            IDBCMuonSach = IDBCMuonSach,
+                            Thang = phieuMuon.NgayMuon.Month,
+                            Nam = phieuMuon.NgayMuon.Year,
+                            NgayLap = phieuMuon.NgayMuon,
+                            TongSoLuotMuon = 0,
+                        });
+                        db.SaveChanges();
+                        for (int i = 0; i < IDLoaiSachBC.Count(); i++)
+                        {
+                            int IDCTBC = CTBCTinhHinhMuonSachDAO.Instance.IDPlus();
+                            db.CT_BCTINHHINHMUONSACH.Add(new CT_BCTINHHINHMUONSACH()
+                            {
+                                IDBCMuonSach = IDBCMuonSach,
+                                IDCTBCMuonSach = IDCTBC,
+                                IDLoaiSach = IDLoaiSachBC[i],
+                                SoLuotMuon = 0,
+                                TiLe = 0,
+
+                            });
+                            db.SaveChanges();
+                        }
+                        var updateTongSoLuotMuon = (from a in db.BCTINHHINHMUONSACHes
+                                                    where a.IDBCMuonSach.Equals(IDBCMuonSach)
+                                                    select a).FirstOrDefault<BCTINHHINHMUONSACH>();
+                        updateTongSoLuotMuon.TongSoLuotMuon = updateTongSoLuotMuon.TongSoLuotMuon + IDCuonSach.Count();
+                        db.SaveChanges();
+
+                    }
+                    else
+                    {
+                        int IDBaocao = GetDataDAO.Instance.getIDBCMuonSachToNgayMuon(phieuMuon.NgayMuon);
+
+                        var updateTongSoLuotMuon = (from a in db.BCTINHHINHMUONSACHes
+                                                    where a.IDBCMuonSach.Equals(IDBaocao)
+                                                    select a).FirstOrDefault<BCTINHHINHMUONSACH>();
+                        updateTongSoLuotMuon.TongSoLuotMuon = updateTongSoLuotMuon.TongSoLuotMuon + IDCuonSach.Count();
+                        db.SaveChanges();
+                    }
+                    
+                    for (int i = 0; i < IDCuonSach.Count(); i++)
+                    {
+                        int IDLS = GetDataDAO.Instance.getIDLoaiSachToIDCuonSach(IDCuonSach[i]);
+                        int IDBC = GetDataDAO.Instance.getIDBCMuonSachToNgayMuon(phieuMuon.NgayMuon);
+                        int TongSoLuotMuon = GetDataDAO.Instance.getTongSoluotMuonToIDBC(IDBC);
+                        if (HelperDAO.Instance.CheckTonTaiIDLoaiSach(IDLS, IDBC) == true)
+                        {
+                            int IDCTBC = CTBCTinhHinhMuonSachDAO.Instance.IDPlus();
+                            db.CT_BCTINHHINHMUONSACH.Add(new CT_BCTINHHINHMUONSACH()
+                            {
+                                IDBCMuonSach = IDBC,
+                                IDCTBCMuonSach = IDCTBC,
+                                IDLoaiSach = IDLS,
+                                SoLuotMuon = 0,
+                                TiLe = 0,
+                            });
+                            db.SaveChanges();
+                            var update = (from a in db.CT_BCTINHHINHMUONSACH
+                                            where a.IDLoaiSach.Equals(IDLS) && a.IDBCMuonSach.Equals(IDBC)
+                                            select a).FirstOrDefault<CT_BCTINHHINHMUONSACH>();
+                            update.SoLuotMuon = update.SoLuotMuon + 1;
+                            update.TiLe = (double)update.SoLuotMuon / TongSoLuotMuon;
+                            db.SaveChanges();
+
+                        }  
+                        else
+                        {                          
+                            var updateSL = (from a in db.CT_BCTINHHINHMUONSACH
+                                            where a.IDLoaiSach.Equals(IDLS) && a.IDBCMuonSach.Equals(IDBC)
+                                            select a).FirstOrDefault<CT_BCTINHHINHMUONSACH>();
+                            updateSL.SoLuotMuon = updateSL.SoLuotMuon + 1;
+                            db.SaveChanges();
+                            for (int j = 0; j < IDLoaiSachBC.Count(); j++)
+                            {
+                                updateSL.TiLe = (double)updateSL.SoLuotMuon / TongSoLuotMuon;
+                                db.SaveChanges();
+                            }
+
+                        }
+
+                    }
+                    
+                    
                     db.SaveChanges();
                     return true;
                 }

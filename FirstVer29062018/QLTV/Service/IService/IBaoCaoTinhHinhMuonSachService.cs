@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.IBUS
+namespace Service.IService
 {
-    public interface IBCTinhHinhMuonSachBUS
+    public interface IBaoCaoTinhHinhMuonSachService
     {
         List<BaoCaoTinhHinhMuonSachDTO> getAllListBaoCaoTinhHinhMuonSach();
         List<BaoCaoTinhHinhMuonSachDTO> getListBaoCaoTinhHinhMuonSachToDate(int Thang, int Nam);

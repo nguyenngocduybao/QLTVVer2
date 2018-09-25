@@ -83,6 +83,35 @@ namespace Data.DAO
                 else return true;
              }
         }
+        //Check TonTai DateTime BaoCaoTinhHinhMuonSach
+        public bool CheckTonTaiDateTime(DateTime ngaymuon)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                int x = ngaymuon.Month;
+                int y = ngaymuon.Year;
+                var Check = (from a in db.BCTINHHINHMUONSACHes
+                             where a.Thang.Equals(x) && a.Nam.Equals(y)
+                             select a).FirstOrDefault();
+                if (Check == null)
+                    return true;
+                else return false;
+            }
+        }
+        //Check Ton Tai IDLoaiSach where CTBC TInh hinh muonsach
+        public bool CheckTonTaiIDLoaiSach(int IDLS,int IDBC)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                
+                var checkIDLoaiSach = (from a in db.CT_BCTINHHINHMUONSACH
+                                       where a.IDLoaiSach.Equals(IDLS)&& a.IDBCMuonSach.Equals(IDBC)
+                                       select a).FirstOrDefault();
+                if (checkIDLoaiSach == null)
+                    return true;
+                else return false;
+            }
+        }
 
     }
 }

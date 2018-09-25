@@ -99,6 +99,16 @@ namespace Data.DAO
                 return TenCuonSach;
             }
         }
+        public int getTongSoluotMuonToIDBC(int ID)
+        {
+            using (var db =new QuanLyThuVienEntities())
+            {
+                var SoLuot = (from a in db.BCTINHHINHMUONSACHes
+                              where a.IDBCMuonSach.Equals(ID)
+                              select a.TongSoLuotMuon).FirstOrDefault();
+                return SoLuot;
+            }
+        }
         //get IDLoaiSach to TenLoaiSach
         public int getIDLoaiSachToTenLoaiSach(string TenLoaiSach)
         {
@@ -194,6 +204,64 @@ namespace Data.DAO
                                  select b.IDPhieuMuon).FirstOrDefault();
                 return IDPhieuMuon;
                                  
+            }
+        }
+        //get IDLoaiSach to IDCuonSach
+        public int getIDLoaiSachToIDCuonSach(int IDCS)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var IDLoaiSach = (from a in db.CUONSACHes
+                                  from b in db.SACHes
+                                  from c in db.DAUSACHes
+                                  where a.IDCuonSach.Equals(IDCS) && a.IDSach.Equals(b.IDSach) && b.IDDauSach.Equals(c.IDDauSach)
+                                  select c.IDLoaiSach).FirstOrDefault();
+                return IDLoaiSach;
+            }
+        }
+        // get IDBCMuonSach to ngaymuon
+        public int getIDBCMuonSachToNgayMuon(DateTime ngaymuon)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                int x = ngaymuon.Month;
+                int y = ngaymuon.Year;
+                var IDBC = (from a in db.BCTINHHINHMUONSACHes
+                            where a.Thang.Equals(x) && a.Nam.Equals(y)
+                            select a.IDBCMuonSach).FirstOrDefault();
+                return IDBC;
+            }
+        }
+        //Count Sum TongSoLuotMuon BCSachTra Tre to datetime
+        public string TongSoLuotMuon(DateTime NgayLap)
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var TongSoLuotMuon = (from a in db.BCSACHTRATREs
+                                      where a.NgayThangNam.CompareTo(NgayLap) <= 0
+                                      select a.SoNgayTraTre).Sum().ToString();
+                return TongSoLuotMuon;
+            }
+        }
+        // get NguoiLapBaoCao
+        public string getNguoiLapBaoCao()
+        {
+            using (var db= new QuanLyThuVienEntities())
+            {
+                var NguoiLap = (from a in db.USERADMINs
+                                select a.UserNameAdmin).FirstOrDefault();
+                return NguoiLap;
+            }
+        }
+        // get Tong So Luot Muon to date 
+        public string getTongSoLuotMuonToDate(int Thang,int Nam)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var TongLuotMuon = (from a in db.BCTINHHINHMUONSACHes
+                                    where a.Thang.Equals(Thang) && a.Nam.Equals(Nam)
+                                    select a.TongSoLuotMuon.ToString()).FirstOrDefault();
+                return TongLuotMuon;
             }
         }
         #endregion
@@ -425,8 +493,30 @@ namespace Data.DAO
                 return listID;
             }
         }
+        // get list TheLoaiSach 
+        public List<int> getListTheLoaiSach()
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var listTheLoai = (from a in db.LOAISACHes
+                                   select a.IDLoaiSach).ToList<int>();
+                return listTheLoai;
+            }
+        }
+        // Check Tai Khoan add Mat khau
+        public bool CheckTaiKhoanAndMatKhau(string TenTk, string Mk)
+        {
+            using (var db = new QuanLyThuVienEntities())
+            {
+                var Check = (from a in db.USERADMINs
+                             where a.UserNameAdmin.Equals(TenTk) && a.PasswordAdmin.Equals(Mk)
+                             select a).FirstOrDefault();
+                if (Check == null) return false;
+                else return true;
+            }
+        }
         #endregion
-
+        
     }
 
 }
